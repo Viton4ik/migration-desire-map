@@ -1,0 +1,9 @@
+name,code,type,reason,data_available
+Malta,MLT,microstate,too small to read on the map,PNMI +67%
+Mauritius,MUS,island microstate,too small,Gallup 2023: 38%
+Comoros,COM,island microstate,too small,Gallup 2023: 48%
+Palestine,PSE,territory / partially recognised,"counted separately, not in country counter",Arab Barometer 2023-24: 25%
+Kosovo,XKX,partially recognised,not in counter,Balkan Barometer 2023: 57%
+Western Sahara,ESH,disputed territory,not in counter,none
+Taiwan,TWN,disputed status,not in route (kept from donor list),none found
+"Other microstates (Andorra, Monaco, Liechtenstein, San Marino, Vatican, Pacific/Caribbean island states)",,microstate,too small,

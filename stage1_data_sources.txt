@@ -1,0 +1,27 @@
+STAGE 1 - data sources found (2026-11-04)
+
+A. Desire to LEAVE (% adults who would like to move permanently to another country)
+  Gallup, "Desire to Migrate Remains at Record High", 2024-10-30, data 2023:
+    https://news.gallup.com/poll/652748/desire-migrate-remains-record-high.aspx
+    per-country: 18 Latin America + 35 Sub-Saharan Africa + US 17 + Canada 20 = 55 countries
+  Gallup, "Desire to Move Permanently to U.S. at New Low", 2026-04-23, data 2025:
+    https://news.gallup.com/poll/708614/desire-migrate-drops-new-low.aspx
+    world 15%; regions: SSA 33, LatAm 25, EU 21, US+Canada 20; Honduras 35, El Salvador 25 (2025)
+  Arab Barometer wave VIII (2023-24), press release 2024-08-15, % considering emigration:
+    https://www.arabbarometer.org/media-news/press-release-migration-trends-in-the-middle-east-and-north-africa-revealed-in-latest-arab-barometer-survey/
+    Tunisia 46, Jordan 42, Lebanon 38, Morocco 35, Palestine 25, Mauritania 22, Kuwait 16 (different question, not Gallup-comparable)
+    note: release text gives Palestine dates as Sep-Oct "2024 before Oct 7" - inconsistent, verify at stage 2.
+
+B. Potential Net Migration Index (want in minus want out)
+  Gallup 2026-04-23, data 2023-2025: https://news.gallup.com/poll/708680/migration-reshape-populations-labor-forces.aspx
+    per-country: 27 EU + US 37 + Canada 225; regional: SSA -29, LatAm -20, Oceania 203, N America 58
+  Gallup interactive 2015-2017, 152 countries: https://news.gallup.com/migration/interactive.aspx (table loads by script, not extracted)
+
+C. ACTUAL migration (all countries)
+  UN World Population Prospects 2024, annual net migration 1950-2023 + population, ~237 locations.
+    obtained via GitHub mirror of the official UN R package: https://github.com/PPgp/wpp2024 (data/mig1dt.rda, pop1dt) - reachable from the cloud.
+
+GAPS for desire data: Asia (China, India, Japan, Indonesia, Philippines...), Russia, Ukraine, Turkey, UK, non-EU Balkans, Iran, Oceania.
+Own desire figure: ~87 distinct countries, from 3 different metrics (not one comparable colour scale).
+Recommendation: colour the map by UN actual net migration rate (one metric, every country);
+show Gallup/Arab Barometer "% want to leave" as a chip where it exists; regional average only as a hatched, uncounted fallback.

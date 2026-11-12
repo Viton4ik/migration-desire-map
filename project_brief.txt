@@ -1,0 +1,28 @@
+PROJECT BRIEF - Countries People Want to LEAVE vs MOVE TO
+
+Title (fixed verbatim, chosen by Victor 2026-11-04 17:58): Countries People Want to LEAVE vs MOVE TO
+Question: where do people want to leave, where do they want to move, and who actually can.
+Topic type: ranking + barriers. English channel; explanations to Victor in Russian. 16:9, 1920x1080, 30 fps.
+Cut-off: 2026-11-04. Coverage: 159 distinct countries, 11 regions (10-20 each); exclusions in territories_and_exclusions.csv.
+Root: /mnt/project-files/migration-desire-map/ (cloud; Victor's PC not connected). Engine template: engine/.
+
+METRICS (never mixed on one scale; each chip shows its own number, period and source)
+  A. % adults who want to leave: Gallup World Poll (2023, 2025; older 2015-2017 / 2021 marked), Arab Barometer, Caucasus/Balkan Barometer, national polls reported in media.
+  B. Gallup Potential Net Migration Index (PNMI): (want in - want out) / adult population. 2023-2025 for 27 EU + US + Canada; NZ 2015-2017.
+  C. Dream-destination share: % of the world's would-be migrants naming the country (Gallup 2025; 2015-2017).
+  D. Fallback, no survey at all: UN WPP 2024 crude net migration rate, average 2019-2023 (actual moves, not wishes) = ESTIMATE.
+  Regional averages: not needed, every country got A-D. Forums are not used (Victor agreed 2026-11-04).
+
+STATUSES (priority: LOCKED > PNMI > US special > PNMI old > dream share >= 3% > % leave > UN estimate)
+  MAGNET        green magnet   PNMI >= +50, or dream share >= 3% (no PNMI). USA = MAGNET as world #1 dream (PNMI +37).
+  MORE WANT IN  light green    PNMI +10..+49, or estimate UN >= +2 per 1,000
+  MOST STAY     grey           % leave < 20, or PNMI -9..+9, or estimate UN -2..+2
+  MANY WANT OUT orange         % leave 20-39, or PNMI <= -10, or estimate UN <= -2
+  MOST WANT OUT red            % leave >= 40
+  CAN'T LEAVE   black lock     documented exit ban (North Korea, Eritrea)
+  Map marks: Gallup = solid fill; other survey = dotted outline + "survey" tag; ESTIMATE = hatched + "estimate" tag ("not precise statistics").
+  Barrier layer (chips, not status): Henley passport visa-free count (top/bottom 10), US entry ban 2026 (Proclamation 10998: full / partial).
+
+VOICE: intro exactly 2 sentences landing on Canada; transitions always "Next stop"; numbers = voice_numbers.csv.
+Voice generation: Google Gemini TTS, voice "Bodi" (AI Studio, Victor's key) at stage 3, only after Victor's go.
+Music: CC0 track from GitHub, else code-synthesized bed (no Google music generation, free key).

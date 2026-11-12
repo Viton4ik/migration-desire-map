@@ -1,0 +1,43 @@
+PROJECT STATUS - migration desire map video
+
+2026-11-04 stage 0 (env, music, engine) - DONE, waiting for Victor's approval
+  Files: env_check.txt, engine/ (+README.txt), project_brief.txt (draft), music/ (empty)
+  Works: render (Node+Playwright), ffmpeg mux/concat, local ASR (Parakeet + Whisper)
+  Open risks: 1) music file/licence missing; 2) full per-country PNMI 2023-2025 not public (only 29 countries in article)
+  Approved by Victor 2026-11-04 17:51 ("го"). Voice: Gemini TTS, voice "Bodi" (AI Studio Tutor), his key; music: CC0 from GitHub or code-synth; data: other sources first, regional averages only for gaps.
+
+2026-11-04 stage 1 (data + title) - DONE: title "Countries People Want to LEAVE vs MOVE TO" (Victor 17:58); data scheme agreed 18:01 (all 3 metrics, media polls for gaps, no forums, UN estimate hatched, barriers via passport/US ban/exit bans).
+
+2026-11-04 stage 2 (research, route, script) - DONE, waiting for Victor's approval
+  159 countries, 11 regions (R01 16, R02 12, R03 17, R04 20, R05 10, R06 15, R07 20, R08 12, R09 12, R10 15, R11 10), no duplicates
+  Statuses: MAGNET 16, MORE WANT IN 16, MOST STAY 47, MANY WANT OUT 52, MOST WANT OUT 26, CAN'T LEAVE 2
+  Data type: Gallup 86, other survey 23, UN estimate 48, exit ban 2
+  346 facts, 24 sources, 25 scenes, 1,276 words (~8-9 min), 136 voice numbers all matched to facts
+  Files: project_brief.txt, countries.csv, facts.csv, scenes.csv, voice_en.txt, voice_ru.txt, voice_numbers.csv, sources.txt, fact_check.html,
+         territories_and_exclusions.csv, data_raw/un_wpp2024_net_migration.csv, tools/data.py, scenes.py, build.py, migration-desire-map_stage2.zip
+  Open: Henley numbers from media table (recheck); Cuba poll base issue (noted); flight pauses planned before SC08 (1.2 s), SC21 (1.2 s), SC24 (1.0 s).
+  Next: stage 3 voice (Gemini TTS "Bodi") only after Victor's go.
+
+2026-11-04 stage 3 (voice) - IN PROGRESS, blocked by quota
+  TTS: gemini-3.8-flash-tts, voice Bodi (only this model has Bodi; 2.5 models reject it). Free tier = 10 requests/day for this model.
+  12 paragraphs generated; 7 rejected (TTS read the style instruction aloud; SC12 also "Next up"): moved to audio/para_rejected/.
+  Accepted so far: SC01 SC02 SC03 SC05 SC11. Remaining 20 paragraphs -> regenerate WITHOUT style text, batched several paragraphs per request.
+  ASR check: tools/voice_check.py (Parakeet + Whisper), report voice_check.json. Quota reset about 2026-11-05 08:00 UTC.
+2026-11-04 19:15 stage 3 - DONE, waiting for Victor's approval
+  Victor switched to local Kokoro (kokoro-onnx v1.0, Apache 2.0), voice am_michael approved 19:03. Gemini paragraphs kept in audio/para_gemini/ (not used).
+  audio/para/SC01..SC25.wav -> audio/voice_en_source.wav (583.2 s, 24 kHz mono, gaps 0.45 s + flight pauses), sync/para_times.json
+  ASR check (voice_check.json): match 0.957-1.0 per paragraph; all 131 digit numbers heard; only ASR-style diffs.
+  Page: https://claude.ai/artifact/LP9kwAXeYYzmC6TwoCFk1B. Next: stage 4 (10 s visual test) after Victor's go.
+2026-11-04 20:05 stage 4 - DELIVERED, waiting for Victor
+  Engine adapted in stage4/ (index.html + tools/build_test_episode.py): 6 statuses (diverging colours, icons magnet/arrowIn/house/arrowOut/plane/lock),
+  flag -> status colour radial wipe after the camera leaves (E.colorAfter), quality marks (S dotted b/w outline, E white hatching + badges),
+  number chip ev.kind 'num', card tag = number + year, rtag for recent list, suitcase emblem drawn in code, no subject country.
+  Test: Canada -> USA -> Mexico, 10 s, 300 frames. 4-part concat = 300 frames; sound mux OK; ZIP determinism md5 equal.
+  Speed: 4 workers 0.7 s/frame zoomed, 1.2 s/frame overview -> full film ~17,500 frames = 3.5-6 h, ~600-800 MB.
+  Flags gm.svg, sz.svg added (svg-country-flags 1.2.10) to stage4 and engine.
+  Page https://claude.ai/artifact/JNq8NgTsT7rdNEbXJtLiJf ; zips stage4_html_project.zip, stage4_check_frames.zip.
+  Open questions to Victor: Russia flag strict vs stretch (rec. stretch), Chile whole vs span (rec. span), colour-after-visit vs flags forever (rec. colour).
+2026-11-04 22:56 stage5 R01 rendered (frames 0-3389, 16 countries), QA ok (seams 35.7-38.8 dB, audio lag 0). Dwell rule: last chip >=1.25 s before fly. Review https://claude.ai/artifact/89yHYsHy7SR64f5FFBJoXK. Waiting: 'следующий регион' / 'все без вопросов'.
+2026-11-05 11:21 stage5 DONE: R01-R11 rendered, 17497 frames, QA ok (seams 33.5-39.4 dB, audio lag 0 all regions). Cross-region dwell fix (TCD, MOZ), MMR chip end fix. Full review https://claude.ai/artifact/83rob2BZt6XfXkcEUQeyhB. Next: stage 6 music+assembly, waits for Victor's go.
+2026-11-05 12:55 stage6 DONE (waiting for Victor's listen): stage6/Countries_People_Want_to_LEAVE_vs_MOVE_TO_final.mp4 9:43, -14.3 LUFS, TP -1.4; own synthesized music (tools/synth_music.py), bed 19 dB under voice. Review https://claude.ai/artifact/FSPLgaAtmPHbyZWDnHUcbm
+2026-11-05 13:41 stage7 DONE (waiting for Victor): stage7/ thumbnail (Canada MAGNET / Brazil MANY WANT OUT / Nigeria MOST WANT OUT, donor layout), title, description with 12 chapters, tags, hashtags, pinned_comment.txt. Review https://claude.ai/artifact/9PXzBRtzyqFevVsspoekUx. Music not yet confirmed by Victor's listen.

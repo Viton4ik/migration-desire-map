@@ -1,0 +1,157 @@
+order,code,m49,name,un_name,region_id,region,continent,un_cnmr_2023,un_cnmr_avg_2019_2023
+1,CAN,124,Canada,Canada,R01,North America & Caribbean,North America,11.04,9.01
+2,MEX,484,Mexico,Mexico,R01,North America & Caribbean,North America,-0.78,-1.02
+3,GTM,320,Guatemala,Guatemala,R01,North America & Caribbean,North America,-0.49,-1.48
+4,BLZ,84,Belize,Belize,R01,North America & Caribbean,North America,1.45,2.87
+5,HND,340,Honduras,Honduras,R01,North America & Caribbean,North America,-0.47,-0.56
+6,SLV,222,El Salvador,El Salvador,R01,North America & Caribbean,North America,-3.68,-4.93
+7,NIC,558,Nicaragua,Nicaragua,R01,North America & Caribbean,North America,-1.17,-1.71
+8,CRI,188,Costa Rica,Costa Rica,R01,North America & Caribbean,North America,0.2,0.23
+9,PAN,591,Panama,Panama,R01,North America & Caribbean,North America,1.63,1.7
+10,JAM,388,Jamaica,Jamaica,R01,North America & Caribbean,North America,-3.52,-2.47
+11,CUB,192,Cuba,Cuba,R01,North America & Caribbean,North America,-2.07,-1.69
+12,BHS,44,Bahamas,Bahamas,R01,North America & Caribbean,North America,2.51,1.76
+13,HTI,332,Haiti,Haiti,R01,North America & Caribbean,North America,-2.73,-2.91
+14,DOM,214,Dominican Republic,Dominican Republic,R01,North America & Caribbean,North America,-3.08,-2.55
+15,TTO,780,Trinidad and Tobago,Trinidad and Tobago,R01,North America & Caribbean,North America,1.42,-0.91
+16,VEN,862,Venezuela,Venezuela (Bolivarian Republic of),R02,South America,South America,-3.99,-14.59
+17,COL,170,Colombia,Colombia,R02,South America,South America,2.95,4.56
+18,ECU,218,Ecuador,Ecuador,R02,South America,South America,-1.22,-0.31
+19,PER,604,Peru,Peru,R02,South America,South America,0.73,1.4
+20,BOL,68,Bolivia,Bolivia (Plurinational State of),R02,South America,South America,-0.25,-0.41
+21,CHL,152,Chile,Chile,R02,South America,South America,3.19,4.08
+22,ARG,32,Argentina,Argentina,R02,South America,South America,0.09,0.07
+23,URY,858,Uruguay,Uruguay,R02,South America,South America,-0.44,-0.52
+24,PRY,600,Paraguay,Paraguay,R02,South America,South America,-1.83,-1.73
+25,BRA,76,Brazil,Brazil,R02,South America,South America,-1.14,-0.87
+26,SUR,740,Suriname,Suriname,R02,South America,South America,-1.57,-0.82
+27,GUY,328,Guyana,Guyana,R02,South America,South America,-7.46,-8.69
+28,PRT,620,Portugal,Portugal,R03,Western & Northern Europe,Europe,2.79,5.48
+29,ESP,724,Spain,Spain,R03,Western & Northern Europe,Europe,2.49,5.31
+30,FRA,250,France,France,R03,Western & Northern Europe,Europe,1.38,1.88
+31,GBR,826,United Kingdom,United Kingdom,R03,Western & Northern Europe,Europe,6.49,5.22
+32,IRL,372,Ireland,Ireland,R03,Western & Northern Europe,Europe,8.44,8.27
+33,ISL,352,Iceland,Iceland,R03,Western & Northern Europe,Europe,11.95,12.61
+34,NOR,578,Norway,Norway,R03,Western & Northern Europe,Europe,9.75,6.19
+35,SWE,752,Sweden,Sweden,R03,Western & Northern Europe,Europe,5.23,5.3
+36,FIN,246,Finland,Finland,R03,Western & Northern Europe,Europe,6.81,5.54
+37,DNK,208,Denmark,Denmark,R03,Western & Northern Europe,Europe,5.21,4.7
+38,NLD,528,Netherlands,Netherlands,R03,Western & Northern Europe,Europe,7.99,7.32
+39,BEL,56,Belgium,Belgium,R03,Western & Northern Europe,Europe,3.56,4.94
+40,LUX,442,Luxembourg,Luxembourg,R03,Western & Northern Europe,Europe,8.88,14.14
+41,DEU,276,Germany,Germany,R03,Western & Northern Europe,Europe,7.21,5.77
+42,CHE,756,Switzerland,Switzerland,R03,Western & Northern Europe,Europe,5.08,6.7
+43,AUT,40,Austria,Austria,R03,Western & Northern Europe,Europe,0.53,6.55
+44,ITA,380,Italy,Italy,R03,Western & Northern Europe,Europe,2.52,2.25
+45,SVN,705,Slovenia,Slovenia,R04,Central & Eastern Europe,Europe,2.52,5.87
+46,HRV,191,Croatia,Croatia,R04,Central & Eastern Europe,Europe,2.62,-0.21
+47,BIH,70,Bosnia and Herzegovina,Bosnia and Herzegovina,R04,Central & Eastern Europe,Europe,-0.15,-4.95
+48,SRB,688,Serbia,Serbia,R04,Central & Eastern Europe,Europe,0.64,0.21
+49,MNE,499,Montenegro,Montenegro,R04,Central & Eastern Europe,Europe,18.94,9.16
+50,ALB,8,Albania,Albania,R04,Central & Eastern Europe,Europe,-9.02,-8.03
+51,MKD,807,North Macedonia,North Macedonia,R04,Central & Eastern Europe,Europe,-3.06,-6.84
+52,GRC,300,Greece,Greece,R04,Central & Eastern Europe,Europe,-15.56,-6.38
+53,BGR,100,Bulgaria,Bulgaria,R04,Central & Eastern Europe,Europe,0.76,2.08
+54,ROU,642,Romania,Romania,R04,Central & Eastern Europe,Europe,-1.45,0.03
+55,HUN,348,Hungary,Hungary,R04,Central & Eastern Europe,Europe,5.08,3.19
+56,SVK,703,Slovakia,Slovakia,R04,Central & Eastern Europe,Europe,0.89,3.53
+57,CZE,203,Czechia,Czechia,R04,Central & Eastern Europe,Europe,-1.35,6.17
+58,POL,616,Poland,Poland,R04,Central & Eastern Europe,Europe,-0.2,5.07
+59,LTU,440,Lithuania,Lithuania,R04,Central & Eastern Europe,Europe,15.74,11.86
+60,LVA,428,Latvia,Latvia,R04,Central & Eastern Europe,Europe,4.23,2.47
+61,EST,233,Estonia,Estonia,R04,Central & Eastern Europe,Europe,4.18,9.15
+62,BLR,112,Belarus,Belarus,R04,Central & Eastern Europe,Europe,-0.33,-2.42
+63,MDA,498,Moldova,Republic of Moldova,R04,Central & Eastern Europe,Europe,-6.06,-2.38
+64,UKR,804,Ukraine,Ukraine,R04,Central & Eastern Europe,Europe,-7.95,-29.41
+65,RUS,643,Russia,Russian Federation,R05,"Russia, Caucasus & Central Asia",Europe/Asia,0.19,2.44
+66,GEO,268,Georgia,Georgia,R05,"Russia, Caucasus & Central Asia",Asia,0.53,0.95
+67,ARM,51,Armenia,Armenia,R05,"Russia, Caucasus & Central Asia",Asia,25.48,4.49
+68,AZE,31,Azerbaijan,Azerbaijan,R05,"Russia, Caucasus & Central Asia",Asia,-8.15,-1.4
+69,KAZ,398,Kazakhstan,Kazakhstan,R05,"Russia, Caucasus & Central Asia",Asia,-0.24,0.25
+70,KGZ,417,Kyrgyzstan,Kyrgyzstan,R05,"Russia, Caucasus & Central Asia",Asia,0.79,4.97
+71,TJK,762,Tajikistan,Tajikistan,R05,"Russia, Caucasus & Central Asia",Asia,-1.92,-1.05
+72,UZB,860,Uzbekistan,Uzbekistan,R05,"Russia, Caucasus & Central Asia",Asia,-0.17,-0.23
+73,TKM,795,Turkmenistan,Turkmenistan,R05,"Russia, Caucasus & Central Asia",Asia,2.04,2.45
+74,AFG,4,Afghanistan,Afghanistan,R05,"Russia, Caucasus & Central Asia",Asia,-1.18,-5.39
+75,IRN,364,Iran,Iran (Islamic Republic of),R06,Middle East,Asia,2.89,1.75
+76,IRQ,368,Iraq,Iraq,R06,Middle East,Asia,-0.13,0.33
+77,KWT,414,Kuwait,Kuwait,R06,Middle East,Asia,10.34,11.39
+78,BHR,48,Bahrain,Bahrain,R06,Middle East,Asia,12.74,1.62
+79,QAT,634,Qatar,Qatar,R06,Middle East,Asia,13.42,7.11
+80,ARE,784,United Arab Emirates,United Arab Emirates,R06,Middle East,Asia,28.19,19.84
+81,OMN,512,Oman,Oman,R06,Middle East,Asia,30.95,7.08
+82,YEM,887,Yemen,Yemen,R06,Middle East,Asia,-0.13,-1.05
+83,SAU,682,Saudi Arabia,Saudi Arabia,R06,Middle East,Asia,9.79,8.13
+84,JOR,400,Jordan,Jordan,R06,Middle East,Asia,-1.52,-0.81
+85,SYR,760,Syria,Syrian Arab Republic,R06,Middle East,Asia,32.1,22.4
+86,TUR,792,Turkey,Turkiye,R06,Middle East,Asia/Europe,-3.64,-1.32
+87,CYP,196,Cyprus,Cyprus,R06,Middle East,Asia/Europe,6.47,7.1
+88,LBN,422,Lebanon,Lebanon,R06,Middle East,Asia,-5.92,-13.99
+89,ISR,376,Israel,Israel,R06,Middle East,Asia,1.08,2.44
+90,EGY,818,Egypt,Egypt,R07,North & West Africa,Africa,2.66,0.59
+91,LBY,434,Libya,Libya,R07,North & West Africa,Africa,-0.27,-0.19
+92,TUN,788,Tunisia,Tunisia,R07,North & West Africa,Africa,-1.15,-1.26
+93,DZA,12,Algeria,Algeria,R07,North & West Africa,Africa,-0.56,-0.4
+94,MAR,504,Morocco,Morocco,R07,North & West Africa,Africa,-1.05,-1.37
+95,MRT,478,Mauritania,Mauritania,R07,North & West Africa,Africa,0.6,-0.02
+96,SEN,686,Senegal,Senegal,R07,North & West Africa,Africa,-0.55,1.24
+97,GIN,324,Guinea,Guinea,R07,North & West Africa,Africa,-0.28,-0.29
+98,SLE,694,Sierra Leone,Sierra Leone,R07,North & West Africa,Africa,-0.47,-0.25
+99,LBR,430,Liberia,Liberia,R07,North & West Africa,Africa,-0.91,-1.99
+100,CIV,384,Cote d'Ivoire,Cote d'Ivoire,R07,North & West Africa,Africa,0.19,0.15
+101,MLI,466,Mali,Mali,R07,North & West Africa,Africa,-1.68,-1.44
+102,BFA,854,Burkina Faso,Burkina Faso,R07,North & West Africa,Africa,-1.08,-0.85
+103,GHA,288,Ghana,Ghana,R07,North & West Africa,Africa,-0.3,-0.33
+104,TGO,768,Togo,Togo,R07,North & West Africa,Africa,-0.22,-0.18
+105,BEN,204,Benin,Benin,R07,North & West Africa,Africa,-0.01,0.1
+106,NGA,566,Nigeria,Nigeria,R07,North & West Africa,Africa,-0.25,-0.28
+107,NER,562,Niger,Niger,R07,North & West Africa,Africa,0.04,-0.2
+108,TCD,148,Chad,Chad,R07,North & West Africa,Africa,25.72,6.45
+109,CMR,120,Cameroon,Cameroon,R08,Central & East Africa,Africa,-0.17,-0.31
+110,GAB,266,Gabon,Gabon,R08,Central & East Africa,Africa,0.4,0.61
+111,COG,178,Republic of the Congo,Congo,R08,Central & East Africa,Africa,-0.16,-0.6
+112,CAF,140,Central African Republic,Central African Republic,R08,Central & East Africa,Africa,-2.85,-7.08
+113,SDN,729,Sudan,Sudan,R08,Central & East Africa,Africa,-26.98,-5.83
+114,ERI,232,Eritrea,Eritrea,R08,Central & East Africa,Africa,-4.4,-5.53
+115,ETH,231,Ethiopia,Ethiopia,R08,Central & East Africa,Africa,-0.09,0.01
+116,SOM,706,Somalia,Somalia,R08,Central & East Africa,Africa,2.52,1.47
+117,KEN,404,Kenya,Kenya,R08,Central & East Africa,Africa,-0.18,-0.58
+118,SSD,728,South Sudan,South Sudan,R08,Central & East Africa,Africa,39.62,8.24
+119,UGA,800,Uganda,Uganda,R08,Central & East Africa,Africa,-2.59,-0.14
+120,RWA,646,Rwanda,Rwanda,R08,Central & East Africa,Africa,-0.64,-1.31
+121,COD,180,DR Congo,Democratic Republic of the Congo,R09,Southern Africa,Africa,-0.14,-0.5
+122,AGO,24,Angola,Angola,R09,Southern Africa,Africa,-0.03,0.57
+123,NAM,516,Namibia,Namibia,R09,Southern Africa,Africa,3.94,8.02
+124,BWA,72,Botswana,Botswana,R09,Southern Africa,Africa,-2.62,-3.43
+125,ZAF,710,South Africa,South Africa,R09,Southern Africa,Africa,3.61,5.29
+126,ZWE,716,Zimbabwe,Zimbabwe,R09,Southern Africa,Africa,-5.96,-5.92
+127,ZMB,894,Zambia,Zambia,R09,Southern Africa,Africa,0.46,0.37
+128,MWI,454,Malawi,Malawi,R09,Southern Africa,Africa,-0.28,-0.18
+129,TZA,834,Tanzania,United Republic of Tanzania,R09,Southern Africa,Africa,-0.59,-0.53
+130,MOZ,508,Mozambique,Mozambique,R09,Southern Africa,Africa,-1.08,-1.07
+131,MDG,450,Madagascar,Madagascar,R09,Southern Africa,Africa,-0.05,-0.06
+132,LKA,144,Sri Lanka,Sri Lanka,R10,South & Southeast Asia,Asia,-1.22,-1.26
+133,IND,356,India,India,R10,South & Southeast Asia,Asia,-0.68,-0.53
+134,PAK,586,Pakistan,Pakistan,R10,South & Southeast Asia,Asia,-6.54,-4.36
+135,NPL,524,Nepal,Nepal,R10,South & Southeast Asia,Asia,-13.8,-2.03
+136,BTN,64,Bhutan,Bhutan,R10,South & Southeast Asia,Asia,0.37,0.37
+137,BGD,50,Bangladesh,Bangladesh,R10,South & Southeast Asia,Asia,-3.21,-4.92
+138,MMR,104,Myanmar,Myanmar,R10,South & Southeast Asia,Asia,-0.65,-1.02
+139,THA,764,Thailand,Thailand,R10,South & Southeast Asia,Asia,0.27,0.21
+140,LAO,418,Laos,Lao People's Democratic Republic,R10,South & Southeast Asia,Asia,-1.3,-1.37
+141,KHM,116,Cambodia,Cambodia,R10,South & Southeast Asia,Asia,-1.83,-1.74
+142,VNM,704,Vietnam,Viet Nam,R10,South & Southeast Asia,Asia,-0.82,-0.35
+143,MYS,458,Malaysia,Malaysia,R10,South & Southeast Asia,Asia,5.16,5.03
+144,SGP,702,Singapore,Singapore,R10,South & Southeast Asia,Asia,4.66,1.8
+145,IDN,360,Indonesia,Indonesia,R10,South & Southeast Asia,Asia,-0.13,-0.1
+146,PHL,608,Philippines,Philippines,R10,South & Southeast Asia,Asia,-1.43,-0.92
+147,CHN,156,China,China,R11,East Asia & Oceania,Asia,-0.4,-0.28
+148,MNG,496,Mongolia,Mongolia,R11,East Asia & Oceania,Asia,0.0,0.54
+149,PRK,408,North Korea,Dem. People's Republic of Korea,R11,East Asia & Oceania,Asia,-0.08,-0.08
+150,KOR,410,South Korea,Republic of Korea,R11,East Asia & Oceania,Asia,1.7,1.55
+151,JPN,392,Japan,Japan,R11,East Asia & Oceania,Asia,1.41,1.07
+152,PNG,598,Papua New Guinea,Papua New Guinea,R11,East Asia & Oceania,Oceania,-0.08,0.88
+153,SLB,90,Solomon Islands,Solomon Islands,R11,East Asia & Oceania,Oceania,2.04,1.07
+154,AUS,36,Australia,Australia,R11,East Asia & Oceania,Oceania,5.3,5.01
+155,NZL,554,New Zealand,New Zealand,R11,East Asia & Oceania,Oceania,4.14,5.54
+156,FJI,242,Fiji,Fiji,R11,East Asia & Oceania,Oceania,-3.56,-6.7

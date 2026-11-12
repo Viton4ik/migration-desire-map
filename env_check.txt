@@ -1,0 +1,32 @@
+ENV CHECK - migration desire map video, stage 0 (2026-11-04 17:00-17:20 UTC)
+
+WORKS (real run, not just version)
+  OS Linux x86_64, 4 CPU, 15 GB RAM, ~30 GB free disk (cloud container, ephemeral; project files live in /mnt/project-files)
+  Node v22.23.4 + Playwright + Chromium: rendered real frame at t=12.5 s and a 60-frame H.264 chunk with the template engine (no errors except missing example audio)
+  Render speed: 60 frames in 161 s on 1 worker incl. startup (~2.7 s/frame/worker) -> ~0.8 s/frame with 4 workers, ~6 h for a 14 min episode
+  ffmpeg/ffprobe 6.1.1: H.264 + AAC 48k stereo mux, full decode OK, concat of 2 parts with -c copy = 120 frames, no loss
+  Python 3 + numpy 2.5.3
+  Local ASR: sherpa-onnx 2.0.0 (PyPI) + Parakeet TDT 0.6B v2 int8 and Whisper small.en int8 (GitHub releases, ~1.1 GB, 1 min download)
+    test on 15 s WAV: Parakeet 5.8 s with word timestamps, Whisper 11 s, texts match. No audio sent to third parties.
+    models kept in scratch, not in project (re-download command below).
+
+NETWORK (shell, via proxy)
+  open:   registry.npmjs.org, pypi.org, github.com releases
+  closed (403 policy): huggingface.co, incompetech.com, filmmusic.io, archive.org, freemusicarchive.org, pixabay.com,
+          news.gallup.com, gallup.com, un.org, population.un.org, iom.int, worldbank.org, oecd.org, pewresearch.org, wikipedia.org, jsdelivr, unpkg
+  research path: WebSearch/WebFetch tools DO reach news.gallup.com (checked) -> stage 2 research works without opening domains.
+
+DATA RISK FOUND (affects stage 1-2)
+  Gallup PNMI 2023-2025 (published 2026-04-23, 149 countries): article gives per-country values only for 27 EU + US + Canada
+  (+ regional aggregates). Full 149-country table is not public in the article.
+  Gallup interactive news.gallup.com/migration/interactive.aspx = 2015-2017, 152 countries, table loads by script (not captured yet).
+  -> 100+ countries with ONE fresh comparable number is not confirmed. Must be solved before stage 2.
+
+MUSIC
+  Not available: incompetech.com blocked, no audio file in project except the old voice WAV.
+  Needed from Victor: either the track file (MP3/WAV) + licence page screenshot, or incompetech.com allowed in the cloud environment.
+
+RE-DOWNLOAD ASR
+  pip install sherpa-onnx==2.0.0
+  curl -L -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8.tar.bz2
+  curl -L -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-small.en.tar.bz2
