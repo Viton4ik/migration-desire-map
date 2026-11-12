@@ -1,0 +1,19 @@
+# Rendered output (rebuild with stage5/render/render_region.sh and stage6/tools, see README)
+*.mp4
+*.m4a
+stage5/export/*/parts/
+stage5/export/*/*.wav
+stage6/music/*.wav
+stage5/audio/
+frames/
+
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
