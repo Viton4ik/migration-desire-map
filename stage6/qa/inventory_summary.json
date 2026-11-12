@@ -1,0 +1,62 @@
+{
+ "total_frames": 17497,
+ "total_s": 583.2333333333333,
+ "voice_wav_s": 583.23125,
+ "coverage": {
+  "distinct_countries": 159,
+  "stops": 159,
+  "duplicates": [],
+  "missing_vs_registry": [],
+  "extra_vs_registry": [],
+  "per_region_episode": {
+   "R01": 16,
+   "R02": 12,
+   "R03": 17,
+   "R04": 20,
+   "R05": 10,
+   "R06": 15,
+   "R07": 20,
+   "R08": 12,
+   "R09": 12,
+   "R10": 15,
+   "R11": 10
+  },
+  "per_region_registry": {
+   "R01": 16,
+   "R02": 12,
+   "R03": 17,
+   "R04": 20,
+   "R05": 10,
+   "R06": 15,
+   "R07": 20,
+   "R08": 12,
+   "R09": 12,
+   "R10": 15,
+   "R11": 10
+  },
+  "regions_under_10": [],
+  "by_continent": {
+   "North America": 16,
+   "South America": 12,
+   "Europe": 37,
+   "Europe/Asia": 1,
+   "Asia": 42,
+   "Asia/Europe": 2,
+   "Africa": 44,
+   "Oceania": 5
+  },
+  "status_totals": {
+   "MAGNET": 16,
+   "LEAVE": 52,
+   "PULL": 16,
+   "EXIT": 26,
+   "STAY": 47,
+   "LOCKED": 2
+  },
+  "status_mismatch_vs_registry": [],
+  "region_mismatch_vs_registry": []
+ },
+ "problems": [
+  "timeline longer than voice WAV"
+ ]
+}

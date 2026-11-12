@@ -1,0 +1,11 @@
+{
+ "status": "APPLIED",
+ "track": "Original background bed, synthesized in code for this video",
+ "author": "made for this project (tools/synth_music.py), no samples, loops or third-party recordings",
+ "license": "own work; no third-party rights; no attribution required",
+ "file": "music/bed_synth.wav (48 kHz stereo, 583.233 s), rebuild: python3 tools/synth_music.py music/bed_synth.wav 583.2333",
+ "style": "100 BPM, A minor / C major, Am-F-C-G one chord per bar; pad, plucked arpeggio, bass, soft kick/snare/hat, bell motif on B sections; 4-bar drum-free breath every 32 bars",
+ "changes": "trimmed to the film length, 2 s fade in, 3 s fade out, ducked 11 dB under speech (see qa/mix_report.json)",
+ "listened_by_a_human": false,
+ "note": "Content ID: the track is new and not registered anywhere, so it cannot trigger a claim by itself."
+}
