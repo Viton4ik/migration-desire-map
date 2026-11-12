@@ -1,0 +1,144 @@
+{
+ "region": {
+  "id": "R10",
+  "name": "South & Southeast Asia",
+  "scenes": "SC21-SC22",
+  "n0": 13730,
+  "n1": 15352,
+  "t0": 457.6666666666667,
+  "t1": 511.73333333333335,
+  "countries": 15,
+  "lastWord": {
+   "i": 1108,
+   "w": "abroad.",
+   "start": 511.019,
+   "end": 511.579,
+   "how": "asr",
+   "src_start": 511.019,
+   "src_end": 511.579
+  },
+  "nextWord": {
+   "i": 1109,
+   "w": "Next",
+   "start": 511.901,
+   "end": 512.381,
+   "how": "asr",
+   "src_start": 511.901,
+   "src_end": 512.381
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "144"
+   ],
+   "codes": [
+    "LKA"
+   ],
+   "region": "R10",
+   "flyStart": 458.315,
+   "arrive": 460.994,
+   "dip": 0.45
+  },
+  {
+   "ids": [
+    "356"
+   ],
+   "codes": [
+    "IND"
+   ],
+   "region": "R10",
+   "flyStart": 464.204,
+   "arrive": 465.104
+  },
+  {
+   "ids": [
+    "586"
+   ],
+   "codes": [
+    "PAK"
+   ],
+   "region": "R10",
+   "flyStart": 469.244,
+   "arrive": 470.144
+  },
+  {
+   "ids": [
+    "524",
+    "050",
+    "064"
+   ],
+   "codes": [
+    "NPL",
+    "BGD",
+    "BTN"
+   ],
+   "region": "R10",
+   "flyStart": 481.404,
+   "arrive": 482.304
+  },
+  {
+   "ids": [
+    "104",
+    "418"
+   ],
+   "codes": [
+    "MMR",
+    "LAO"
+   ],
+   "region": "R10",
+   "flyStart": 488.514,
+   "arrive": 489.264
+  },
+  {
+   "ids": [
+    "764",
+    "116",
+    "704"
+   ],
+   "codes": [
+    "THA",
+    "KHM",
+    "VNM"
+   ],
+   "region": "R10",
+   "flyStart": 492.039,
+   "arrive": 492.939
+  },
+  {
+   "ids": [
+    "458",
+    "702"
+   ],
+   "codes": [
+    "MYS",
+    "SGP"
+   ],
+   "region": "R10",
+   "flyStart": 496.999,
+   "arrive": 497.899
+  },
+  {
+   "ids": [
+    "360"
+   ],
+   "codes": [
+    "IDN"
+   ],
+   "region": "R10",
+   "flyStart": 506.199,
+   "arrive": 507.099
+  },
+  {
+   "ids": [
+    "608"
+   ],
+   "codes": [
+    "PHL"
+   ],
+   "region": "R10",
+   "flyStart": 508.509,
+   "arrive": 509.259
+  }
+ ]
+}

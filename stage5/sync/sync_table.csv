@@ -1,0 +1,342 @@
+region,scene,country,line_or_keyword,audio_start_s,audio_end_s,map_event,map_event_s,map_frame
+R01,SC01,,If .. yours?,0.26,4.18,title + suitcase emblem,0.0,0
+R01,SC01,CAN,Let's .. Canada.,4.18,10.74,"fly-in, arrive Canada",,
+R01,SC01,CAN,plus 225,18.683,19.003,num +225%,18.683,560
+R01,SC03,USA,15 percent of everyone,31.187,31.667,num 15%,31.187,936
+R01,SC03,USA,one in five,39.027,39.267,num 20%,39.027,1171
+R01,SC04,MEX,20 percent want out,46.005,46.325,num 20%,46.005,1380
+R01,SC04,GTM,32. Belize,48.325,49.205,num 32%,48.325,1450
+R01,SC04,BLZ,by UN estimates more,51.285,51.525,num +2.9,51.285,1539
+R01,SC04,HND,Half of all adults,56.805,57.045,timeline 50%,56.805,1704
+R01,SC04,HND,by 2025 that fell,60.245,60.485,timeline 35%,60.245,1807
+R01,SC04,SLV,"34, and",65.525,66.165,num 34%,65.525,1966
+R01,SC04,NIC,19. Costa,67.285,67.845,num 19%,67.285,2019
+R01,SC05,CRI,30. Panama,69.172,69.732,num 30%,69.172,2075
+R01,SC05,PAN,21. Even,70.452,71.252,num 21%,70.452,2114
+R01,SC05,JAM,loses more people,75.492,75.972,num -2.5,75.492,2265
+R01,SC05,CUB,more than half said,81.892,82.052,num 57%,81.892,2457
+R01,SC05,CUB,partially suspends,84.932,85.492,stamp US VISAS,84.932,2548
+R01,SC05,BHS,most people staying put,90.132,90.452,num +1.8,90.132,2704
+R01,SC06,HTI,63 percent wanted,98.65,99.17,num 63%,98.65,2960
+R01,SC06,HTI,fully suspends entry,101.93,102.25,stamp US ENTRY,101.93,3058
+R01,SC06,DOM,46 percent,108.65,109.37,num 46%,108.65,3260
+R01,SC06,TTO,mostly staying,111.77,112.25,num -0.9,111.77,3353
+R01,SC01,CAN,Canada,10.18,,fill+glow+face+status,9.83,295
+R01,SC03,USA,United States,27.747,,fill+glow+face+status,26.943,808
+R01,SC04,MEX,Mexico,45.285,,fill+glow+face+status,45.035,1351
+R01,SC04,GTM,Guatemala,47.445,,fill+glow+face+status,47.445,1423
+R01,SC04,BLZ,Belize,49.205,,fill+glow+face+status,49.125,1474
+R01,SC04,HND,Honduras,54.885,,fill+glow+face+status,54.885,1647
+R01,SC04,SLV,El Salvador,64.245,,fill+glow+face+status,64.165,1925
+R01,SC04,NIC,Nicaragua,66.325,,fill+glow+face+status,66.245,1987
+R01,SC05,CRI,Costa Rica,68.132,,fill+glow+face+status,68.132,2044
+R01,SC05,PAN,Panama,69.732,,fill+glow+face+status,69.652,2090
+R01,SC05,JAM,Jamaica,74.852,,fill+glow+face+status,74.602,2238
+R01,SC05,CUB,Cuba,77.572,,fill+glow+face+status,77.572,2327
+R01,SC05,BHS,Bahamas,87.732,,fill+glow+face+status,87.732,2632
+R01,SC06,HTI,Haiti,91.77,,fill+glow+face+status,91.77,2753
+R01,SC06,DOM,Dominican Republic,107.29,,fill+glow+face+status,107.21,3216
+R01,SC06,TTO,Trinidad and Tobago,110.09,,fill+glow+face+status,110.09,3303
+R01,SC04,HND,(silent chip),,,num ,55.335,1660
+R02,SC07,VEN,"27 percent, partly",116.255,116.895,num 27%,116.255,3488
+R02,SC07,VEN,about 15 people per thousand,121.935,122.095,num -14.6,121.935,3658
+R02,SC07,COL,36. Ecuador,128.655,129.735,num 36%,128.655,3860
+R02,SC07,ECU,"49, nearly",130.655,131.455,num 49%,130.655,3920
+R02,SC07,PER,42. Bolivia,132.975,133.775,num 42%,132.975,3989
+R02,SC07,BOL,36. Down,134.495,135.535,num 36%,134.495,4035
+R02,SC07,CHL,35 and,136.735,137.295,num 35%,136.735,4102
+R02,SC07,ARG,34. Uruguay,138.255,139.215,num 34%,138.255,4148
+R02,SC07,URY,25. Paraguay,140.015,141.055,num 25%,140.015,4200
+R02,SC07,PRY,just 17,142.735,142.975,num 17%,142.735,4282
+R02,SC07,BRA,23. Suriname,145.535,146.415,num 23%,145.535,4366
+R02,SC07,SUR,mostly staying. And,147.375,147.695,num -0.8,147.375,4421
+R02,SC07,GUY,losing people fast,149.935,150.415,num -8.7,149.935,4498
+R02,SC07,VEN,Venezuela,115.215,,fill+glow+face+status,114.965,3449
+R02,SC07,COL,Colombia,127.775,,fill+glow+face+status,127.775,3833
+R02,SC07,ECU,Ecuador,129.775,,fill+glow+face+status,129.775,3893
+R02,SC07,PER,Peru,132.415,,fill+glow+face+status,132.335,3970
+R02,SC07,BOL,Bolivia,133.775,,fill+glow+face+status,133.775,4013
+R02,SC07,CHL,Chile,136.255,,fill+glow+face+status,136.135,4084
+R02,SC07,ARG,Argentina,137.455,,fill+glow+face+status,137.375,4121
+R02,SC07,URY,Uruguay,139.215,,fill+glow+face+status,139.215,4176
+R02,SC07,PRY,Paraguay,141.055,,fill+glow+face+status,140.975,4229
+R02,SC07,BRA,Brazil,144.095,,fill+glow+face+status,144.095,4323
+R02,SC07,SUR,Suriname,146.415,,fill+glow+face+status,146.415,4392
+R02,SC07,GUY,Guyana,148.495,,fill+glow+face+status,148.415,4452
+R03,SC08,PRT,plus 125,157.488,157.808,num +125%,157.488,4725
+R03,SC08,ESP,plus 74,159.728,160.048,num +74%,159.728,4792
+R03,SC08,FRA,plus 44,161.408,161.728,num +44%,161.408,4842
+R03,SC08,GBR,4 percent of,165.968,166.248,num 4%,165.968,4979
+R03,SC08,GBR,nearly a quarter,168.848,169.168,num 23%,168.848,5065
+R03,SC08,IRL,plus 138,173.808,174.128,num +138%,173.808,5214
+R03,SC08,IRL,only plus 48,179.808,180.128,num +48%,179.808,5394
+R03,SC09,NOR,more arrivals than departures,182.69,182.93,num +6.2,182.69,5481
+R03,SC09,SWE,plus 91,186.37,186.69,num +91%,186.37,5591
+R03,SC09,FIN,plus 97,187.73,187.97,num +97%,187.73,5632
+R03,SC09,DNK,plus 129,189.17,189.49,num +129%,189.17,5675
+R03,SC09,NLD,plus 43,193.81,194.13,num +43%,193.81,5814
+R03,SC09,BEL,plus 48,195.17,195.41,num +48%,195.17,5855
+R03,SC09,LUX,plus 150,197.17,197.41,num +150%,197.17,5915
+R03,SC09,DEU,plus 53,199.17,199.49,num +53%,199.17,5975
+R03,SC09,CHE,more in than out,201.25,201.49,num +6.7,201.25,6038
+R03,SC09,AUT,plus 83,203.09,203.49,num +83%,203.09,6093
+R03,SC09,ITA,plus 25,205.01,205.33,num +25%,205.01,6150
+R03,SC09,ITA,ten years ago,206.21,206.45,num -8%,206.21,6186
+R03,SC08,PRT,Portugal,156.848,,fill+glow+face+status,156.598,4698
+R03,SC08,ESP,Spain,159.248,,fill+glow+face+status,159.248,4777
+R03,SC08,FRA,France,160.928,,fill+glow+face+status,160.928,4828
+R03,SC08,GBR,United Kingdom,162.768,,fill+glow+face+status,162.768,4883
+R03,SC08,IRL,Ireland,173.168,,fill+glow+face+status,173.168,5195
+R03,SC09,ISL,Iceland,181.49,,fill+glow+face+status,181.49,5445
+R03,SC09,NOR,Norway,182.13,,fill+glow+face+status,182.05,5462
+R03,SC09,SWE,Sweden,185.89,,fill+glow+face+status,185.89,5577
+R03,SC09,FIN,Finland,187.25,,fill+glow+face+status,187.17,5615
+R03,SC09,DNK,Denmark,188.69,,fill+glow+face+status,188.61,5658
+R03,SC09,NLD,Netherlands,193.01,,fill+glow+face+status,193.01,5790
+R03,SC09,BEL,Belgium,194.69,,fill+glow+face+status,194.61,5838
+R03,SC09,LUX,Luxembourg,196.05,,fill+glow+face+status,195.97,5879
+R03,SC09,DEU,Germany,198.61,,fill+glow+face+status,198.61,5958
+R03,SC09,CHE,Switzerland,200.45,,fill+glow+face+status,200.45,6014
+R03,SC09,AUT,Austria,202.45,,fill+glow+face+status,202.37,6071
+R03,SC09,ITA,Italy,204.53,,fill+glow+face+status,204.53,6136
+R03,SC09,ISL,(silent chip),,,num +12.6,181.94,5458
+R04,SC10,SVN,plus 8,211.673,211.993,num +8%,211.673,6350
+R04,SC10,HRV,plus 7,212.953,213.193,num +7%,212.953,6389
+R04,SC10,BIH,38 percent have,217.033,217.513,num 38%,217.033,6511
+R04,SC10,MNE,40 to 50,220.873,221.3,num 40-50%,220.873,6626
+R04,SC10,ALB,60 percent in,224.873,225.233,num 60%,224.873,6746
+R04,SC10,MKD,35. Greece,230.873,231.433,num 35%,230.873,6926
+R04,SC10,BGR,almost even,233.353,233.833,num -8%,233.353,7001
+R04,SC11,ROU,minus 22,235.505,235.825,num -22%,235.505,7065
+R04,SC11,HUN,minus 24,237.025,237.345,num -24%,237.025,7111
+R04,SC11,CZE,slightly negative,241.425,241.825,num -11%,241.425,7243
+R04,SC11,POL,minus 5,243.265,243.665,num -5%,243.265,7298
+R04,SC11,LVA,minus 15 each,245.905,246.225,num -15%,245.905,7377
+R04,SC11,EST,minus 6,247.825,248.225,num -6%,247.825,7435
+R04,SC11,MDA,losing people by UN,250.785,251.265,num -2.4,250.785,7524
+R04,SC11,UKR,21 percent say,255.665,256.145,num 21%,255.665,7670
+R04,SC10,SVN,Slovenia,210.873,,fill+glow+face+status,210.623,6319
+R04,SC10,HRV,Croatia,212.313,,fill+glow+face+status,212.233,6367
+R04,SC10,BIH,Bosnia and Herzegovina,216.233,,fill+glow+face+status,215.983,6479
+R04,SC10,SRB,Serbia,219.273,,fill+glow+face+status,219.273,6578
+R04,SC10,MNE,Montenegro,219.913,,fill+glow+face+status,219.833,6595
+R04,SC10,ALB,Albania,223.753,,fill+glow+face+status,223.753,6713
+R04,SC10,MKD,North Macedonia,229.593,,fill+glow+face+status,229.513,6885
+R04,SC10,GRC,Greece,231.993,,fill+glow+face+status,231.993,6960
+R04,SC10,BGR,Bulgaria,232.553,,fill+glow+face+status,232.473,6974
+R04,SC11,ROU,Romania,234.785,,fill+glow+face+status,234.785,7044
+R04,SC11,HUN,Hungary,236.545,,fill+glow+face+status,236.465,7094
+R04,SC11,SVK,Slovakia,239.985,,fill+glow+face+status,239.985,7200
+R04,SC11,CZE,Czechia,240.785,,fill+glow+face+status,240.705,7221
+R04,SC11,POL,Poland,242.625,,fill+glow+face+status,242.625,7279
+R04,SC11,LTU,Lithuania,244.385,,fill+glow+face+status,244.385,7332
+R04,SC11,LVA,Latvia,245.345,,fill+glow+face+status,245.265,7358
+R04,SC11,EST,Estonia,247.105,,fill+glow+face+status,247.025,7411
+R04,SC11,BLR,Belarus,248.945,,fill+glow+face+status,248.945,7468
+R04,SC11,MDA,Moldova,249.905,,fill+glow+face+status,249.825,7495
+R04,SC11,UKR,Ukraine,253.345,,fill+glow+face+status,253.345,7600
+R04,SC10,GRC,(silent chip),,,num -3%,232.443,6973
+R04,SC11,SVK,(silent chip),,,num -12%,240.435,7213
+R04,SC11,LTU,(silent chip),,,num -15%,244.835,7345
+R04,SC11,BLR,(silent chip),,,num -2.4,249.395,7482
+R05,SC12,RUS,9 percent want,261.379,261.739,num 9%,261.379,7841
+R05,SC12,GEO,also 9,267.059,267.459,num 9%,267.059,8012
+R05,SC12,ARM,22. Azerbaijan,268.899,269.859,num 22%,268.899,8067
+R05,SC12,UZB,roughly balanced,274.179,274.579,num -0.2,274.179,8225
+R05,SC12,TKM,slightly more arrivals. And,278.659,279.059,num +2.5,278.659,8360
+R05,SC12,AFG,53 percent wanted,283.779,284.339,num 53%,283.779,8513
+R05,SC12,AFG,22 countries without,289.139,289.779,num 22,289.139,8674
+R05,SC12,AFG,fully banned entry,293.859,294.179,stamp US ENTRY,293.859,8816
+R05,SC12,RUS,Russia,260.259,,fill+glow+face+status,260.009,7800
+R05,SC12,GEO,Georgia,266.339,,fill+glow+face+status,266.339,7990
+R05,SC12,ARM,Armenia,268.099,,fill+glow+face+status,268.019,8041
+R05,SC12,AZE,Azerbaijan,269.859,,fill+glow+face+status,269.859,8096
+R05,SC12,KAZ,Kazakhstan,270.979,,fill+glow+face+status,270.899,8127
+R05,SC12,TJK,Tajikistan,271.939,,fill+glow+face+status,271.859,8156
+R05,SC12,UZB,Uzbekistan,272.979,,fill+glow+face+status,272.899,8187
+R05,SC12,KGZ,Kyrgyzstan,276.659,,fill+glow+face+status,276.579,8297
+R05,SC12,TKM,Turkmenistan,277.619,,fill+glow+face+status,277.539,8326
+R05,SC12,AFG,Afghanistan,280.579,,fill+glow+face+status,280.579,8417
+R05,SC12,AZE,(silent chip),,,num -1.4,270.309,8109
+R05,SC12,KAZ,(silent chip),,,num +0.2,271.349,8140
+R05,SC12,TJK,(silent chip),,,num -1.1,272.309,8169
+R05,SC12,KGZ,(silent chip),,,num +5.0,277.029,8311
+R06,SC13,IRN,a third want,297.958,298.118,num 33%,297.958,8939
+R06,SC13,IRN,covers it completely,300.838,301.158,stamp US ENTRY,300.838,9025
+R06,SC13,IRQ,35 percent. Kuwait,302.758,303.398,num 35%,302.758,9083
+R06,SC13,KWT,just 16,304.678,304.918,num 16%,304.678,9140
+R06,SC13,BHR,balanced. Qatar,308.118,308.758,num +1.6,308.118,9244
+R06,SC13,ARE,about 20 people per thousand,313.398,313.638,num +19.8,313.398,9402
+R06,SC13,YEM,a full US ban,318.118,318.198,stamp US ENTRY,318.118,9544
+R06,SC13,SAU,a top ten dream,320.758,320.918,num 3%,320.758,9623
+R06,SC14,JOR,42 percent. Syria,324.461,325.081,num 42%,324.461,9734
+R06,SC14,SYR,46 percent in,326.541,326.981,num 46%,326.541,9796
+R06,SC14,SYR,only 25 doors,332.621,332.861,num 25,332.621,9979
+R06,SC14,TUR,39 percent would,335.181,335.701,num 39%,335.181,10055
+R06,SC14,CYP,plus 79,339.101,339.421,num +79%,339.101,10173
+R06,SC14,LBN,38. Israel,341.261,342.221,num 38%,341.261,10238
+R06,SC14,ISR,slightly more arriving,342.941,343.421,num +2.4,342.941,10288
+R06,SC13,IRN,Iran,297.398,,fill+glow+face+status,297.148,8914
+R06,SC13,IRQ,Iraq,302.198,,fill+glow+face+status,302.198,9066
+R06,SC13,KWT,Kuwait,304.038,,fill+glow+face+status,303.958,9119
+R06,SC13,BHR,Bahrain,307.478,,fill+glow+face+status,307.228,9217
+R06,SC13,QAT,Qatar,308.758,,fill+glow+face+status,308.678,9260
+R06,SC13,ARE,United Arab Emirates,309.398,,fill+glow+face+status,309.318,9280
+R06,SC13,OMN,Oman,310.118,,fill+glow+face+status,310.038,9301
+R06,SC13,YEM,Yemen,315.798,,fill+glow+face+status,315.798,9474
+R06,SC13,SAU,Saudi Arabia,319.558,,fill+glow+face+status,319.478,9584
+R06,SC14,JOR,Jordan,323.901,,fill+glow+face+status,323.898,9717
+R06,SC14,SYR,Syria,325.821,,fill+glow+face+status,325.741,9772
+R06,SC14,TUR,Turkey,334.461,,fill+glow+face+status,334.461,10034
+R06,SC14,CYP,Cyprus,338.461,,fill+glow+face+status,338.381,10151
+R06,SC14,LBN,Lebanon,340.461,,fill+glow+face+status,340.461,10214
+R06,SC14,ISR,Israel,342.221,,fill+glow+face+status,342.141,10264
+R06,SC13,QAT,(silent chip),,,num +7.1,309.128,9274
+R06,SC13,OMN,(silent chip),,,num +7.1,310.488,9315
+R06,SC13,YEM,(silent chip),,,num -1.1,316.248,9487
+R07,SC15,EGY,13 percent considered,347.85,348.29,num 13%,347.85,10436
+R07,SC15,LBY,20. Tunisia,350.49,351.13,num 20%,350.49,10515
+R07,SC15,TUN,46. Algeria,351.85,352.89,num 46%,351.85,10556
+R07,SC15,DZA,close to balanced. Morocco,353.61,353.85,num -0.4,353.61,10608
+R07,SC15,MAR,35. Mauritania,355.53,356.49,num 35%,355.53,10666
+R07,SC15,MRT,41. And,357.37,357.93,num 41%,357.37,10721
+R07,SC16,SEN,"42, Gambia",362.475,363.035,num 42%,362.475,10874
+R07,SC16,GMB,"50, Guinea",363.515,363.915,num 50%,363.515,10905
+R07,SC16,GIN,44. Then,364.315,365.275,num 44%,364.315,10929
+R07,SC16,SLE,"75 percent, and",366.715,367.195,num 75%,366.715,11001
+R07,SC16,SLE,a full US entry ban,376.635,376.795,stamp US ENTRY,376.635,11299
+R07,SC16,LBR,"76, the highest",368.715,369.595,num 76%,368.715,11061
+R07,SC16,CIV,29. Mali,379.755,380.795,num 29%,379.755,11393
+R07,SC16,BFA,only 12 each,382.715,382.955,num 12%,382.715,11481
+R07,SC17,GHA,65. Togo,386.373,387.333,num 65%,386.373,11591
+R07,SC17,TGO,"45, Benin",387.973,388.533,num 45%,387.973,11639
+R07,SC17,BEN,32. Nigeria,389.013,389.973,num 32%,389.013,11670
+R07,SC17,NGA,"51, the biggest",390.933,391.813,num 51%,390.933,11728
+R07,SC17,NER,"17, Chad",395.973,396.533,num 17%,395.973,11879
+R07,SC17,TCD,20. Next,397.013,397.786,num 20%,397.013,11910
+R07,SC15,EGY,Egypt,347.21,,fill+glow+face+status,346.96,10409
+R07,SC15,LBY,Libya,349.85,,fill+glow+face+status,349.77,10493
+R07,SC15,TUN,Tunisia,351.13,,fill+glow+face+status,351.13,10534
+R07,SC15,DZA,Algeria,352.89,,fill+glow+face+status,352.81,10584
+R07,SC15,MAR,Morocco,354.81,,fill+glow+face+status,354.81,10644
+R07,SC15,MRT,Mauritania,356.49,,fill+glow+face+status,356.41,10692
+R07,SC16,SEN,Senegal,361.835,,fill+glow+face+status,361.585,10848
+R07,SC16,GMB,Gambia,363.035,,fill+glow+face+status,362.955,10889
+R07,SC16,GIN,Guinea,363.915,,fill+glow+face+status,363.835,10915
+R07,SC16,SLE,Sierra Leone,365.515,,fill+glow+face+status,365.515,10965
+R07,SC16,LBR,Liberia,367.915,,fill+glow+face+status,367.835,11035
+R07,SC16,CIV,Cote d'Ivoire,378.715,,fill+glow+face+status,378.715,11361
+R07,SC16,MLI,Mali,380.795,,fill+glow+face+status,380.795,11424
+R07,SC16,BFA,Burkina Faso,381.435,,fill+glow+face+status,381.355,11441
+R07,SC17,GHA,Ghana,385.733,,fill+glow+face+status,385.733,11572
+R07,SC17,TGO,Togo,387.333,,fill+glow+face+status,387.253,11618
+R07,SC17,BEN,Benin,388.533,,fill+glow+face+status,388.453,11654
+R07,SC17,NGA,Nigeria,389.973,,fill+glow+face+status,389.973,11699
+R07,SC17,NER,Niger,395.253,,fill+glow+face+status,395.253,11858
+R07,SC17,TCD,Chad,396.533,,fill+glow+face+status,396.453,11894
+R07,SC16,MLI,(silent chip),,,num 12%,381.245,11437
+R08,SC18,CMR,41. Gabon,401.306,402.026,num 41%,401.306,12039
+R08,SC18,GAB,37. Congo,402.746,403.626,num 37%,402.746,12082
+R08,SC18,COG,54. The,404.266,405.226,num 54%,404.266,12128
+R08,SC18,SDN,losing people fast,407.626,408.026,num -5.8,407.626,12229
+R08,SC18,ERI,the locked door,411.226,411.386,num LOCKED,411.226,12337
+R08,SC18,ERI,compulsory from 18 to 40,416.826,417.466,stamp NATIONAL SERVICE,416.826,12505
+R08,SC19,ETH,31. Somalia,424.492,425.452,num 31%,424.492,12735
+R08,SC19,SOM,29. Kenya,426.172,427.052,num 29%,426.172,12785
+R08,SC19,KEN,39. South,427.612,428.572,num 39%,427.612,12828
+R08,SC19,SSD,more arrivals than departures,429.852,430.092,num +8.2,429.852,12896
+R08,SC19,UGA,37. Rwanda,434.012,434.972,num 37%,434.012,13020
+R08,SC19,RWA,close to balanced,435.692,436.012,num -1.3,435.692,13071
+R08,SC18,CMR,Cameroon,400.506,,fill+glow+face+status,400.256,12008
+R08,SC18,GAB,Gabon,402.026,,fill+glow+face+status,401.946,12058
+R08,SC18,COG,Republic of the Congo,403.626,,fill+glow+face+status,403.546,12106
+R08,SC18,CAF,Central African Republic,405.386,,fill+glow+face+status,405.386,12162
+R08,SC18,SDN,Sudan,406.986,,fill+glow+face+status,406.906,12207
+R08,SC18,ERI,Eritrea,410.426,,fill+glow+face+status,410.426,12313
+R08,SC19,ETH,Ethiopia,423.692,,fill+glow+face+status,423.486,12705
+R08,SC19,SOM,Somalia,425.452,,fill+glow+face+status,425.372,12761
+R08,SC19,KEN,Kenya,427.052,,fill+glow+face+status,426.972,12809
+R08,SC19,SSD,South Sudan,428.572,,fill+glow+face+status,428.572,12857
+R08,SC19,UGA,Uganda,433.292,,fill+glow+face+status,433.212,12996
+R08,SC19,RWA,Rwanda,434.972,,fill+glow+face+status,434.892,13047
+R08,SC18,CAF,(silent chip),,,num -7.1,405.836,12175
+R09,SC20,COD,41. Angola,439.865,440.585,num 41%,439.865,13196
+R09,SC20,AGO,balanced. Namibia,441.305,442.025,num +0.6,441.305,13239
+R09,SC20,NAM,"27, Botswana",442.665,443.225,num 27%,442.665,13280
+R09,SC20,BWA,"30, South",443.865,444.265,num 30%,443.865,13316
+R09,SC20,ZAF,32. Eswatini,444.985,445.785,num 32%,444.985,13350
+R09,SC20,SWZ,45. Zimbabwe,446.745,447.625,num 45%,446.745,13402
+R09,SC20,ZWE,33. Zambia,448.425,449.225,num 33%,448.425,13453
+R09,SC20,ZMB,mostly staying. Malawi,449.945,450.345,num +0.4,449.945,13498
+R09,SC20,MWI,37. Tanzania,451.705,452.585,num 37%,451.705,13551
+R09,SC20,MDG,only 14 each,454.505,454.825,num 14%,454.505,13635
+R09,SC20,MOZ,20. Across,457.065,457.305,num 20%,457.065,13712
+R09,SC20,COD,DR Congo,438.665,,fill+glow+face+status,438.415,13152
+R09,SC20,AGO,Angola,440.585,,fill+glow+face+status,440.505,13215
+R09,SC20,NAM,Namibia,442.025,,fill+glow+face+status,442.025,13261
+R09,SC20,BWA,Botswana,443.225,,fill+glow+face+status,443.145,13294
+R09,SC20,ZAF,South Africa,444.265,,fill+glow+face+status,444.185,13326
+R09,SC20,SWZ,Eswatini,445.785,,fill+glow+face+status,445.705,13371
+R09,SC20,ZWE,Zimbabwe,447.625,,fill+glow+face+status,447.625,13429
+R09,SC20,ZMB,Zambia,449.225,,fill+glow+face+status,449.145,13474
+R09,SC20,MWI,Malawi,450.985,,fill+glow+face+status,450.905,13527
+R09,SC20,TZA,Tanzania,452.585,,fill+glow+face+status,452.585,13578
+R09,SC20,MDG,Madagascar,453.545,,fill+glow+face+status,453.465,13604
+R09,SC20,MOZ,Mozambique,456.105,,fill+glow+face+status,456.025,13681
+R09,SC20,TZA,(silent chip),,,num 14%,453.035,13591
+R10,SC21,LKA,losing a few,461.744,462.064,num -1.3,461.744,13852
+R10,SC21,IND,4 percent told,465.344,465.704,num 4%,465.344,13960
+R10,SC21,PAK,it loses people every year,472.304,472.464,num -4.4,472.304,14169
+R10,SC21,PAK,71 percent said,475.904,476.384,num 71%,475.904,14277
+R10,SC21,PAK,only 29 doors,479.664,479.984,num 29,479.664,14390
+R10,SC21,BGD,losing people too,483.104,483.504,num -4.9,483.104,14493
+R10,SC21,BTN,balanced. Myanmar,487.264,487.904,num +0.4,487.264,14618
+R10,SC22,MMR,a full US entry ban,490.219,490.299,stamp US ENTRY,490.219,14707
+R10,SC22,KHM,mostly staying. Vietnam,493.579,493.979,num -1.7,493.579,14807
+R10,SC22,VNM,only 8 percent,495.579,495.899,num 8%,495.579,14867
+R10,SC22,MYS,more arrivals. Singapore,497.819,498.059,num +5.0,497.819,14935
+R10,SC22,SGP,slightly more arrivals and the,500.059,500.539,num +1.8,500.059,15002
+R10,SC22,SGP,192 destinations,503.739,504.939,num 192,503.739,15112
+R10,SC22,IDN,staying. And,507.259,507.979,num -0.1,507.259,15218
+R10,SC22,PHL,17 percent dream,509.099,509.659,num 17%,509.099,15273
+R10,SC21,LKA,Sri Lanka,460.944,,fill+glow+face+status,460.694,13821
+R10,SC21,IND,India,464.224,,fill+glow+face+status,464.224,13927
+R10,SC21,PAK,Pakistan,469.264,,fill+glow+face+status,469.264,14078
+R10,SC21,NPL,Nepal,481.424,,fill+glow+face+status,481.424,14443
+R10,SC21,BGD,Bangladesh,482.224,,fill+glow+face+status,482.144,14464
+R10,SC21,BTN,Bhutan,486.464,,fill+glow+face+status,486.384,14592
+R10,SC22,MMR,Myanmar,488.219,,fill+glow+face+status,488.219,14647
+R10,SC22,LAO,Laos,489.179,,fill+glow+face+status,489.099,14673
+R10,SC22,THA,Thailand,492.059,,fill+glow+face+status,492.059,14762
+R10,SC22,KHM,Cambodia,492.779,,fill+glow+face+status,492.699,14781
+R10,SC22,VNM,Vietnam,494.779,,fill+glow+face+status,494.699,14841
+R10,SC22,MYS,Malaysia,497.019,,fill+glow+face+status,497.019,14911
+R10,SC22,SGP,Singapore,499.099,,fill+glow+face+status,499.019,14971
+R10,SC22,IDN,Indonesia,506.219,,fill+glow+face+status,506.219,15187
+R10,SC22,PHL,Philippines,508.299,,fill+glow+face+status,508.299,15249
+R10,SC21,NPL,(silent chip),,,num -2.0,481.874,14456
+R10,SC22,MMR,(silent chip),,,num -1.0,488.669,14660
+R10,SC22,LAO,(silent chip),,,num -1.4,489.549,14686
+R10,SC22,THA,(silent chip),,,num +0.2,492.509,14775
+R11,SC23,CHN,close to balanced by,514.301,514.541,num -0.3,514.301,15429
+R11,SC23,MNG,the same. North,517.581,517.741,num +0.5,517.581,15527
+R11,SC23,PRK,it gets the lock,523.741,523.901,num LOCKED,523.741,15712
+R11,SC23,KOR,slightly more arrivals and one,526.141,526.541,num +1.6,526.141,15784
+R11,SC23,JPN,14 percent would,530.461,530.901,num 14%,530.461,15914
+R11,SC23,JPN,opens 188 doors,533.741,534.141,num 188,533.741,16012
+R11,SC24,SLB,mostly staying. Australia,541.335,541.735,num +1.1,541.335,16240
+R11,SC24,AUS,a top dream destination,543.575,543.815,num 5%,543.575,16307
+R11,SC24,NZL,plus 231,546.615,547.015,num +231%,546.615,16398
+R11,SC24,FJI,losing people by UN,555.655,556.135,num -6.7,555.655,16670
+R11,SC23,CHN,China,513.741,,fill+glow+face+status,513.491,15405
+R11,SC23,MNG,Mongolia,516.781,,fill+glow+face+status,516.701,15501
+R11,SC23,PRK,North Korea,518.381,,fill+glow+face+status,518.381,15551
+R11,SC23,KOR,South Korea,525.101,,fill+glow+face+status,525.021,15751
+R11,SC23,JPN,Japan,529.661,,fill+glow+face+status,529.661,15890
+R11,SC24,PNG,Papua New Guinea,538.695,,fill+glow+face+status,538.445,16153
+R11,SC24,SLB,Solomon Islands,540.055,,fill+glow+face+status,539.975,16199
+R11,SC24,AUS,Australia,542.615,,fill+glow+face+status,542.615,16278
+R11,SC24,NZL,New Zealand,545.815,,fill+glow+face+status,545.815,16374
+R11,SC24,FJI,Fiji,554.855,,fill+glow+face+status,554.855,16646
+R11,SC24,PNG,(silent chip),,,num +0.9,538.895,16167
+R11,SC25,,So here's the final map,558.196,,camera pulls out: final map,558.196,16746

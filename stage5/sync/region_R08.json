@@ -1,0 +1,101 @@
+{
+ "region": {
+  "id": "R08",
+  "name": "Central & East Africa",
+  "scenes": "SC18-SC19",
+  "n0": 11934,
+  "n1": 13109,
+  "t0": 397.8,
+  "t1": 436.96666666666664,
+  "countries": 12,
+  "lastWord": {
+   "i": 957,
+   "w": "balanced.",
+   "start": 436.172,
+   "end": 436.732,
+   "how": "asr",
+   "src_start": 436.172,
+   "src_end": 436.732
+  },
+  "nextWord": {
+   "i": 958,
+   "w": "Next",
+   "start": 437.225,
+   "end": 437.545,
+   "how": "asr",
+   "src_start": 437.225,
+   "src_end": 437.545
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "120",
+    "266",
+    "178"
+   ],
+   "codes": [
+    "CMR",
+    "GAB",
+    "COG"
+   ],
+   "region": "R08",
+   "flyStart": 398.323,
+   "arrive": 400.556
+  },
+  {
+   "ids": [
+    "140",
+    "729"
+   ],
+   "codes": [
+    "CAF",
+    "SDN"
+   ],
+   "region": "R08",
+   "flyStart": 405.516,
+   "arrive": 406.266
+  },
+  {
+   "ids": [
+    "232"
+   ],
+   "codes": [
+    "ERI"
+   ],
+   "region": "R08",
+   "flyStart": 410.246,
+   "arrive": 411.146
+  },
+  {
+   "ids": [
+    "231",
+    "706",
+    "404"
+   ],
+   "codes": [
+    "ETH",
+    "SOM",
+    "KEN"
+   ],
+   "region": "R08",
+   "flyStart": 422.886,
+   "arrive": 423.786
+  },
+  {
+   "ids": [
+    "728",
+    "800",
+    "646"
+   ],
+   "codes": [
+    "SSD",
+    "UGA",
+    "RWA"
+   ],
+   "region": "R08",
+   "flyStart": 428.862,
+   "arrive": 429.612
+  }
+ ]
+}

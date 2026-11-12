@@ -1,0 +1,171 @@
+{
+ "region": {
+  "id": "R04",
+  "name": "Central & Eastern Europe",
+  "scenes": "SC10-SC11",
+  "n0": 6239,
+  "n1": 7776,
+  "t0": 207.96666666666667,
+  "t1": 259.2,
+  "countries": 20,
+  "lastWord": {
+   "i": 577,
+   "w": "opened.",
+   "start": 258.625,
+   "end": 259.025,
+   "how": "asr",
+   "src_start": 258.625,
+   "src_end": 259.025
+  },
+  "nextWord": {
+   "i": 578,
+   "w": "Next",
+   "start": 259.379,
+   "end": 259.859,
+   "how": "asr",
+   "src_start": 259.379,
+   "src_end": 259.859
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "705",
+    "191"
+   ],
+   "codes": [
+    "SVN",
+    "HRV"
+   ],
+   "region": "R04",
+   "flyStart": 208.153,
+   "arrive": 210.923
+  },
+  {
+   "ids": [
+    "070"
+   ],
+   "codes": [
+    "BIH"
+   ],
+   "region": "R04",
+   "flyStart": 214.873,
+   "arrive": 216.283
+  },
+  {
+   "ids": [
+    "688",
+    "499"
+   ],
+   "codes": [
+    "SRB",
+    "MNE"
+   ],
+   "region": "R04",
+   "flyStart": 219.253,
+   "arrive": 220.153
+  },
+  {
+   "ids": [
+    "008",
+    "807"
+   ],
+   "codes": [
+    "ALB",
+    "MKD"
+   ],
+   "region": "R04",
+   "flyStart": 223.733,
+   "arrive": 224.633
+  },
+  {
+   "ids": [
+    "300",
+    "100"
+   ],
+   "codes": [
+    "GRC",
+    "BGR"
+   ],
+   "region": "R04",
+   "flyStart": 232.123,
+   "arrive": 232.873
+  },
+  {
+   "ids": [
+    "642",
+    "348"
+   ],
+   "codes": [
+    "ROU",
+    "HUN"
+   ],
+   "region": "R04",
+   "flyStart": 235.123,
+   "arrive": 235.873
+  },
+  {
+   "ids": [
+    "703",
+    "203"
+   ],
+   "codes": [
+    "SVK",
+    "CZE"
+   ],
+   "region": "R04",
+   "flyStart": 239.965,
+   "arrive": 240.865
+  },
+  {
+   "ids": [
+    "616"
+   ],
+   "codes": [
+    "POL"
+   ],
+   "region": "R04",
+   "flyStart": 242.785,
+   "arrive": 243.535
+  },
+  {
+   "ids": [
+    "440",
+    "428",
+    "233"
+   ],
+   "codes": [
+    "LTU",
+    "LVA",
+    "EST"
+   ],
+   "region": "R04",
+   "flyStart": 244.685,
+   "arrive": 245.435
+  },
+  {
+   "ids": [
+    "112",
+    "498"
+   ],
+   "codes": [
+    "BLR",
+    "MDA"
+   ],
+   "region": "R04",
+   "flyStart": 249.075,
+   "arrive": 249.825
+  },
+  {
+   "ids": [
+    "804"
+   ],
+   "codes": [
+    "UKR"
+   ],
+   "region": "R04",
+   "flyStart": 253.165,
+   "arrive": 254.065
+  }
+ ]
+}

@@ -1,0 +1,163 @@
+{
+ "region": {
+  "id": "R01",
+  "name": "North America & Caribbean",
+  "scenes": "SC01-SC06",
+  "n0": 0,
+  "n1": 3389,
+  "t0": 0.0,
+  "t1": 112.96666666666667,
+  "countries": 16,
+  "lastWord": {
+   "i": 273,
+   "w": "staying.",
+   "start": 112.25,
+   "end": 112.73,
+   "how": "asr",
+   "src_start": 112.25,
+   "src_end": 112.73
+  },
+  "nextWord": {
+   "i": 274,
+   "w": "Next",
+   "start": 113.215,
+   "end": 113.535,
+   "how": "asr",
+   "src_start": 113.215,
+   "src_end": 113.535
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "124"
+   ],
+   "codes": [
+    "CAN"
+   ],
+   "region": "R01",
+   "flyStart": 6.93,
+   "arrive": 10.13
+  },
+  {
+   "ids": [
+    "840"
+   ],
+   "codes": [
+    "USA"
+   ],
+   "region": "R01",
+   "flyStart": 26.343,
+   "arrive": 27.243
+  },
+  {
+   "ids": [
+    "484"
+   ],
+   "codes": [
+    "MEX"
+   ],
+   "region": "R01",
+   "flyStart": 42.965,
+   "arrive": 45.335
+  },
+  {
+   "ids": [
+    "320",
+    "084"
+   ],
+   "codes": [
+    "GTM",
+    "BLZ"
+   ],
+   "region": "R01",
+   "flyStart": 47.425,
+   "arrive": 48.325
+  },
+  {
+   "ids": [
+    "340",
+    "222",
+    "558"
+   ],
+   "codes": [
+    "HND",
+    "SLV",
+    "NIC"
+   ],
+   "region": "R01",
+   "flyStart": 54.545,
+   "arrive": 55.445
+  },
+  {
+   "ids": [
+    "188",
+    "591"
+   ],
+   "codes": [
+    "CRI",
+    "PAN"
+   ],
+   "region": "R01",
+   "flyStart": 68.535,
+   "arrive": 69.285
+  },
+  {
+   "ids": [
+    "388"
+   ],
+   "codes": [
+    "JAM"
+   ],
+   "region": "R01",
+   "flyStart": 73.492,
+   "arrive": 74.902
+  },
+  {
+   "ids": [
+    "192"
+   ],
+   "codes": [
+    "CUB"
+   ],
+   "region": "R01",
+   "flyStart": 77.552,
+   "arrive": 78.452
+  },
+  {
+   "ids": [
+    "044"
+   ],
+   "codes": [
+    "BHS"
+   ],
+   "region": "R01",
+   "flyStart": 87.712,
+   "arrive": 88.612
+  },
+  {
+   "ids": [
+    "332",
+    "214"
+   ],
+   "codes": [
+    "HTI",
+    "DOM"
+   ],
+   "region": "R01",
+   "flyStart": 91.552,
+   "arrive": 92.452
+  },
+  {
+   "ids": [
+    "780"
+   ],
+   "codes": [
+    "TTO"
+   ],
+   "region": "R01",
+   "flyStart": 110.07,
+   "arrive": 110.97
+  }
+ ]
+}

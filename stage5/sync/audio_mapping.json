@@ -1,0 +1,20 @@
+{
+ "note": "source-audio -> edited-timeline mapping. Nothing was cut or sped up; silence only where listed in sync/audio_edits.json.",
+ "fps": 30,
+ "sample_rate": 24000,
+ "samples_per_frame": 800,
+ "source_samples": 13997550,
+ "edited_samples": 13997550,
+ "segments": [
+  {
+   "source_samples": [
+    0,
+    13997550
+   ],
+   "edited_samples": [
+    0,
+    13997550
+   ]
+  }
+ ]
+}

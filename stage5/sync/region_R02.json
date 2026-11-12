@@ -1,0 +1,128 @@
+{
+ "region": {
+  "id": "R02",
+  "name": "South America",
+  "scenes": "SC07",
+  "n0": 3389,
+  "n1": 4581,
+  "t0": 112.96666666666667,
+  "t1": 152.7,
+  "countries": 12,
+  "lastWord": {
+   "i": 346,
+   "w": "estimates.",
+   "start": 151.775,
+   "end": 152.335,
+   "how": "asr",
+   "src_start": 151.775,
+   "src_end": 152.335
+  },
+  "nextWord": {
+   "i": 347,
+   "w": "Across",
+   "start": 153.888,
+   "end": 154.448,
+   "how": "asr",
+   "src_start": 153.888,
+   "src_end": 154.448
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "862"
+   ],
+   "codes": [
+    "VEN"
+   ],
+   "region": "R02",
+   "flyStart": 113.215,
+   "arrive": 115.265
+  },
+  {
+   "ids": [
+    "170"
+   ],
+   "codes": [
+    "COL"
+   ],
+   "region": "R02",
+   "flyStart": 127.755,
+   "arrive": 128.655
+  },
+  {
+   "ids": [
+    "218",
+    "604"
+   ],
+   "codes": [
+    "ECU",
+    "PER"
+   ],
+   "region": "R02",
+   "flyStart": 129.905,
+   "arrive": 130.655
+  },
+  {
+   "ids": [
+    "068"
+   ],
+   "codes": [
+    "BOL"
+   ],
+   "region": "R02",
+   "flyStart": 134.225,
+   "arrive": 134.975
+  },
+  {
+   "ids": [
+    "152",
+    "032"
+   ],
+   "codes": [
+    "CHL",
+    "ARG"
+   ],
+   "region": "R02",
+   "flyStart": 136.125,
+   "arrive": 136.875
+  },
+  {
+   "ids": [
+    "858",
+    "600"
+   ],
+   "codes": [
+    "URY",
+    "PRY"
+   ],
+   "region": "R02",
+   "flyStart": 139.505,
+   "arrive": 140.255
+  },
+  {
+   "ids": [
+    "076"
+   ],
+   "codes": [
+    "BRA"
+   ],
+   "region": "R02",
+   "flyStart": 144.075,
+   "arrive": 144.975
+  },
+  {
+   "ids": [
+    "740",
+    "328"
+   ],
+   "codes": [
+    "SUR",
+    "GUY"
+   ],
+   "region": "R02",
+   "flyStart": 146.785,
+   "arrive": 147.535
+  }
+ ]
+}

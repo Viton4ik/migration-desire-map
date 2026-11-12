@@ -1,0 +1,92 @@
+{
+ "region": {
+  "id": "R09",
+  "name": "Southern Africa",
+  "scenes": "SC20",
+  "n0": 13109,
+  "n1": 13730,
+  "t0": 436.96666666666664,
+  "t1": 457.6666666666667,
+  "countries": 12,
+  "lastWord": {
+   "i": 990,
+   "w": "20.",
+   "start": 457.065,
+   "end": 457.305,
+   "how": "asr",
+   "src_start": 457.065,
+   "src_end": 457.305
+  },
+  "nextWord": {
+   "i": 991,
+   "w": "Across",
+   "start": 459.024,
+   "end": 459.584,
+   "how": "asr",
+   "src_start": 459.024,
+   "src_end": 459.584
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "180",
+    "024"
+   ],
+   "codes": [
+    "COD",
+    "AGO"
+   ],
+   "region": "R09",
+   "flyStart": 437.225,
+   "arrive": 438.715
+  },
+  {
+   "ids": [
+    "516",
+    "072",
+    "710",
+    "748"
+   ],
+   "codes": [
+    "NAM",
+    "BWA",
+    "ZAF",
+    "SWZ"
+   ],
+   "region": "R09",
+   "flyStart": 442.555,
+   "arrive": 443.305
+  },
+  {
+   "ids": [
+    "716",
+    "894",
+    "454"
+   ],
+   "codes": [
+    "ZWE",
+    "ZMB",
+    "MWI"
+   ],
+   "region": "R09",
+   "flyStart": 447.995,
+   "arrive": 448.745
+  },
+  {
+   "ids": [
+    "834",
+    "450",
+    "508"
+   ],
+   "codes": [
+    "TZA",
+    "MDG",
+    "MOZ"
+   ],
+   "region": "R09",
+   "flyStart": 452.955,
+   "arrive": 453.705
+  }
+ ]
+}

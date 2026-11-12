@@ -1,0 +1,88 @@
+{
+ "region": {
+  "id": "R05",
+  "name": "Russia, Caucasus & Central Asia",
+  "scenes": "SC12",
+  "n0": 7776,
+  "n1": 8859,
+  "t0": 259.2,
+  "t1": 295.3,
+  "countries": 10,
+  "lastWord": {
+   "i": 650,
+   "w": "entry.",
+   "start": 294.659,
+   "end": 295.139,
+   "how": "asr",
+   "src_start": 294.659,
+   "src_end": 295.139
+  },
+  "nextWord": {
+   "i": 651,
+   "w": "Next",
+   "start": 295.478,
+   "end": 295.958,
+   "how": "asr",
+   "src_start": 295.478,
+   "src_end": 295.958
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "643"
+   ],
+   "codes": [
+    "RUS"
+   ],
+   "region": "R05",
+   "flyStart": 259.379,
+   "arrive": 260.309
+  },
+  {
+   "ids": [
+    "268",
+    "051"
+   ],
+   "codes": [
+    "GEO",
+    "ARM"
+   ],
+   "region": "R05",
+   "flyStart": 266.319,
+   "arrive": 267.219
+  },
+  {
+   "ids": [
+    "031",
+    "398",
+    "762",
+    "860",
+    "417",
+    "795"
+   ],
+   "codes": [
+    "AZE",
+    "KAZ",
+    "TJK",
+    "UZB",
+    "KGZ",
+    "TKM"
+   ],
+   "region": "R05",
+   "flyStart": 270.149,
+   "arrive": 270.899
+  },
+  {
+   "ids": [
+    "004"
+   ],
+   "codes": [
+    "AFG"
+   ],
+   "region": "R05",
+   "flyStart": 280.399,
+   "arrive": 281.299
+  }
+ ]
+}

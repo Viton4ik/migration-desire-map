@@ -1,0 +1,7578 @@
+{
+"duration": 583.23125,
+"model": "parakeet-tdt-0.6b-v2-int8",
+"words": [
+{
+"w": "If",
+"start": 0.26,
+"end": 0.42,
+"para": "SC01"
+},
+{
+"w": "you",
+"start": 0.42,
+"end": 0.58,
+"para": "SC01"
+},
+{
+"w": "could",
+"start": 0.58,
+"end": 0.74,
+"para": "SC01"
+},
+{
+"w": "move",
+"start": 0.74,
+"end": 0.98,
+"para": "SC01"
+},
+{
+"w": "to",
+"start": 0.98,
+"end": 1.14,
+"para": "SC01"
+},
+{
+"w": "any",
+"start": 1.14,
+"end": 1.38,
+"para": "SC01"
+},
+{
+"w": "country",
+"start": 1.38,
+"end": 1.78,
+"para": "SC01"
+},
+{
+"w": "to",
+"start": 1.78,
+"end": 1.94,
+"para": "SC01"
+},
+{
+"w": "morrow,",
+"start": 1.94,
+"end": 2.5,
+"para": "SC01"
+},
+{
+"w": "would",
+"start": 2.5,
+"end": 2.74,
+"para": "SC01"
+},
+{
+"w": "you",
+"start": 2.74,
+"end": 2.9,
+"para": "SC01"
+},
+{
+"w": "leave",
+"start": 2.9,
+"end": 3.22,
+"para": "SC01"
+},
+{
+"w": "yours?",
+"start": 3.22,
+"end": 4.18,
+"para": "SC01"
+},
+{
+"w": "Let's",
+"start": 4.18,
+"end": 4.58,
+"para": "SC01"
+},
+{
+"w": "find",
+"start": 4.58,
+"end": 4.74,
+"para": "SC01"
+},
+{
+"w": "out",
+"start": 4.74,
+"end": 4.98,
+"para": "SC01"
+},
+{
+"w": "where",
+"start": 4.98,
+"end": 5.22,
+"para": "SC01"
+},
+{
+"w": "people",
+"start": 5.22,
+"end": 5.54,
+"para": "SC01"
+},
+{
+"w": "want",
+"start": 5.54,
+"end": 5.86,
+"para": "SC01"
+},
+{
+"w": "out",
+"start": 5.86,
+"end": 6.1,
+"para": "SC01"
+},
+{
+"w": "and",
+"start": 6.1,
+"end": 6.26,
+"para": "SC01"
+},
+{
+"w": "where",
+"start": 6.26,
+"end": 6.42,
+"para": "SC01"
+},
+{
+"w": "they",
+"start": 6.42,
+"end": 6.66,
+"para": "SC01"
+},
+{
+"w": "want",
+"start": 6.66,
+"end": 7.06,
+"para": "SC01"
+},
+{
+"w": "in,",
+"start": 7.06,
+"end": 7.62,
+"para": "SC01"
+},
+{
+"w": "starting",
+"start": 7.62,
+"end": 8.02,
+"para": "SC01"
+},
+{
+"w": "with",
+"start": 8.02,
+"end": 8.18,
+"para": "SC01"
+},
+{
+"w": "the",
+"start": 8.18,
+"end": 8.34,
+"para": "SC01"
+},
+{
+"w": "biggest",
+"start": 8.34,
+"end": 8.82,
+"para": "SC01"
+},
+{
+"w": "magnet",
+"start": 8.82,
+"end": 9.3,
+"para": "SC01"
+},
+{
+"w": "on",
+"start": 9.3,
+"end": 9.46,
+"para": "SC01"
+},
+{
+"w": "the",
+"start": 9.46,
+"end": 9.62,
+"para": "SC01"
+},
+{
+"w": "planet,",
+"start": 9.62,
+"end": 10.18,
+"para": "SC01"
+},
+{
+"w": "Canada.",
+"start": 10.18,
+"end": 10.74,
+"para": "SC01"
+},
+{
+"w": "Green",
+"start": 11.163,
+"end": 11.563,
+"para": "SC02"
+},
+{
+"w": "Magnet",
+"start": 11.563,
+"end": 12.203,
+"para": "SC02"
+},
+{
+"w": "Instantly",
+"start": 12.203,
+"end": 13.163,
+"para": "SC02"
+},
+{
+"w": "Gallup",
+"start": 13.163,
+"end": 13.803,
+"para": "SC02"
+},
+{
+"w": "compares",
+"start": 13.803,
+"end": 14.203,
+"para": "SC02"
+},
+{
+"w": "how",
+"start": 14.203,
+"end": 14.443,
+"para": "SC02"
+},
+{
+"w": "many",
+"start": 14.443,
+"end": 14.683,
+"para": "SC02"
+},
+{
+"w": "people",
+"start": 14.683,
+"end": 15.003,
+"para": "SC02"
+},
+{
+"w": "want",
+"start": 15.003,
+"end": 15.163,
+"para": "SC02"
+},
+{
+"w": "to",
+"start": 15.163,
+"end": 15.323,
+"para": "SC02"
+},
+{
+"w": "move",
+"start": 15.323,
+"end": 15.643,
+"para": "SC02"
+},
+{
+"w": "in",
+"start": 15.643,
+"end": 15.803,
+"para": "SC02"
+},
+{
+"w": "with",
+"start": 15.803,
+"end": 16.043,
+"para": "SC02"
+},
+{
+"w": "how",
+"start": 16.043,
+"end": 16.203,
+"para": "SC02"
+},
+{
+"w": "many",
+"start": 16.203,
+"end": 16.443,
+"para": "SC02"
+},
+{
+"w": "want",
+"start": 16.443,
+"end": 16.683,
+"para": "SC02"
+},
+{
+"w": "to",
+"start": 16.683,
+"end": 16.763,
+"para": "SC02"
+},
+{
+"w": "move",
+"start": 16.763,
+"end": 17.083,
+"para": "SC02"
+},
+{
+"w": "out",
+"start": 17.083,
+"end": 17.483,
+"para": "SC02"
+},
+{
+"w": "and",
+"start": 17.483,
+"end": 17.643,
+"para": "SC02"
+},
+{
+"w": "Canada",
+"start": 17.643,
+"end": 18.203,
+"para": "SC02"
+},
+{
+"w": "scores",
+"start": 18.203,
+"end": 18.683,
+"para": "SC02"
+},
+{
+"w": "plus",
+"start": 18.683,
+"end": 19.003,
+"para": "SC02"
+},
+{
+"w": "two",
+"start": 19.003,
+"end": 19.243,
+"para": "SC02"
+},
+{
+"w": "hundred",
+"start": 19.243,
+"end": 19.563,
+"para": "SC02"
+},
+{
+"w": "twenty",
+"start": 19.563,
+"end": 19.883,
+"para": "SC02"
+},
+{
+"w": "five",
+"start": 19.883,
+"end": 20.283,
+"para": "SC02"
+},
+{
+"w": "per",
+"start": 20.283,
+"end": 20.443,
+"para": "SC02"
+},
+{
+"w": "cent.",
+"start": 20.443,
+"end": 21.163,
+"para": "SC02"
+},
+{
+"w": "In",
+"start": 21.163,
+"end": 21.403,
+"para": "SC02"
+},
+{
+"w": "theory,",
+"start": 21.403,
+"end": 22.123,
+"para": "SC02"
+},
+{
+"w": "its",
+"start": 22.123,
+"end": 22.443,
+"para": "SC02"
+},
+{
+"w": "adult",
+"start": 22.443,
+"end": 22.843,
+"para": "SC02"
+},
+{
+"w": "population",
+"start": 22.843,
+"end": 23.563,
+"para": "SC02"
+},
+{
+"w": "would",
+"start": 23.563,
+"end": 23.803,
+"para": "SC02"
+},
+{
+"w": "more",
+"start": 23.803,
+"end": 23.963,
+"para": "SC02"
+},
+{
+"w": "than",
+"start": 23.963,
+"end": 24.203,
+"para": "SC02"
+},
+{
+"w": "triple.",
+"start": 24.203,
+"end": 25.083,
+"para": "SC02"
+},
+{
+"w": "Bring",
+"start": 25.083,
+"end": 25.403,
+"para": "SC02"
+},
+{
+"w": "a",
+"start": 25.403,
+"end": 25.563,
+"para": "SC02"
+},
+{
+"w": "warm",
+"start": 25.563,
+"end": 25.963,
+"para": "SC02"
+},
+{
+"w": "coat.",
+"start": 25.963,
+"end": 26.363,
+"para": "SC02"
+},
+{
+"w": "Right",
+"start": 26.947,
+"end": 27.187,
+"para": "SC03"
+},
+{
+"w": "below",
+"start": 27.187,
+"end": 27.747,
+"para": "SC03"
+},
+{
+"w": "the",
+"start": 27.747,
+"end": 27.987,
+"para": "SC03"
+},
+{
+"w": "USA,",
+"start": 27.987,
+"end": 28.947,
+"para": "SC03"
+},
+{
+"w": "still",
+"start": 28.947,
+"end": 29.267,
+"para": "SC03"
+},
+{
+"w": "the",
+"start": 29.267,
+"end": 29.427,
+"para": "SC03"
+},
+{
+"w": "world's",
+"start": 29.427,
+"end": 29.747,
+"para": "SC03"
+},
+{
+"w": "number",
+"start": 29.747,
+"end": 30.067,
+"para": "SC03"
+},
+{
+"w": "one",
+"start": 30.067,
+"end": 30.307,
+"para": "SC03"
+},
+{
+"w": "dream.",
+"start": 30.307,
+"end": 31.187,
+"para": "SC03"
+},
+{
+"w": "Fifteen",
+"start": 31.187,
+"end": 31.747,
+"para": "SC03"
+},
+{
+"w": "per",
+"start": 31.747,
+"end": 31.907,
+"para": "SC03"
+},
+{
+"w": "cent",
+"start": 31.907,
+"end": 32.147,
+"para": "SC03"
+},
+{
+"w": "of",
+"start": 32.147,
+"end": 32.307,
+"para": "SC03"
+},
+{
+"w": "everyone",
+"start": 32.307,
+"end": 32.787,
+"para": "SC03"
+},
+{
+"w": "who",
+"start": 32.787,
+"end": 32.947,
+"para": "SC03"
+},
+{
+"w": "wants",
+"start": 32.947,
+"end": 33.187,
+"para": "SC03"
+},
+{
+"w": "to",
+"start": 33.187,
+"end": 33.347,
+"para": "SC03"
+},
+{
+"w": "emigrate",
+"start": 33.347,
+"end": 33.907,
+"para": "SC03"
+},
+{
+"w": "picks",
+"start": 33.907,
+"end": 34.387,
+"para": "SC03"
+},
+{
+"w": "America",
+"start": 34.387,
+"end": 35.027,
+"para": "SC03"
+},
+{
+"w": "first.",
+"start": 35.027,
+"end": 35.667,
+"para": "SC03"
+},
+{
+"w": "But",
+"start": 35.667,
+"end": 35.827,
+"para": "SC03"
+},
+{
+"w": "that's",
+"start": 35.827,
+"end": 36.147,
+"para": "SC03"
+},
+{
+"w": "the",
+"start": 36.147,
+"end": 36.307,
+"para": "SC03"
+},
+{
+"w": "lowest",
+"start": 36.307,
+"end": 36.787,
+"para": "SC03"
+},
+{
+"w": "share",
+"start": 36.787,
+"end": 37.187,
+"para": "SC03"
+},
+{
+"w": "in",
+"start": 37.187,
+"end": 37.347,
+"para": "SC03"
+},
+{
+"w": "nearly",
+"start": 37.347,
+"end": 37.747,
+"para": "SC03"
+},
+{
+"w": "two",
+"start": 37.747,
+"end": 37.987,
+"para": "SC03"
+},
+{
+"w": "decades,",
+"start": 37.987,
+"end": 38.787,
+"para": "SC03"
+},
+{
+"w": "and",
+"start": 38.787,
+"end": 39.027,
+"para": "SC03"
+},
+{
+"w": "one",
+"start": 39.027,
+"end": 39.267,
+"para": "SC03"
+},
+{
+"w": "in",
+"start": 39.267,
+"end": 39.507,
+"para": "SC03"
+},
+{
+"w": "five",
+"start": 39.507,
+"end": 39.827,
+"para": "SC03"
+},
+{
+"w": "Americans",
+"start": 39.827,
+"end": 40.467,
+"para": "SC03"
+},
+{
+"w": "now",
+"start": 40.467,
+"end": 40.787,
+"para": "SC03"
+},
+{
+"w": "say",
+"start": 40.787,
+"end": 41.027,
+"para": "SC03"
+},
+{
+"w": "they'd",
+"start": 41.027,
+"end": 41.267,
+"para": "SC03"
+},
+{
+"w": "like",
+"start": 41.267,
+"end": 41.427,
+"para": "SC03"
+},
+{
+"w": "to",
+"start": 41.427,
+"end": 41.587,
+"para": "SC03"
+},
+{
+"w": "leave",
+"start": 41.587,
+"end": 41.907,
+"para": "SC03"
+},
+{
+"w": "themselves.",
+"start": 41.907,
+"end": 42.627,
+"para": "SC03"
+},
+{
+"w": "Now",
+"start": 42.965,
+"end": 43.445,
+"para": "SC04"
+},
+{
+"w": "south",
+"start": 43.445,
+"end": 43.845,
+"para": "SC04"
+},
+{
+"w": "where",
+"start": 43.845,
+"end": 44.005,
+"para": "SC04"
+},
+{
+"w": "the",
+"start": 44.005,
+"end": 44.165,
+"para": "SC04"
+},
+{
+"w": "arrows",
+"start": 44.165,
+"end": 44.645,
+"para": "SC04"
+},
+{
+"w": "flip.",
+"start": 44.645,
+"end": 45.285,
+"para": "SC04"
+},
+{
+"w": "Mexico",
+"start": 45.285,
+"end": 46.005,
+"para": "SC04"
+},
+{
+"w": "20%",
+"start": 46.005,
+"end": 46.645,
+"para": "SC04"
+},
+{
+"w": "won",
+"start": 46.645,
+"end": 46.965,
+"para": "SC04"
+},
+{
+"w": "out.",
+"start": 46.965,
+"end": 47.445,
+"para": "SC04"
+},
+{
+"w": "Guatemala",
+"start": 47.445,
+"end": 48.325,
+"para": "SC04"
+},
+{
+"w": "32.",
+"start": 48.325,
+"end": 49.205,
+"para": "SC04"
+},
+{
+"w": "Belize",
+"start": 49.205,
+"end": 49.845,
+"para": "SC04"
+},
+{
+"w": "is",
+"start": 49.845,
+"end": 50.005,
+"para": "SC04"
+},
+{
+"w": "a",
+"start": 50.005,
+"end": 50.085,
+"para": "SC04"
+},
+{
+"w": "quiet",
+"start": 50.085,
+"end": 50.485,
+"para": "SC04"
+},
+{
+"w": "exception.",
+"start": 50.485,
+"end": 51.285,
+"para": "SC04"
+},
+{
+"w": "By",
+"start": 51.285,
+"end": 51.525,
+"para": "SC04"
+},
+{
+"w": "UN",
+"start": 51.525,
+"end": 52.005,
+"para": "SC04"
+},
+{
+"w": "estimates",
+"start": 52.005,
+"end": 52.565,
+"para": "SC04"
+},
+{
+"w": "more",
+"start": 52.565,
+"end": 52.805,
+"para": "SC04"
+},
+{
+"w": "people",
+"start": 52.805,
+"end": 53.125,
+"para": "SC04"
+},
+{
+"w": "arrive",
+"start": 53.125,
+"end": 53.605,
+"para": "SC04"
+},
+{
+"w": "than",
+"start": 53.605,
+"end": 53.845,
+"para": "SC04"
+},
+{
+"w": "leave.",
+"start": 53.845,
+"end": 54.565,
+"para": "SC04"
+},
+{
+"w": "Then",
+"start": 54.565,
+"end": 54.885,
+"para": "SC04"
+},
+{
+"w": "Honduras",
+"start": 54.885,
+"end": 55.685,
+"para": "SC04"
+},
+{
+"w": "the",
+"start": 55.685,
+"end": 55.765,
+"para": "SC04"
+},
+{
+"w": "hot",
+"start": 55.765,
+"end": 56.085,
+"para": "SC04"
+},
+{
+"w": "spot.",
+"start": 56.085,
+"end": 56.805,
+"para": "SC04"
+},
+{
+"w": "Half",
+"start": 56.805,
+"end": 57.045,
+"para": "SC04"
+},
+{
+"w": "of",
+"start": 57.045,
+"end": 57.205,
+"para": "SC04"
+},
+{
+"w": "all",
+"start": 57.205,
+"end": 57.365,
+"para": "SC04"
+},
+{
+"w": "adults",
+"start": 57.365,
+"end": 57.845,
+"para": "SC04"
+},
+{
+"w": "wanted",
+"start": 57.845,
+"end": 58.085,
+"para": "SC04"
+},
+{
+"w": "to",
+"start": 58.085,
+"end": 58.165,
+"para": "SC04"
+},
+{
+"w": "leave",
+"start": 58.165,
+"end": 58.485,
+"para": "SC04"
+},
+{
+"w": "in",
+"start": 58.485,
+"end": 58.645,
+"para": "SC04"
+},
+{
+"w": "2023",
+"start": 58.645,
+"end": 60.005,
+"para": "SC04"
+},
+{
+"w": "though",
+"start": 60.005,
+"end": 60.245,
+"para": "SC04"
+},
+{
+"w": "by",
+"start": 60.245,
+"end": 60.485,
+"para": "SC04"
+},
+{
+"w": "2025",
+"start": 60.485,
+"end": 61.685,
+"para": "SC04"
+},
+{
+"w": "that",
+"start": 61.685,
+"end": 61.925,
+"para": "SC04"
+},
+{
+"w": "fell",
+"start": 61.925,
+"end": 62.165,
+"para": "SC04"
+},
+{
+"w": "to",
+"start": 62.165,
+"end": 62.325,
+"para": "SC04"
+},
+{
+"w": "35.",
+"start": 62.325,
+"end": 63.445,
+"para": "SC04"
+},
+{
+"w": "Next",
+"start": 63.445,
+"end": 63.845,
+"para": "SC04"
+},
+{
+"w": "door,",
+"start": 63.845,
+"end": 64.245,
+"para": "SC04"
+},
+{
+"w": "El",
+"start": 64.245,
+"end": 64.565,
+"para": "SC04"
+},
+{
+"w": "Salvador",
+"start": 64.565,
+"end": 65.285,
+"para": "SC04"
+},
+{
+"w": "at",
+"start": 65.285,
+"end": 65.525,
+"para": "SC04"
+},
+{
+"w": "34",
+"start": 65.525,
+"end": 66.165,
+"para": "SC04"
+},
+{
+"w": "and",
+"start": 66.165,
+"end": 66.325,
+"para": "SC04"
+},
+{
+"w": "Nicaragua",
+"start": 66.325,
+"end": 67.125,
+"para": "SC04"
+},
+{
+"w": "at",
+"start": 67.125,
+"end": 67.285,
+"para": "SC04"
+},
+{
+"w": "19.",
+"start": 67.285,
+"end": 67.845,
+"para": "SC04"
+},
+{
+"w": "Costa",
+"start": 68.132,
+"end": 68.692,
+"para": "SC05"
+},
+{
+"w": "Rica",
+"start": 68.692,
+"end": 69.172,
+"para": "SC05"
+},
+{
+"w": "30.",
+"start": 69.172,
+"end": 69.732,
+"para": "SC05"
+},
+{
+"w": "Panama",
+"start": 69.732,
+"end": 70.452,
+"para": "SC05"
+},
+{
+"w": "21.",
+"start": 70.452,
+"end": 71.252,
+"para": "SC05"
+},
+{
+"w": "Even",
+"start": 71.252,
+"end": 71.492,
+"para": "SC05"
+},
+{
+"w": "the",
+"start": 71.492,
+"end": 71.652,
+"para": "SC05"
+},
+{
+"w": "canal",
+"start": 71.652,
+"end": 72.132,
+"para": "SC05"
+},
+{
+"w": "can't",
+"start": 72.132,
+"end": 72.452,
+"para": "SC05"
+},
+{
+"w": "keep",
+"start": 72.452,
+"end": 72.692,
+"para": "SC05"
+},
+{
+"w": "everyone.",
+"start": 72.692,
+"end": 73.492,
+"para": "SC05"
+},
+{
+"w": "Into",
+"start": 73.492,
+"end": 73.812,
+"para": "SC05"
+},
+{
+"w": "the",
+"start": 73.812,
+"end": 73.892,
+"para": "SC05"
+},
+{
+"w": "Caribbean,",
+"start": 73.892,
+"end": 74.852,
+"para": "SC05"
+},
+{
+"w": "Jamaica",
+"start": 74.852,
+"end": 75.492,
+"para": "SC05"
+},
+{
+"w": "loses",
+"start": 75.492,
+"end": 75.972,
+"para": "SC05"
+},
+{
+"w": "more",
+"start": 75.972,
+"end": 76.212,
+"para": "SC05"
+},
+{
+"w": "people",
+"start": 76.212,
+"end": 76.452,
+"para": "SC05"
+},
+{
+"w": "than",
+"start": 76.452,
+"end": 76.692,
+"para": "SC05"
+},
+{
+"w": "it",
+"start": 76.692,
+"end": 76.852,
+"para": "SC05"
+},
+{
+"w": "gains.",
+"start": 76.852,
+"end": 77.572,
+"para": "SC05"
+},
+{
+"w": "Cuba",
+"start": 77.572,
+"end": 78.052,
+"para": "SC05"
+},
+{
+"w": "is",
+"start": 78.052,
+"end": 78.212,
+"para": "SC05"
+},
+{
+"w": "the",
+"start": 78.212,
+"end": 78.372,
+"para": "SC05"
+},
+{
+"w": "big",
+"start": 78.372,
+"end": 78.612,
+"para": "SC05"
+},
+{
+"w": "one.",
+"start": 78.612,
+"end": 79.172,
+"para": "SC05"
+},
+{
+"w": "In",
+"start": 79.172,
+"end": 79.332,
+"para": "SC05"
+},
+{
+"w": "an",
+"start": 79.332,
+"end": 79.572,
+"para": "SC05"
+},
+{
+"w": "independent",
+"start": 79.572,
+"end": 80.212,
+"para": "SC05"
+},
+{
+"w": "2023",
+"start": 80.212,
+"end": 81.412,
+"para": "SC05"
+},
+{
+"w": "poll,",
+"start": 81.412,
+"end": 81.892,
+"para": "SC05"
+},
+{
+"w": "more",
+"start": 81.892,
+"end": 82.052,
+"para": "SC05"
+},
+{
+"w": "than",
+"start": 82.052,
+"end": 82.212,
+"para": "SC05"
+},
+{
+"w": "half",
+"start": 82.212,
+"end": 82.532,
+"para": "SC05"
+},
+{
+"w": "said",
+"start": 82.532,
+"end": 82.692,
+"para": "SC05"
+},
+{
+"w": "they",
+"start": 82.692,
+"end": 82.852,
+"para": "SC05"
+},
+{
+"w": "want",
+"start": 82.852,
+"end": 83.012,
+"para": "SC05"
+},
+{
+"w": "to",
+"start": 83.012,
+"end": 83.092,
+"para": "SC05"
+},
+{
+"w": "leave",
+"start": 83.092,
+"end": 83.332,
+"para": "SC05"
+},
+{
+"w": "the",
+"start": 83.332,
+"end": 83.492,
+"para": "SC05"
+},
+{
+"w": "island",
+"start": 83.492,
+"end": 83.892,
+"para": "SC05"
+},
+{
+"w": "and",
+"start": 83.892,
+"end": 84.052,
+"para": "SC05"
+},
+{
+"w": "the",
+"start": 84.052,
+"end": 84.212,
+"para": "SC05"
+},
+{
+"w": "US",
+"start": 84.212,
+"end": 84.692,
+"para": "SC05"
+},
+{
+"w": "now",
+"start": 84.692,
+"end": 84.932,
+"para": "SC05"
+},
+{
+"w": "partially",
+"start": 84.932,
+"end": 85.492,
+"para": "SC05"
+},
+{
+"w": "suspends",
+"start": 85.492,
+"end": 86.052,
+"para": "SC05"
+},
+{
+"w": "visas",
+"start": 86.052,
+"end": 86.532,
+"para": "SC05"
+},
+{
+"w": "for",
+"start": 86.532,
+"end": 86.772,
+"para": "SC05"
+},
+{
+"w": "Cubans.",
+"start": 86.772,
+"end": 87.732,
+"para": "SC05"
+},
+{
+"w": "The",
+"start": 87.732,
+"end": 87.892,
+"para": "SC05"
+},
+{
+"w": "Bahamas,",
+"start": 87.892,
+"end": 88.932,
+"para": "SC05"
+},
+{
+"w": "Sun,",
+"start": 88.932,
+"end": 89.412,
+"para": "SC05"
+},
+{
+"w": "C",
+"start": 89.412,
+"end": 89.972,
+"para": "SC05"
+},
+{
+"w": "and",
+"start": 89.972,
+"end": 90.132,
+"para": "SC05"
+},
+{
+"w": "most",
+"start": 90.132,
+"end": 90.452,
+"para": "SC05"
+},
+{
+"w": "people",
+"start": 90.452,
+"end": 90.772,
+"para": "SC05"
+},
+{
+"w": "staying",
+"start": 90.772,
+"end": 91.172,
+"para": "SC05"
+},
+{
+"w": "put.",
+"start": 91.172,
+"end": 91.572,
+"para": "SC05"
+},
+{
+"w": "Haiti",
+"start": 91.77,
+"end": 92.33,
+"para": "SC06"
+},
+{
+"w": "is",
+"start": 92.33,
+"end": 92.49,
+"para": "SC06"
+},
+{
+"w": "where",
+"start": 92.49,
+"end": 92.73,
+"para": "SC06"
+},
+{
+"w": "wanting",
+"start": 92.73,
+"end": 93.21,
+"para": "SC06"
+},
+{
+"w": "and",
+"start": 93.21,
+"end": 93.37,
+"para": "SC06"
+},
+{
+"w": "leaving",
+"start": 93.37,
+"end": 93.77,
+"para": "SC06"
+},
+{
+"w": "collide.",
+"start": 93.77,
+"end": 94.65,
+"para": "SC06"
+},
+{
+"w": "In",
+"start": 94.65,
+"end": 94.81,
+"para": "SC06"
+},
+{
+"w": "Gallup's",
+"start": 94.81,
+"end": 95.53,
+"para": "SC06"
+},
+{
+"w": "2015",
+"start": 95.53,
+"end": 96.49,
+"para": "SC06"
+},
+{
+"w": "to",
+"start": 96.49,
+"end": 96.65,
+"para": "SC06"
+},
+{
+"w": "2017",
+"start": 96.65,
+"end": 97.85,
+"para": "SC06"
+},
+{
+"w": "survey,",
+"start": 97.85,
+"end": 98.65,
+"para": "SC06"
+},
+{
+"w": "63%",
+"start": 98.65,
+"end": 99.69,
+"para": "SC06"
+},
+{
+"w": "wanted",
+"start": 99.69,
+"end": 100.09,
+"para": "SC06"
+},
+{
+"w": "out,",
+"start": 100.09,
+"end": 100.65,
+"para": "SC06"
+},
+{
+"w": "and",
+"start": 100.65,
+"end": 100.81,
+"para": "SC06"
+},
+{
+"w": "today",
+"start": 100.81,
+"end": 101.21,
+"para": "SC06"
+},
+{
+"w": "the",
+"start": 101.21,
+"end": 101.37,
+"para": "SC06"
+},
+{
+"w": "U.S.",
+"start": 101.37,
+"end": 101.93,
+"para": "SC06"
+},
+{
+"w": "fully",
+"start": 101.93,
+"end": 102.25,
+"para": "SC06"
+},
+{
+"w": "suspends",
+"start": 102.25,
+"end": 102.89,
+"para": "SC06"
+},
+{
+"w": "entry",
+"start": 102.89,
+"end": 103.21,
+"para": "SC06"
+},
+{
+"w": "for",
+"start": 103.21,
+"end": 103.45,
+"para": "SC06"
+},
+{
+"w": "Haitians.",
+"start": 103.45,
+"end": 104.41,
+"para": "SC06"
+},
+{
+"w": "Wanting",
+"start": 104.41,
+"end": 104.81,
+"para": "SC06"
+},
+{
+"w": "to",
+"start": 104.81,
+"end": 104.97,
+"para": "SC06"
+},
+{
+"w": "go",
+"start": 104.97,
+"end": 105.21,
+"para": "SC06"
+},
+{
+"w": "isn't",
+"start": 105.21,
+"end": 105.53,
+"para": "SC06"
+},
+{
+"w": "the",
+"start": 105.53,
+"end": 105.69,
+"para": "SC06"
+},
+{
+"w": "same",
+"start": 105.69,
+"end": 105.85,
+"para": "SC06"
+},
+{
+"w": "as",
+"start": 105.85,
+"end": 106.09,
+"para": "SC06"
+},
+{
+"w": "being",
+"start": 106.09,
+"end": 106.33,
+"para": "SC06"
+},
+{
+"w": "let",
+"start": 106.33,
+"end": 106.73,
+"para": "SC06"
+},
+{
+"w": "in.",
+"start": 106.73,
+"end": 107.29,
+"para": "SC06"
+},
+{
+"w": "Dominican",
+"start": 107.29,
+"end": 107.93,
+"para": "SC06"
+},
+{
+"w": "Republic,",
+"start": 107.93,
+"end": 108.65,
+"para": "SC06"
+},
+{
+"w": "46%.",
+"start": 108.65,
+"end": 110.09,
+"para": "SC06"
+},
+{
+"w": "Trinidad",
+"start": 110.09,
+"end": 110.73,
+"para": "SC06"
+},
+{
+"w": "and",
+"start": 110.73,
+"end": 110.89,
+"para": "SC06"
+},
+{
+"w": "Tobago",
+"start": 110.89,
+"end": 111.77,
+"para": "SC06"
+},
+{
+"w": "mostly",
+"start": 111.77,
+"end": 112.25,
+"para": "SC06"
+},
+{
+"w": "staying.",
+"start": 112.25,
+"end": 112.73,
+"para": "SC06"
+},
+{
+"w": "Next",
+"start": 113.215,
+"end": 113.535,
+"para": "SC07"
+},
+{
+"w": "stop",
+"start": 113.535,
+"end": 114.015,
+"para": "SC07"
+},
+{
+"w": "South",
+"start": 114.015,
+"end": 114.335,
+"para": "SC07"
+},
+{
+"w": "America",
+"start": 114.335,
+"end": 115.215,
+"para": "SC07"
+},
+{
+"w": "Venezuela",
+"start": 115.215,
+"end": 116.255,
+"para": "SC07"
+},
+{
+"w": "27%",
+"start": 116.255,
+"end": 117.535,
+"para": "SC07"
+},
+{
+"w": "partly",
+"start": 117.535,
+"end": 118.015,
+"para": "SC07"
+},
+{
+"w": "because",
+"start": 118.015,
+"end": 118.255,
+"para": "SC07"
+},
+{
+"w": "so",
+"start": 118.255,
+"end": 118.575,
+"para": "SC07"
+},
+{
+"w": "many",
+"start": 118.575,
+"end": 118.895,
+"para": "SC07"
+},
+{
+"w": "have",
+"start": 118.895,
+"end": 119.135,
+"para": "SC07"
+},
+{
+"w": "already",
+"start": 119.135,
+"end": 119.535,
+"para": "SC07"
+},
+{
+"w": "gone.",
+"start": 119.535,
+"end": 120.255,
+"para": "SC07"
+},
+{
+"w": "The",
+"start": 120.255,
+"end": 120.415,
+"para": "SC07"
+},
+{
+"w": "UN",
+"start": 120.415,
+"end": 120.895,
+"para": "SC07"
+},
+{
+"w": "estimates",
+"start": 120.895,
+"end": 121.455,
+"para": "SC07"
+},
+{
+"w": "it",
+"start": 121.455,
+"end": 121.615,
+"para": "SC07"
+},
+{
+"w": "lost",
+"start": 121.615,
+"end": 121.935,
+"para": "SC07"
+},
+{
+"w": "about",
+"start": 121.935,
+"end": 122.095,
+"para": "SC07"
+},
+{
+"w": "15",
+"start": 122.095,
+"end": 122.735,
+"para": "SC07"
+},
+{
+"w": "people",
+"start": 122.735,
+"end": 123.055,
+"para": "SC07"
+},
+{
+"w": "per",
+"start": 123.055,
+"end": 123.295,
+"para": "SC07"
+},
+{
+"w": "thousand",
+"start": 123.295,
+"end": 123.855,
+"para": "SC07"
+},
+{
+"w": "every",
+"start": 123.855,
+"end": 124.175,
+"para": "SC07"
+},
+{
+"w": "year",
+"start": 124.175,
+"end": 124.495,
+"para": "SC07"
+},
+{
+"w": "from",
+"start": 124.495,
+"end": 124.655,
+"para": "SC07"
+},
+{
+"w": "2019",
+"start": 124.655,
+"end": 125.775,
+"para": "SC07"
+},
+{
+"w": "to",
+"start": 125.775,
+"end": 126.015,
+"para": "SC07"
+},
+{
+"w": "2023.",
+"start": 126.015,
+"end": 127.775,
+"para": "SC07"
+},
+{
+"w": "Colombia",
+"start": 127.775,
+"end": 128.655,
+"para": "SC07"
+},
+{
+"w": "36",
+"start": 128.655,
+"end": 129.735,
+"para": "SC07"
+},
+{
+"w": "Ecuador",
+"start": 129.775,
+"end": 130.655,
+"para": "SC07"
+},
+{
+"w": "49",
+"start": 130.655,
+"end": 131.455,
+"para": "SC07"
+},
+{
+"w": "nearly",
+"start": 131.455,
+"end": 131.775,
+"para": "SC07"
+},
+{
+"w": "half",
+"start": 131.775,
+"end": 132.415,
+"para": "SC07"
+},
+{
+"w": "Peru",
+"start": 132.415,
+"end": 132.975,
+"para": "SC07"
+},
+{
+"w": "42",
+"start": 132.975,
+"end": 133.775,
+"para": "SC07"
+},
+{
+"w": "Bolivia",
+"start": 133.775,
+"end": 134.495,
+"para": "SC07"
+},
+{
+"w": "36",
+"start": 134.495,
+"end": 135.535,
+"para": "SC07"
+},
+{
+"w": "down",
+"start": 135.535,
+"end": 135.855,
+"para": "SC07"
+},
+{
+"w": "south",
+"start": 135.855,
+"end": 136.255,
+"para": "SC07"
+},
+{
+"w": "Chile",
+"start": 136.255,
+"end": 136.735,
+"para": "SC07"
+},
+{
+"w": "35",
+"start": 136.735,
+"end": 137.295,
+"para": "SC07"
+},
+{
+"w": "and",
+"start": 137.295,
+"end": 137.455,
+"para": "SC07"
+},
+{
+"w": "Argentina",
+"start": 137.455,
+"end": 138.255,
+"para": "SC07"
+},
+{
+"w": "34",
+"start": 138.255,
+"end": 139.215,
+"para": "SC07"
+},
+{
+"w": "Uruguay",
+"start": 139.215,
+"end": 140.015,
+"para": "SC07"
+},
+{
+"w": "25",
+"start": 140.015,
+"end": 141.055,
+"para": "SC07"
+},
+{
+"w": "Paraguay",
+"start": 141.055,
+"end": 141.775,
+"para": "SC07"
+},
+{
+"w": "is",
+"start": 141.775,
+"end": 141.935,
+"para": "SC07"
+},
+{
+"w": "the",
+"start": 141.935,
+"end": 142.015,
+"para": "SC07"
+},
+{
+"w": "calm",
+"start": 142.015,
+"end": 142.495,
+"para": "SC07"
+},
+{
+"w": "one",
+"start": 142.495,
+"end": 142.735,
+"para": "SC07"
+},
+{
+"w": "just",
+"start": 142.735,
+"end": 142.975,
+"para": "SC07"
+},
+{
+"w": "17.",
+"start": 142.975,
+"end": 144.095,
+"para": "SC07"
+},
+{
+"w": "Brazil",
+"start": 144.095,
+"end": 144.735,
+"para": "SC07"
+},
+{
+"w": "the",
+"start": 144.735,
+"end": 144.895,
+"para": "SC07"
+},
+{
+"w": "giant",
+"start": 144.895,
+"end": 145.535,
+"para": "SC07"
+},
+{
+"w": "23",
+"start": 145.535,
+"end": 146.415,
+"para": "SC07"
+},
+{
+"w": "Suriname",
+"start": 146.415,
+"end": 147.375,
+"para": "SC07"
+},
+{
+"w": "mostly",
+"start": 147.375,
+"end": 147.695,
+"para": "SC07"
+},
+{
+"w": "staying",
+"start": 147.695,
+"end": 148.335,
+"para": "SC07"
+},
+{
+"w": "and",
+"start": 148.335,
+"end": 148.495,
+"para": "SC07"
+},
+{
+"w": "Guyana",
+"start": 148.495,
+"end": 149.295,
+"para": "SC07"
+},
+{
+"w": "small",
+"start": 149.295,
+"end": 149.695,
+"para": "SC07"
+},
+{
+"w": "but",
+"start": 149.695,
+"end": 149.935,
+"para": "SC07"
+},
+{
+"w": "losing",
+"start": 149.935,
+"end": 150.415,
+"para": "SC07"
+},
+{
+"w": "people",
+"start": 150.415,
+"end": 150.735,
+"para": "SC07"
+},
+{
+"w": "fast",
+"start": 150.735,
+"end": 151.135,
+"para": "SC07"
+},
+{
+"w": "by",
+"start": 151.135,
+"end": 151.295,
+"para": "SC07"
+},
+{
+"w": "UN",
+"start": 151.295,
+"end": 151.775,
+"para": "SC07"
+},
+{
+"w": "estimates.",
+"start": 151.775,
+"end": 152.335,
+"para": "SC07"
+},
+{
+"w": "Across",
+"start": 153.888,
+"end": 154.448,
+"para": "SC08"
+},
+{
+"w": "the",
+"start": 154.448,
+"end": 154.528,
+"para": "SC08"
+},
+{
+"w": "Atlantic",
+"start": 154.528,
+"end": 155.088,
+"para": "SC08"
+},
+{
+"w": "and",
+"start": 155.088,
+"end": 155.248,
+"para": "SC08"
+},
+{
+"w": "the",
+"start": 155.248,
+"end": 155.328,
+"para": "SC08"
+},
+{
+"w": "map",
+"start": 155.328,
+"end": 155.648,
+"para": "SC08"
+},
+{
+"w": "turns",
+"start": 155.648,
+"end": 156.048,
+"para": "SC08"
+},
+{
+"w": "green.",
+"start": 156.048,
+"end": 156.848,
+"para": "SC08"
+},
+{
+"w": "Portugal",
+"start": 156.848,
+"end": 157.488,
+"para": "SC08"
+},
+{
+"w": "plus",
+"start": 157.488,
+"end": 157.808,
+"para": "SC08"
+},
+{
+"w": "125.",
+"start": 157.808,
+"end": 159.248,
+"para": "SC08"
+},
+{
+"w": "Spain",
+"start": 159.248,
+"end": 159.728,
+"para": "SC08"
+},
+{
+"w": "plus",
+"start": 159.728,
+"end": 160.048,
+"para": "SC08"
+},
+{
+"w": "74.",
+"start": 160.048,
+"end": 160.928,
+"para": "SC08"
+},
+{
+"w": "France",
+"start": 160.928,
+"end": 161.408,
+"para": "SC08"
+},
+{
+"w": "plus",
+"start": 161.408,
+"end": 161.728,
+"para": "SC08"
+},
+{
+"w": "44.",
+"start": 161.728,
+"end": 162.768,
+"para": "SC08"
+},
+{
+"w": "The",
+"start": 162.768,
+"end": 162.928,
+"para": "SC08"
+},
+{
+"w": "UK",
+"start": 162.928,
+"end": 163.328,
+"para": "SC08"
+},
+{
+"w": "is",
+"start": 163.328,
+"end": 163.488,
+"para": "SC08"
+},
+{
+"w": "still",
+"start": 163.488,
+"end": 163.648,
+"para": "SC08"
+},
+{
+"w": "a",
+"start": 163.648,
+"end": 163.808,
+"para": "SC08"
+},
+{
+"w": "top",
+"start": 163.808,
+"end": 164.128,
+"para": "SC08"
+},
+{
+"w": "dream",
+"start": 164.128,
+"end": 164.528,
+"para": "SC08"
+},
+{
+"w": "destination,",
+"start": 164.528,
+"end": 165.408,
+"para": "SC08"
+},
+{
+"w": "picked",
+"start": 165.408,
+"end": 165.728,
+"para": "SC08"
+},
+{
+"w": "by",
+"start": 165.728,
+"end": 165.968,
+"para": "SC08"
+},
+{
+"w": "4%",
+"start": 165.968,
+"end": 166.528,
+"para": "SC08"
+},
+{
+"w": "of",
+"start": 166.528,
+"end": 166.688,
+"para": "SC08"
+},
+{
+"w": "would-be",
+"start": 166.688,
+"end": 167.088,
+"para": "SC08"
+},
+{
+"w": "migrants",
+"start": 167.088,
+"end": 167.568,
+"para": "SC08"
+},
+{
+"w": "worldwide,",
+"start": 167.568,
+"end": 168.448,
+"para": "SC08"
+},
+{
+"w": "even",
+"start": 168.448,
+"end": 168.608,
+"para": "SC08"
+},
+{
+"w": "though",
+"start": 168.608,
+"end": 168.848,
+"para": "SC08"
+},
+{
+"w": "nearly",
+"start": 168.848,
+"end": 169.168,
+"para": "SC08"
+},
+{
+"w": "a",
+"start": 169.168,
+"end": 169.328,
+"para": "SC08"
+},
+{
+"w": "quarter",
+"start": 169.328,
+"end": 169.648,
+"para": "SC08"
+},
+{
+"w": "of",
+"start": 169.648,
+"end": 169.728,
+"para": "SC08"
+},
+{
+"w": "Brits",
+"start": 169.728,
+"end": 170.208,
+"para": "SC08"
+},
+{
+"w": "tell",
+"start": 170.208,
+"end": 170.448,
+"para": "SC08"
+},
+{
+"w": "one",
+"start": 170.448,
+"end": 170.608,
+"para": "SC08"
+},
+{
+"w": "poll",
+"start": 170.608,
+"end": 171.008,
+"para": "SC08"
+},
+{
+"w": "they're",
+"start": 171.008,
+"end": 171.248,
+"para": "SC08"
+},
+{
+"w": "thinking",
+"start": 171.248,
+"end": 171.568,
+"para": "SC08"
+},
+{
+"w": "about",
+"start": 171.568,
+"end": 171.808,
+"para": "SC08"
+},
+{
+"w": "moving",
+"start": 171.808,
+"end": 172.128,
+"para": "SC08"
+},
+{
+"w": "abroad.",
+"start": 172.128,
+"end": 173.168,
+"para": "SC08"
+},
+{
+"w": "Ireland",
+"start": 173.168,
+"end": 173.808,
+"para": "SC08"
+},
+{
+"w": "plus",
+"start": 173.808,
+"end": 174.128,
+"para": "SC08"
+},
+{
+"w": "138,",
+"start": 174.128,
+"end": 175.248,
+"para": "SC08"
+},
+{
+"w": "the",
+"start": 175.248,
+"end": 175.408,
+"para": "SC08"
+},
+{
+"w": "comeback",
+"start": 175.408,
+"end": 175.968,
+"para": "SC08"
+},
+{
+"w": "kid.",
+"start": 175.968,
+"end": 176.608,
+"para": "SC08"
+},
+{
+"w": "In",
+"start": 176.608,
+"end": 176.848,
+"para": "SC08"
+},
+{
+"w": "2015",
+"start": 176.848,
+"end": 177.968,
+"para": "SC08"
+},
+{
+"w": "to",
+"start": 177.968,
+"end": 178.128,
+"para": "SC08"
+},
+{
+"w": "2017,",
+"start": 178.128,
+"end": 179.488,
+"para": "SC08"
+},
+{
+"w": "it",
+"start": 179.488,
+"end": 179.648,
+"para": "SC08"
+},
+{
+"w": "was",
+"start": 179.648,
+"end": 179.808,
+"para": "SC08"
+},
+{
+"w": "only",
+"start": 179.808,
+"end": 180.128,
+"para": "SC08"
+},
+{
+"w": "plus",
+"start": 180.128,
+"end": 180.448,
+"para": "SC08"
+},
+{
+"w": "48.",
+"start": 180.448,
+"end": 181.008,
+"para": "SC08"
+},
+{
+"w": "Iceland",
+"start": 181.49,
+"end": 181.97,
+"para": "SC09"
+},
+{
+"w": "and",
+"start": 181.97,
+"end": 182.13,
+"para": "SC09"
+},
+{
+"w": "Norway",
+"start": 182.13,
+"end": 182.69,
+"para": "SC09"
+},
+{
+"w": "more",
+"start": 182.69,
+"end": 182.93,
+"para": "SC09"
+},
+{
+"w": "arrivals",
+"start": 182.93,
+"end": 183.49,
+"para": "SC09"
+},
+{
+"w": "than",
+"start": 183.49,
+"end": 183.65,
+"para": "SC09"
+},
+{
+"w": "departures",
+"start": 183.65,
+"end": 184.29,
+"para": "SC09"
+},
+{
+"w": "by",
+"start": 184.29,
+"end": 184.45,
+"para": "SC09"
+},
+{
+"w": "UN",
+"start": 184.45,
+"end": 184.93,
+"para": "SC09"
+},
+{
+"w": "estimates.",
+"start": 184.93,
+"end": 185.89,
+"para": "SC09"
+},
+{
+"w": "Sweden",
+"start": 185.89,
+"end": 186.37,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 186.37,
+"end": 186.69,
+"para": "SC09"
+},
+{
+"w": "91,",
+"start": 186.69,
+"end": 187.25,
+"para": "SC09"
+},
+{
+"w": "Finland",
+"start": 187.25,
+"end": 187.73,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 187.73,
+"end": 187.97,
+"para": "SC09"
+},
+{
+"w": "97,",
+"start": 187.97,
+"end": 188.69,
+"para": "SC09"
+},
+{
+"w": "Denmark",
+"start": 188.69,
+"end": 189.17,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 189.17,
+"end": 189.49,
+"para": "SC09"
+},
+{
+"w": "129.",
+"start": 189.49,
+"end": 190.85,
+"para": "SC09"
+},
+{
+"w": "Cold",
+"start": 190.85,
+"end": 191.33,
+"para": "SC09"
+},
+{
+"w": "winters,",
+"start": 191.33,
+"end": 191.89,
+"para": "SC09"
+},
+{
+"w": "warm",
+"start": 191.89,
+"end": 192.29,
+"para": "SC09"
+},
+{
+"w": "numbers.",
+"start": 192.29,
+"end": 193.01,
+"para": "SC09"
+},
+{
+"w": "The",
+"start": 193.01,
+"end": 193.17,
+"para": "SC09"
+},
+{
+"w": "Netherlands",
+"start": 193.17,
+"end": 193.81,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 193.81,
+"end": 194.13,
+"para": "SC09"
+},
+{
+"w": "43,",
+"start": 194.13,
+"end": 194.69,
+"para": "SC09"
+},
+{
+"w": "Belgium",
+"start": 194.69,
+"end": 195.17,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 195.17,
+"end": 195.41,
+"para": "SC09"
+},
+{
+"w": "48,",
+"start": 195.41,
+"end": 195.89,
+"para": "SC09"
+},
+{
+"w": "and",
+"start": 195.89,
+"end": 196.05,
+"para": "SC09"
+},
+{
+"w": "tiny",
+"start": 196.05,
+"end": 196.45,
+"para": "SC09"
+},
+{
+"w": "Luxembourg",
+"start": 196.45,
+"end": 197.17,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 197.17,
+"end": 197.41,
+"para": "SC09"
+},
+{
+"w": "150.",
+"start": 197.41,
+"end": 198.61,
+"para": "SC09"
+},
+{
+"w": "Germany",
+"start": 198.61,
+"end": 199.17,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 199.17,
+"end": 199.49,
+"para": "SC09"
+},
+{
+"w": "53.",
+"start": 199.49,
+"end": 200.45,
+"para": "SC09"
+},
+{
+"w": "Switzerland",
+"start": 200.45,
+"end": 201.25,
+"para": "SC09"
+},
+{
+"w": "more",
+"start": 201.25,
+"end": 201.49,
+"para": "SC09"
+},
+{
+"w": "in",
+"start": 201.49,
+"end": 201.65,
+"para": "SC09"
+},
+{
+"w": "than",
+"start": 201.65,
+"end": 201.89,
+"para": "SC09"
+},
+{
+"w": "out.",
+"start": 201.89,
+"end": 202.45,
+"para": "SC09"
+},
+{
+"w": "Austria",
+"start": 202.45,
+"end": 203.09,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 203.09,
+"end": 203.49,
+"para": "SC09"
+},
+{
+"w": "83.",
+"start": 203.49,
+"end": 204.37,
+"para": "SC09"
+},
+{
+"w": "And",
+"start": 204.37,
+"end": 204.53,
+"para": "SC09"
+},
+{
+"w": "Italy",
+"start": 204.53,
+"end": 205.01,
+"para": "SC09"
+},
+{
+"w": "plus",
+"start": 205.01,
+"end": 205.33,
+"para": "SC09"
+},
+{
+"w": "25",
+"start": 205.33,
+"end": 205.97,
+"para": "SC09"
+},
+{
+"w": "when",
+"start": 205.97,
+"end": 206.21,
+"para": "SC09"
+},
+{
+"w": "10",
+"start": 206.21,
+"end": 206.45,
+"para": "SC09"
+},
+{
+"w": "years",
+"start": 206.45,
+"end": 206.77,
+"para": "SC09"
+},
+{
+"w": "ago",
+"start": 206.77,
+"end": 207.09,
+"para": "SC09"
+},
+{
+"w": "it",
+"start": 207.09,
+"end": 207.17,
+"para": "SC09"
+},
+{
+"w": "was",
+"start": 207.17,
+"end": 207.33,
+"para": "SC09"
+},
+{
+"w": "negative.",
+"start": 207.33,
+"end": 207.81,
+"para": "SC09"
+},
+{
+"w": "Next",
+"start": 208.153,
+"end": 208.633,
+"para": "SC10"
+},
+{
+"w": "stop",
+"start": 208.633,
+"end": 209.033,
+"para": "SC10"
+},
+{
+"w": "the",
+"start": 209.033,
+"end": 209.113,
+"para": "SC10"
+},
+{
+"w": "east",
+"start": 209.113,
+"end": 209.433,
+"para": "SC10"
+},
+{
+"w": "where",
+"start": 209.433,
+"end": 209.593,
+"para": "SC10"
+},
+{
+"w": "the",
+"start": 209.593,
+"end": 209.673,
+"para": "SC10"
+},
+{
+"w": "green",
+"start": 209.673,
+"end": 210.073,
+"para": "SC10"
+},
+{
+"w": "fades.",
+"start": 210.073,
+"end": 210.873,
+"para": "SC10"
+},
+{
+"w": "Slovenia",
+"start": 210.873,
+"end": 211.673,
+"para": "SC10"
+},
+{
+"w": "plus",
+"start": 211.673,
+"end": 211.993,
+"para": "SC10"
+},
+{
+"w": "8,",
+"start": 211.993,
+"end": 212.313,
+"para": "SC10"
+},
+{
+"w": "Croatia",
+"start": 212.313,
+"end": 212.953,
+"para": "SC10"
+},
+{
+"w": "plus",
+"start": 212.953,
+"end": 213.193,
+"para": "SC10"
+},
+{
+"w": "7",
+"start": 213.193,
+"end": 213.673,
+"para": "SC10"
+},
+{
+"w": "nearly",
+"start": 213.673,
+"end": 213.993,
+"para": "SC10"
+},
+{
+"w": "balanced.",
+"start": 213.993,
+"end": 214.873,
+"para": "SC10"
+},
+{
+"w": "Then",
+"start": 214.873,
+"end": 215.113,
+"para": "SC10"
+},
+{
+"w": "the",
+"start": 215.113,
+"end": 215.273,
+"para": "SC10"
+},
+{
+"w": "Balkans.",
+"start": 215.273,
+"end": 216.233,
+"para": "SC10"
+},
+{
+"w": "Bosnia,",
+"start": 216.233,
+"end": 217.033,
+"para": "SC10"
+},
+{
+"w": "38%",
+"start": 217.033,
+"end": 217.993,
+"para": "SC10"
+},
+{
+"w": "have",
+"start": 217.993,
+"end": 218.153,
+"para": "SC10"
+},
+{
+"w": "considered",
+"start": 218.153,
+"end": 218.553,
+"para": "SC10"
+},
+{
+"w": "leaving.",
+"start": 218.553,
+"end": 219.273,
+"para": "SC10"
+},
+{
+"w": "Serbia",
+"start": 219.273,
+"end": 219.833,
+"para": "SC10"
+},
+{
+"w": "and",
+"start": 219.833,
+"end": 219.913,
+"para": "SC10"
+},
+{
+"w": "Montenegro",
+"start": 219.913,
+"end": 220.873,
+"para": "SC10"
+},
+{
+"w": "40-50%",
+"start": 220.873,
+"end": 222.153,
+"para": "SC10"
+},
+{
+"w": "in",
+"start": 222.153,
+"end": 222.233,
+"para": "SC10"
+},
+{
+"w": "the",
+"start": 222.233,
+"end": 222.393,
+"para": "SC10"
+},
+{
+"w": "Balkan",
+"start": 222.393,
+"end": 222.873,
+"para": "SC10"
+},
+{
+"w": "barometer.",
+"start": 222.873,
+"end": 223.753,
+"para": "SC10"
+},
+{
+"w": "Albania",
+"start": 223.753,
+"end": 224.473,
+"para": "SC10"
+},
+{
+"w": "was",
+"start": 224.473,
+"end": 224.633,
+"para": "SC10"
+},
+{
+"w": "at",
+"start": 224.633,
+"end": 224.873,
+"para": "SC10"
+},
+{
+"w": "60%",
+"start": 224.873,
+"end": 225.593,
+"para": "SC10"
+},
+{
+"w": "in",
+"start": 225.593,
+"end": 225.753,
+"para": "SC10"
+},
+{
+"w": "Gallup's",
+"start": 225.753,
+"end": 226.473,
+"para": "SC10"
+},
+{
+"w": "2015-2017",
+"start": 226.473,
+"end": 228.873,
+"para": "SC10"
+},
+{
+"w": "count.",
+"start": 228.873,
+"end": 229.593,
+"para": "SC10"
+},
+{
+"w": "North",
+"start": 229.593,
+"end": 229.993,
+"para": "SC10"
+},
+{
+"w": "Macedonia,",
+"start": 229.993,
+"end": 230.873,
+"para": "SC10"
+},
+{
+"w": "35%.",
+"start": 230.873,
+"end": 231.993,
+"para": "SC10"
+},
+{
+"w": "Greece",
+"start": 231.993,
+"end": 232.393,
+"para": "SC10"
+},
+{
+"w": "and",
+"start": 232.393,
+"end": 232.553,
+"para": "SC10"
+},
+{
+"w": "Bulgaria",
+"start": 232.553,
+"end": 233.353,
+"para": "SC10"
+},
+{
+"w": "almost",
+"start": 233.353,
+"end": 233.833,
+"para": "SC10"
+},
+{
+"w": "even.",
+"start": 233.833,
+"end": 234.233,
+"para": "SC10"
+},
+{
+"w": "Romania",
+"start": 234.785,
+"end": 235.505,
+"para": "SC11"
+},
+{
+"w": "minus",
+"start": 235.505,
+"end": 235.825,
+"para": "SC11"
+},
+{
+"w": "22",
+"start": 235.825,
+"end": 236.385,
+"para": "SC11"
+},
+{
+"w": "and",
+"start": 236.385,
+"end": 236.545,
+"para": "SC11"
+},
+{
+"w": "Hungary",
+"start": 236.545,
+"end": 237.025,
+"para": "SC11"
+},
+{
+"w": "minus",
+"start": 237.025,
+"end": 237.345,
+"para": "SC11"
+},
+{
+"w": "24",
+"start": 237.345,
+"end": 237.985,
+"para": "SC11"
+},
+{
+"w": "the",
+"start": 237.985,
+"end": 238.145,
+"para": "SC11"
+},
+{
+"w": "lowest",
+"start": 238.145,
+"end": 238.545,
+"para": "SC11"
+},
+{
+"w": "score",
+"start": 238.545,
+"end": 238.785,
+"para": "SC11"
+},
+{
+"w": "in",
+"start": 238.785,
+"end": 238.945,
+"para": "SC11"
+},
+{
+"w": "the",
+"start": 238.945,
+"end": 239.105,
+"para": "SC11"
+},
+{
+"w": "EU.",
+"start": 239.105,
+"end": 239.985,
+"para": "SC11"
+},
+{
+"w": "Slovakia",
+"start": 239.985,
+"end": 240.705,
+"para": "SC11"
+},
+{
+"w": "and",
+"start": 240.705,
+"end": 240.785,
+"para": "SC11"
+},
+{
+"w": "Czechia",
+"start": 240.785,
+"end": 241.425,
+"para": "SC11"
+},
+{
+"w": "slightly",
+"start": 241.425,
+"end": 241.825,
+"para": "SC11"
+},
+{
+"w": "negative.",
+"start": 241.825,
+"end": 242.625,
+"para": "SC11"
+},
+{
+"w": "Poland",
+"start": 242.625,
+"end": 243.265,
+"para": "SC11"
+},
+{
+"w": "minus",
+"start": 243.265,
+"end": 243.665,
+"para": "SC11"
+},
+{
+"w": "5.",
+"start": 243.665,
+"end": 244.385,
+"para": "SC11"
+},
+{
+"w": "Lithuania",
+"start": 244.385,
+"end": 245.185,
+"para": "SC11"
+},
+{
+"w": "and",
+"start": 245.185,
+"end": 245.345,
+"para": "SC11"
+},
+{
+"w": "Latvia",
+"start": 245.345,
+"end": 245.905,
+"para": "SC11"
+},
+{
+"w": "minus",
+"start": 245.905,
+"end": 246.225,
+"para": "SC11"
+},
+{
+"w": "15",
+"start": 246.225,
+"end": 246.705,
+"para": "SC11"
+},
+{
+"w": "each.",
+"start": 246.705,
+"end": 247.105,
+"para": "SC11"
+},
+{
+"w": "Estonia",
+"start": 247.105,
+"end": 247.825,
+"para": "SC11"
+},
+{
+"w": "minus",
+"start": 247.825,
+"end": 248.225,
+"para": "SC11"
+},
+{
+"w": "6.",
+"start": 248.225,
+"end": 248.945,
+"para": "SC11"
+},
+{
+"w": "Belarus",
+"start": 248.945,
+"end": 249.745,
+"para": "SC11"
+},
+{
+"w": "and",
+"start": 249.745,
+"end": 249.905,
+"para": "SC11"
+},
+{
+"w": "Moldova",
+"start": 249.905,
+"end": 250.785,
+"para": "SC11"
+},
+{
+"w": "losing",
+"start": 250.785,
+"end": 251.265,
+"para": "SC11"
+},
+{
+"w": "people",
+"start": 251.265,
+"end": 251.585,
+"para": "SC11"
+},
+{
+"w": "by",
+"start": 251.585,
+"end": 251.825,
+"para": "SC11"
+},
+{
+"w": "UN",
+"start": 251.825,
+"end": 252.225,
+"para": "SC11"
+},
+{
+"w": "estimates.",
+"start": 252.225,
+"end": 253.185,
+"para": "SC11"
+},
+{
+"w": "And",
+"start": 253.185,
+"end": 253.345,
+"para": "SC11"
+},
+{
+"w": "Ukraine,",
+"start": 253.345,
+"end": 254.305,
+"para": "SC11"
+},
+{
+"w": "after",
+"start": 254.305,
+"end": 254.625,
+"para": "SC11"
+},
+{
+"w": "years",
+"start": 254.625,
+"end": 254.945,
+"para": "SC11"
+},
+{
+"w": "of",
+"start": 254.945,
+"end": 255.105,
+"para": "SC11"
+},
+{
+"w": "war,",
+"start": 255.105,
+"end": 255.665,
+"para": "SC11"
+},
+{
+"w": "21%",
+"start": 255.665,
+"end": 256.625,
+"para": "SC11"
+},
+{
+"w": "say",
+"start": 256.625,
+"end": 256.865,
+"para": "SC11"
+},
+{
+"w": "they",
+"start": 256.865,
+"end": 257.025,
+"para": "SC11"
+},
+{
+"w": "would",
+"start": 257.025,
+"end": 257.185,
+"para": "SC11"
+},
+{
+"w": "leave",
+"start": 257.185,
+"end": 257.425,
+"para": "SC11"
+},
+{
+"w": "if",
+"start": 257.425,
+"end": 257.585,
+"para": "SC11"
+},
+{
+"w": "the",
+"start": 257.585,
+"end": 257.745,
+"para": "SC11"
+},
+{
+"w": "borders",
+"start": 257.745,
+"end": 258.225,
+"para": "SC11"
+},
+{
+"w": "fully",
+"start": 258.225,
+"end": 258.625,
+"para": "SC11"
+},
+{
+"w": "opened.",
+"start": 258.625,
+"end": 259.025,
+"para": "SC11"
+},
+{
+"w": "Next",
+"start": 259.379,
+"end": 259.859,
+"para": "SC12"
+},
+{
+"w": "stop",
+"start": 259.859,
+"end": 260.259,
+"para": "SC12"
+},
+{
+"w": "Russia.",
+"start": 260.259,
+"end": 261.059,
+"para": "SC12"
+},
+{
+"w": "Only",
+"start": 261.059,
+"end": 261.379,
+"para": "SC12"
+},
+{
+"w": "9%",
+"start": 261.379,
+"end": 262.099,
+"para": "SC12"
+},
+{
+"w": "want",
+"start": 262.099,
+"end": 262.259,
+"para": "SC12"
+},
+{
+"w": "to",
+"start": 262.259,
+"end": 262.419,
+"para": "SC12"
+},
+{
+"w": "move",
+"start": 262.419,
+"end": 262.659,
+"para": "SC12"
+},
+{
+"w": "abroad",
+"start": 262.659,
+"end": 263.059,
+"para": "SC12"
+},
+{
+"w": "for",
+"start": 263.059,
+"end": 263.219,
+"para": "SC12"
+},
+{
+"w": "good,",
+"start": 263.219,
+"end": 263.699,
+"para": "SC12"
+},
+{
+"w": "the",
+"start": 263.699,
+"end": 263.859,
+"para": "SC12"
+},
+{
+"w": "lowest",
+"start": 263.859,
+"end": 264.179,
+"para": "SC12"
+},
+{
+"w": "Levada",
+"start": 264.179,
+"end": 264.899,
+"para": "SC12"
+},
+{
+"w": "has",
+"start": 264.899,
+"end": 265.059,
+"para": "SC12"
+},
+{
+"w": "ever",
+"start": 265.059,
+"end": 265.299,
+"para": "SC12"
+},
+{
+"w": "recorded.",
+"start": 265.299,
+"end": 266.339,
+"para": "SC12"
+},
+{
+"w": "Georgia",
+"start": 266.339,
+"end": 267.059,
+"para": "SC12"
+},
+{
+"w": "also",
+"start": 267.059,
+"end": 267.459,
+"para": "SC12"
+},
+{
+"w": "9.",
+"start": 267.459,
+"end": 268.099,
+"para": "SC12"
+},
+{
+"w": "Armenia",
+"start": 268.099,
+"end": 268.899,
+"para": "SC12"
+},
+{
+"w": "22.",
+"start": 268.899,
+"end": 269.859,
+"para": "SC12"
+},
+{
+"w": "Azerbaijan,",
+"start": 269.859,
+"end": 270.979,
+"para": "SC12"
+},
+{
+"w": "Kazakhstan,",
+"start": 270.979,
+"end": 271.939,
+"para": "SC12"
+},
+{
+"w": "Tajikistan",
+"start": 271.939,
+"end": 272.819,
+"para": "SC12"
+},
+{
+"w": "and",
+"start": 272.819,
+"end": 272.979,
+"para": "SC12"
+},
+{
+"w": "Uzbekistan",
+"start": 272.979,
+"end": 274.179,
+"para": "SC12"
+},
+{
+"w": "roughly",
+"start": 274.179,
+"end": 274.579,
+"para": "SC12"
+},
+{
+"w": "balanced",
+"start": 274.579,
+"end": 275.139,
+"para": "SC12"
+},
+{
+"w": "by",
+"start": 275.139,
+"end": 275.379,
+"para": "SC12"
+},
+{
+"w": "UN",
+"start": 275.379,
+"end": 275.779,
+"para": "SC12"
+},
+{
+"w": "estimates.",
+"start": 275.779,
+"end": 276.659,
+"para": "SC12"
+},
+{
+"w": "Kyrgyzstan",
+"start": 276.659,
+"end": 277.459,
+"para": "SC12"
+},
+{
+"w": "and",
+"start": 277.459,
+"end": 277.619,
+"para": "SC12"
+},
+{
+"w": "Turkmenistan",
+"start": 277.619,
+"end": 278.659,
+"para": "SC12"
+},
+{
+"w": "slightly",
+"start": 278.659,
+"end": 279.059,
+"para": "SC12"
+},
+{
+"w": "more",
+"start": 279.059,
+"end": 279.379,
+"para": "SC12"
+},
+{
+"w": "arrivals.",
+"start": 279.379,
+"end": 280.419,
+"para": "SC12"
+},
+{
+"w": "And",
+"start": 280.419,
+"end": 280.579,
+"para": "SC12"
+},
+{
+"w": "Afghanistan.",
+"start": 280.579,
+"end": 281.939,
+"para": "SC12"
+},
+{
+"w": "After",
+"start": 281.939,
+"end": 282.259,
+"para": "SC12"
+},
+{
+"w": "the",
+"start": 282.259,
+"end": 282.419,
+"para": "SC12"
+},
+{
+"w": "Taliban",
+"start": 282.419,
+"end": 283.139,
+"para": "SC12"
+},
+{
+"w": "returned,",
+"start": 283.139,
+"end": 283.779,
+"para": "SC12"
+},
+{
+"w": "53%",
+"start": 283.779,
+"end": 284.899,
+"para": "SC12"
+},
+{
+"w": "wanted",
+"start": 284.899,
+"end": 285.219,
+"para": "SC12"
+},
+{
+"w": "to",
+"start": 285.219,
+"end": 285.299,
+"para": "SC12"
+},
+{
+"w": "leave.",
+"start": 285.299,
+"end": 285.939,
+"para": "SC12"
+},
+{
+"w": "A",
+"start": 285.939,
+"end": 286.099,
+"para": "SC12"
+},
+{
+"w": "Gallup",
+"start": 286.099,
+"end": 286.659,
+"para": "SC12"
+},
+{
+"w": "record.",
+"start": 286.659,
+"end": 287.459,
+"para": "SC12"
+},
+{
+"w": "Its",
+"start": 287.459,
+"end": 287.699,
+"para": "SC12"
+},
+{
+"w": "passport",
+"start": 287.699,
+"end": 288.419,
+"para": "SC12"
+},
+{
+"w": "opens",
+"start": 288.419,
+"end": 288.899,
+"para": "SC12"
+},
+{
+"w": "just",
+"start": 288.899,
+"end": 289.139,
+"para": "SC12"
+},
+{
+"w": "22",
+"start": 289.139,
+"end": 289.779,
+"para": "SC12"
+},
+{
+"w": "countries",
+"start": 289.779,
+"end": 290.179,
+"para": "SC12"
+},
+{
+"w": "without",
+"start": 290.179,
+"end": 290.499,
+"para": "SC12"
+},
+{
+"w": "a",
+"start": 290.499,
+"end": 290.659,
+"para": "SC12"
+},
+{
+"w": "visa,",
+"start": 290.659,
+"end": 291.379,
+"para": "SC12"
+},
+{
+"w": "the",
+"start": 291.379,
+"end": 291.539,
+"para": "SC12"
+},
+{
+"w": "weakest",
+"start": 291.539,
+"end": 292.019,
+"para": "SC12"
+},
+{
+"w": "on",
+"start": 292.019,
+"end": 292.259,
+"para": "SC12"
+},
+{
+"w": "earth,",
+"start": 292.259,
+"end": 292.819,
+"para": "SC12"
+},
+{
+"w": "and",
+"start": 292.819,
+"end": 292.979,
+"para": "SC12"
+},
+{
+"w": "the",
+"start": 292.979,
+"end": 293.139,
+"para": "SC12"
+},
+{
+"w": "US",
+"start": 293.139,
+"end": 293.619,
+"para": "SC12"
+},
+{
+"w": "has",
+"start": 293.619,
+"end": 293.859,
+"para": "SC12"
+},
+{
+"w": "fully",
+"start": 293.859,
+"end": 294.179,
+"para": "SC12"
+},
+{
+"w": "banned",
+"start": 294.179,
+"end": 294.659,
+"para": "SC12"
+},
+{
+"w": "entry.",
+"start": 294.659,
+"end": 295.139,
+"para": "SC12"
+},
+{
+"w": "Next",
+"start": 295.478,
+"end": 295.958,
+"para": "SC13"
+},
+{
+"w": "stop",
+"start": 295.958,
+"end": 296.278,
+"para": "SC13"
+},
+{
+"w": "the",
+"start": 296.278,
+"end": 296.438,
+"para": "SC13"
+},
+{
+"w": "Middle",
+"start": 296.438,
+"end": 296.758,
+"para": "SC13"
+},
+{
+"w": "East.",
+"start": 296.758,
+"end": 297.398,
+"para": "SC13"
+},
+{
+"w": "Iran",
+"start": 297.398,
+"end": 297.958,
+"para": "SC13"
+},
+{
+"w": "a",
+"start": 297.958,
+"end": 298.118,
+"para": "SC13"
+},
+{
+"w": "third",
+"start": 298.118,
+"end": 298.438,
+"para": "SC13"
+},
+{
+"w": "want",
+"start": 298.438,
+"end": 298.678,
+"para": "SC13"
+},
+{
+"w": "to",
+"start": 298.678,
+"end": 298.758,
+"para": "SC13"
+},
+{
+"w": "emigrate",
+"start": 298.758,
+"end": 299.318,
+"para": "SC13"
+},
+{
+"w": "and",
+"start": 299.318,
+"end": 299.398,
+"para": "SC13"
+},
+{
+"w": "the",
+"start": 299.398,
+"end": 299.558,
+"para": "SC13"
+},
+{
+"w": "US",
+"start": 299.558,
+"end": 299.958,
+"para": "SC13"
+},
+{
+"w": "travel",
+"start": 299.958,
+"end": 300.278,
+"para": "SC13"
+},
+{
+"w": "ban",
+"start": 300.278,
+"end": 300.598,
+"para": "SC13"
+},
+{
+"w": "now",
+"start": 300.598,
+"end": 300.838,
+"para": "SC13"
+},
+{
+"w": "covers",
+"start": 300.838,
+"end": 301.158,
+"para": "SC13"
+},
+{
+"w": "it",
+"start": 301.158,
+"end": 301.318,
+"para": "SC13"
+},
+{
+"w": "completely.",
+"start": 301.318,
+"end": 302.198,
+"para": "SC13"
+},
+{
+"w": "Iraq",
+"start": 302.198,
+"end": 302.758,
+"para": "SC13"
+},
+{
+"w": "35%.",
+"start": 302.758,
+"end": 304.038,
+"para": "SC13"
+},
+{
+"w": "Kuwait",
+"start": 304.038,
+"end": 304.678,
+"para": "SC13"
+},
+{
+"w": "just",
+"start": 304.678,
+"end": 304.918,
+"para": "SC13"
+},
+{
+"w": "16%.",
+"start": 304.918,
+"end": 305.718,
+"para": "SC13"
+},
+{
+"w": "Then",
+"start": 305.718,
+"end": 305.878,
+"para": "SC13"
+},
+{
+"w": "the",
+"start": 305.878,
+"end": 305.958,
+"para": "SC13"
+},
+{
+"w": "Gulf",
+"start": 305.958,
+"end": 306.358,
+"para": "SC13"
+},
+{
+"w": "flips",
+"start": 306.358,
+"end": 306.838,
+"para": "SC13"
+},
+{
+"w": "everything.",
+"start": 306.838,
+"end": 307.478,
+"para": "SC13"
+},
+{
+"w": "Bahrain",
+"start": 307.478,
+"end": 308.118,
+"para": "SC13"
+},
+{
+"w": "balanced.",
+"start": 308.118,
+"end": 308.758,
+"para": "SC13"
+},
+{
+"w": "Qatar",
+"start": 308.758,
+"end": 309.398,
+"para": "SC13"
+},
+{
+"w": "the",
+"start": 309.398,
+"end": 309.478,
+"para": "SC13"
+},
+{
+"w": "UAE",
+"start": 309.478,
+"end": 310.038,
+"para": "SC13"
+},
+{
+"w": "and",
+"start": 310.038,
+"end": 310.118,
+"para": "SC13"
+},
+{
+"w": "Oman",
+"start": 310.118,
+"end": 310.678,
+"para": "SC13"
+},
+{
+"w": "pull",
+"start": 310.678,
+"end": 310.998,
+"para": "SC13"
+},
+{
+"w": "people",
+"start": 310.998,
+"end": 311.238,
+"para": "SC13"
+},
+{
+"w": "in",
+"start": 311.238,
+"end": 311.638,
+"para": "SC13"
+},
+{
+"w": "and",
+"start": 311.638,
+"end": 311.798,
+"para": "SC13"
+},
+{
+"w": "the",
+"start": 311.798,
+"end": 311.878,
+"para": "SC13"
+},
+{
+"w": "UAE's",
+"start": 311.878,
+"end": 312.438,
+"para": "SC13"
+},
+{
+"w": "net",
+"start": 312.438,
+"end": 312.678,
+"para": "SC13"
+},
+{
+"w": "migration",
+"start": 312.678,
+"end": 313.158,
+"para": "SC13"
+},
+{
+"w": "is",
+"start": 313.158,
+"end": 313.398,
+"para": "SC13"
+},
+{
+"w": "about",
+"start": 313.398,
+"end": 313.638,
+"para": "SC13"
+},
+{
+"w": "20",
+"start": 313.638,
+"end": 314.038,
+"para": "SC13"
+},
+{
+"w": "people",
+"start": 314.038,
+"end": 314.358,
+"para": "SC13"
+},
+{
+"w": "per",
+"start": 314.358,
+"end": 314.598,
+"para": "SC13"
+},
+{
+"w": "thousand",
+"start": 314.598,
+"end": 314.998,
+"para": "SC13"
+},
+{
+"w": "a",
+"start": 314.998,
+"end": 315.158,
+"para": "SC13"
+},
+{
+"w": "year.",
+"start": 315.158,
+"end": 315.798,
+"para": "SC13"
+},
+{
+"w": "Yemen",
+"start": 315.798,
+"end": 316.438,
+"para": "SC13"
+},
+{
+"w": "war",
+"start": 316.438,
+"end": 316.918,
+"para": "SC13"
+},
+{
+"w": "a",
+"start": 316.918,
+"end": 317.078,
+"para": "SC13"
+},
+{
+"w": "weak",
+"start": 317.078,
+"end": 317.398,
+"para": "SC13"
+},
+{
+"w": "passport",
+"start": 317.398,
+"end": 317.958,
+"para": "SC13"
+},
+{
+"w": "and",
+"start": 317.958,
+"end": 318.118,
+"para": "SC13"
+},
+{
+"w": "a",
+"start": 318.118,
+"end": 318.198,
+"para": "SC13"
+},
+{
+"w": "full",
+"start": 318.198,
+"end": 318.438,
+"para": "SC13"
+},
+{
+"w": "US",
+"start": 318.438,
+"end": 318.838,
+"para": "SC13"
+},
+{
+"w": "ban.",
+"start": 318.838,
+"end": 319.558,
+"para": "SC13"
+},
+{
+"w": "Saudi",
+"start": 319.558,
+"end": 320.118,
+"para": "SC13"
+},
+{
+"w": "Arabia",
+"start": 320.118,
+"end": 320.758,
+"para": "SC13"
+},
+{
+"w": "a",
+"start": 320.758,
+"end": 320.918,
+"para": "SC13"
+},
+{
+"w": "top",
+"start": 320.918,
+"end": 321.238,
+"para": "SC13"
+},
+{
+"w": "10",
+"start": 321.238,
+"end": 321.558,
+"para": "SC13"
+},
+{
+"w": "dream",
+"start": 321.558,
+"end": 321.958,
+"para": "SC13"
+},
+{
+"w": "destination",
+"start": 321.958,
+"end": 322.678,
+"para": "SC13"
+},
+{
+"w": "worldwide.",
+"start": 322.678,
+"end": 323.318,
+"para": "SC13"
+},
+{
+"w": "Jordan",
+"start": 323.901,
+"end": 324.461,
+"para": "SC14"
+},
+{
+"w": "42%",
+"start": 324.461,
+"end": 325.701,
+"para": "SC14"
+},
+{
+"w": "Syria",
+"start": 325.821,
+"end": 326.541,
+"para": "SC14"
+},
+{
+"w": "46%",
+"start": 326.541,
+"end": 327.421,
+"para": "SC14"
+},
+{
+"w": "in",
+"start": 327.421,
+"end": 327.581,
+"para": "SC14"
+},
+{
+"w": "Gallup's",
+"start": 327.581,
+"end": 328.221,
+"para": "SC14"
+},
+{
+"w": "2015-2017",
+"start": 328.221,
+"end": 330.541,
+"para": "SC14"
+},
+{
+"w": "count",
+"start": 330.541,
+"end": 331.101,
+"para": "SC14"
+},
+{
+"w": "and",
+"start": 331.101,
+"end": 331.261,
+"para": "SC14"
+},
+{
+"w": "its",
+"start": 331.261,
+"end": 331.501,
+"para": "SC14"
+},
+{
+"w": "passport",
+"start": 331.501,
+"end": 332.141,
+"para": "SC14"
+},
+{
+"w": "opens",
+"start": 332.141,
+"end": 332.621,
+"para": "SC14"
+},
+{
+"w": "only",
+"start": 332.621,
+"end": 332.861,
+"para": "SC14"
+},
+{
+"w": "25",
+"start": 332.861,
+"end": 333.581,
+"para": "SC14"
+},
+{
+"w": "doors",
+"start": 333.581,
+"end": 334.461,
+"para": "SC14"
+},
+{
+"w": "Turkey",
+"start": 334.461,
+"end": 335.181,
+"para": "SC14"
+},
+{
+"w": "39%",
+"start": 335.181,
+"end": 336.221,
+"para": "SC14"
+},
+{
+"w": "would",
+"start": 336.221,
+"end": 336.381,
+"para": "SC14"
+},
+{
+"w": "like",
+"start": 336.381,
+"end": 336.541,
+"para": "SC14"
+},
+{
+"w": "to",
+"start": 336.541,
+"end": 336.701,
+"para": "SC14"
+},
+{
+"w": "live",
+"start": 336.701,
+"end": 337.021,
+"para": "SC14"
+},
+{
+"w": "or",
+"start": 337.021,
+"end": 337.261,
+"para": "SC14"
+},
+{
+"w": "study",
+"start": 337.261,
+"end": 337.581,
+"para": "SC14"
+},
+{
+"w": "abroad",
+"start": 337.581,
+"end": 338.461,
+"para": "SC14"
+},
+{
+"w": "Cyprus",
+"start": 338.461,
+"end": 339.101,
+"para": "SC14"
+},
+{
+"w": "plus",
+"start": 339.101,
+"end": 339.421,
+"para": "SC14"
+},
+{
+"w": "79",
+"start": 339.421,
+"end": 340.461,
+"para": "SC14"
+},
+{
+"w": "Lebanon",
+"start": 340.461,
+"end": 341.261,
+"para": "SC14"
+},
+{
+"w": "38",
+"start": 341.261,
+"end": 342.221,
+"para": "SC14"
+},
+{
+"w": "Israel",
+"start": 342.221,
+"end": 342.941,
+"para": "SC14"
+},
+{
+"w": "slightly",
+"start": 342.941,
+"end": 343.421,
+"para": "SC14"
+},
+{
+"w": "more",
+"start": 343.421,
+"end": 343.741,
+"para": "SC14"
+},
+{
+"w": "arriving",
+"start": 343.741,
+"end": 344.221,
+"para": "SC14"
+},
+{
+"w": "than",
+"start": 344.221,
+"end": 344.461,
+"para": "SC14"
+},
+{
+"w": "leaving",
+"start": 344.461,
+"end": 344.701,
+"para": "SC14"
+},
+{
+"w": "Next",
+"start": 345.37,
+"end": 345.69,
+"para": "SC15"
+},
+{
+"w": "stop",
+"start": 345.69,
+"end": 346.17,
+"para": "SC15"
+},
+{
+"w": "North",
+"start": 346.17,
+"end": 346.41,
+"para": "SC15"
+},
+{
+"w": "Africa.",
+"start": 346.41,
+"end": 347.21,
+"para": "SC15"
+},
+{
+"w": "Egypt",
+"start": 347.21,
+"end": 347.85,
+"para": "SC15"
+},
+{
+"w": "13%",
+"start": 347.85,
+"end": 348.73,
+"para": "SC15"
+},
+{
+"w": "considered",
+"start": 348.73,
+"end": 349.13,
+"para": "SC15"
+},
+{
+"w": "leaving.",
+"start": 349.13,
+"end": 349.85,
+"para": "SC15"
+},
+{
+"w": "Libya",
+"start": 349.85,
+"end": 350.49,
+"para": "SC15"
+},
+{
+"w": "20.",
+"start": 350.49,
+"end": 351.13,
+"para": "SC15"
+},
+{
+"w": "Tunisia",
+"start": 351.13,
+"end": 351.85,
+"para": "SC15"
+},
+{
+"w": "46.",
+"start": 351.85,
+"end": 352.89,
+"para": "SC15"
+},
+{
+"w": "Algeria",
+"start": 352.89,
+"end": 353.61,
+"para": "SC15"
+},
+{
+"w": "close",
+"start": 353.61,
+"end": 353.85,
+"para": "SC15"
+},
+{
+"w": "to",
+"start": 353.85,
+"end": 354.09,
+"para": "SC15"
+},
+{
+"w": "balanced.",
+"start": 354.09,
+"end": 354.81,
+"para": "SC15"
+},
+{
+"w": "Morocco",
+"start": 354.81,
+"end": 355.53,
+"para": "SC15"
+},
+{
+"w": "35.",
+"start": 355.53,
+"end": 356.49,
+"para": "SC15"
+},
+{
+"w": "Mauritania",
+"start": 356.49,
+"end": 357.37,
+"para": "SC15"
+},
+{
+"w": "41.",
+"start": 357.37,
+"end": 357.93,
+"para": "SC15"
+},
+{
+"w": "and",
+"start": 358.475,
+"end": 358.635,
+"para": "SC16"
+},
+{
+"w": "now",
+"start": 358.635,
+"end": 358.875,
+"para": "SC16"
+},
+{
+"w": "West",
+"start": 358.875,
+"end": 359.195,
+"para": "SC16"
+},
+{
+"w": "Africa",
+"start": 359.195,
+"end": 359.675,
+"para": "SC16"
+},
+{
+"w": "the",
+"start": 359.675,
+"end": 359.835,
+"para": "SC16"
+},
+{
+"w": "most",
+"start": 359.835,
+"end": 360.075,
+"para": "SC16"
+},
+{
+"w": "restless",
+"start": 360.075,
+"end": 360.555,
+"para": "SC16"
+},
+{
+"w": "corner",
+"start": 360.555,
+"end": 360.875,
+"para": "SC16"
+},
+{
+"w": "of",
+"start": 360.875,
+"end": 361.035,
+"para": "SC16"
+},
+{
+"w": "the",
+"start": 361.035,
+"end": 361.115,
+"para": "SC16"
+},
+{
+"w": "map.",
+"start": 361.115,
+"end": 361.835,
+"para": "SC16"
+},
+{
+"w": "Senegal",
+"start": 361.835,
+"end": 362.475,
+"para": "SC16"
+},
+{
+"w": "42,",
+"start": 362.475,
+"end": 363.035,
+"para": "SC16"
+},
+{
+"w": "Gambia",
+"start": 363.035,
+"end": 363.515,
+"para": "SC16"
+},
+{
+"w": "50,",
+"start": 363.515,
+"end": 363.915,
+"para": "SC16"
+},
+{
+"w": "Guinea",
+"start": 363.915,
+"end": 364.315,
+"para": "SC16"
+},
+{
+"w": "44.",
+"start": 364.315,
+"end": 365.275,
+"para": "SC16"
+},
+{
+"w": "Then",
+"start": 365.275,
+"end": 365.515,
+"para": "SC16"
+},
+{
+"w": "Sierra",
+"start": 365.515,
+"end": 366.075,
+"para": "SC16"
+},
+{
+"w": "Leone",
+"start": 366.075,
+"end": 366.715,
+"para": "SC16"
+},
+{
+"w": "75%",
+"start": 366.715,
+"end": 367.675,
+"para": "SC16"
+},
+{
+"w": "and",
+"start": 367.675,
+"end": 367.915,
+"para": "SC16"
+},
+{
+"w": "Liberia",
+"start": 367.915,
+"end": 368.715,
+"para": "SC16"
+},
+{
+"w": "76",
+"start": 368.715,
+"end": 369.595,
+"para": "SC16"
+},
+{
+"w": "the",
+"start": 369.595,
+"end": 369.835,
+"para": "SC16"
+},
+{
+"w": "highest",
+"start": 369.835,
+"end": 370.155,
+"para": "SC16"
+},
+{
+"w": "numbers",
+"start": 370.155,
+"end": 370.555,
+"para": "SC16"
+},
+{
+"w": "in",
+"start": 370.555,
+"end": 370.715,
+"para": "SC16"
+},
+{
+"w": "this",
+"start": 370.715,
+"end": 370.955,
+"para": "SC16"
+},
+{
+"w": "entire",
+"start": 370.955,
+"end": 371.355,
+"para": "SC16"
+},
+{
+"w": "video.",
+"start": 371.355,
+"end": 372.155,
+"para": "SC16"
+},
+{
+"w": "Three",
+"start": 372.155,
+"end": 372.475,
+"para": "SC16"
+},
+{
+"w": "out",
+"start": 372.475,
+"end": 372.635,
+"para": "SC16"
+},
+{
+"w": "of",
+"start": 372.635,
+"end": 372.795,
+"para": "SC16"
+},
+{
+"w": "four",
+"start": 372.795,
+"end": 373.035,
+"para": "SC16"
+},
+{
+"w": "adults",
+"start": 373.035,
+"end": 373.515,
+"para": "SC16"
+},
+{
+"w": "would",
+"start": 373.515,
+"end": 373.675,
+"para": "SC16"
+},
+{
+"w": "leave",
+"start": 373.675,
+"end": 373.995,
+"para": "SC16"
+},
+{
+"w": "if",
+"start": 373.995,
+"end": 374.155,
+"para": "SC16"
+},
+{
+"w": "they",
+"start": 374.155,
+"end": 374.315,
+"para": "SC16"
+},
+{
+"w": "could",
+"start": 374.315,
+"end": 374.795,
+"para": "SC16"
+},
+{
+"w": "and",
+"start": 374.795,
+"end": 374.955,
+"para": "SC16"
+},
+{
+"w": "Sierra",
+"start": 374.955,
+"end": 375.435,
+"para": "SC16"
+},
+{
+"w": "Leone",
+"start": 375.435,
+"end": 376.075,
+"para": "SC16"
+},
+{
+"w": "is",
+"start": 376.075,
+"end": 376.235,
+"para": "SC16"
+},
+{
+"w": "now",
+"start": 376.235,
+"end": 376.395,
+"para": "SC16"
+},
+{
+"w": "under",
+"start": 376.395,
+"end": 376.635,
+"para": "SC16"
+},
+{
+"w": "a",
+"start": 376.635,
+"end": 376.795,
+"para": "SC16"
+},
+{
+"w": "full",
+"start": 376.795,
+"end": 377.115,
+"para": "SC16"
+},
+{
+"w": "US",
+"start": 377.115,
+"end": 377.595,
+"para": "SC16"
+},
+{
+"w": "entry",
+"start": 377.595,
+"end": 377.915,
+"para": "SC16"
+},
+{
+"w": "ban.",
+"start": 377.915,
+"end": 378.715,
+"para": "SC16"
+},
+{
+"w": "Ivory",
+"start": 378.715,
+"end": 379.195,
+"para": "SC16"
+},
+{
+"w": "Coast",
+"start": 379.195,
+"end": 379.755,
+"para": "SC16"
+},
+{
+"w": "29.",
+"start": 379.755,
+"end": 380.795,
+"para": "SC16"
+},
+{
+"w": "Mali",
+"start": 380.795,
+"end": 381.355,
+"para": "SC16"
+},
+{
+"w": "and",
+"start": 381.355,
+"end": 381.435,
+"para": "SC16"
+},
+{
+"w": "Burkina",
+"start": 381.435,
+"end": 382.075,
+"para": "SC16"
+},
+{
+"w": "Faso",
+"start": 382.075,
+"end": 382.715,
+"para": "SC16"
+},
+{
+"w": "only",
+"start": 382.715,
+"end": 382.955,
+"para": "SC16"
+},
+{
+"w": "12",
+"start": 382.955,
+"end": 383.355,
+"para": "SC16"
+},
+{
+"w": "each,",
+"start": 383.355,
+"end": 383.915,
+"para": "SC16"
+},
+{
+"w": "the",
+"start": 383.915,
+"end": 384.075,
+"para": "SC16"
+},
+{
+"w": "lowest",
+"start": 384.075,
+"end": 384.555,
+"para": "SC16"
+},
+{
+"w": "in",
+"start": 384.555,
+"end": 384.715,
+"para": "SC16"
+},
+{
+"w": "Africa.",
+"start": 384.715,
+"end": 385.275,
+"para": "SC16"
+},
+{
+"w": "Ghana",
+"start": 385.733,
+"end": 386.373,
+"para": "SC17"
+},
+{
+"w": "sixty",
+"start": 386.373,
+"end": 386.693,
+"para": "SC17"
+},
+{
+"w": "five",
+"start": 386.693,
+"end": 387.333,
+"para": "SC17"
+},
+{
+"w": "Togo",
+"start": 387.333,
+"end": 387.973,
+"para": "SC17"
+},
+{
+"w": "forty",
+"start": 387.973,
+"end": 388.213,
+"para": "SC17"
+},
+{
+"w": "five",
+"start": 388.213,
+"end": 388.533,
+"para": "SC17"
+},
+{
+"w": "Benin",
+"start": 388.533,
+"end": 389.013,
+"para": "SC17"
+},
+{
+"w": "thirty",
+"start": 389.013,
+"end": 389.333,
+"para": "SC17"
+},
+{
+"w": "two",
+"start": 389.333,
+"end": 389.973,
+"para": "SC17"
+},
+{
+"w": "Nigeria",
+"start": 389.973,
+"end": 390.933,
+"para": "SC17"
+},
+{
+"w": "fifty",
+"start": 390.933,
+"end": 391.253,
+"para": "SC17"
+},
+{
+"w": "one",
+"start": 391.253,
+"end": 391.813,
+"para": "SC17"
+},
+{
+"w": "the",
+"start": 391.813,
+"end": 391.973,
+"para": "SC17"
+},
+{
+"w": "biggest",
+"start": 391.973,
+"end": 392.453,
+"para": "SC17"
+},
+{
+"w": "country",
+"start": 392.453,
+"end": 392.853,
+"para": "SC17"
+},
+{
+"w": "on",
+"start": 392.853,
+"end": 393.013,
+"para": "SC17"
+},
+{
+"w": "this",
+"start": 393.013,
+"end": 393.173,
+"para": "SC17"
+},
+{
+"w": "map",
+"start": 393.173,
+"end": 393.493,
+"para": "SC17"
+},
+{
+"w": "where",
+"start": 393.493,
+"end": 393.653,
+"para": "SC17"
+},
+{
+"w": "most",
+"start": 393.653,
+"end": 393.973,
+"para": "SC17"
+},
+{
+"w": "people",
+"start": 393.973,
+"end": 394.373,
+"para": "SC17"
+},
+{
+"w": "want",
+"start": 394.373,
+"end": 394.613,
+"para": "SC17"
+},
+{
+"w": "out",
+"start": 394.613,
+"end": 395.253,
+"para": "SC17"
+},
+{
+"w": "Niger",
+"start": 395.253,
+"end": 395.973,
+"para": "SC17"
+},
+{
+"w": "seventeen",
+"start": 395.973,
+"end": 396.533,
+"para": "SC17"
+},
+{
+"w": "Chad",
+"start": 396.533,
+"end": 397.013,
+"para": "SC17"
+},
+{
+"w": "twenty",
+"start": 397.013,
+"end": 397.333,
+"para": "SC17"
+},
+{
+"w": "Next",
+"start": 397.786,
+"end": 398.266,
+"para": "SC18"
+},
+{
+"w": "stop",
+"start": 398.266,
+"end": 398.666,
+"para": "SC18"
+},
+{
+"w": "Central",
+"start": 398.666,
+"end": 399.146,
+"para": "SC18"
+},
+{
+"w": "and",
+"start": 399.146,
+"end": 399.306,
+"para": "SC18"
+},
+{
+"w": "East",
+"start": 399.306,
+"end": 399.626,
+"para": "SC18"
+},
+{
+"w": "Africa",
+"start": 399.626,
+"end": 400.506,
+"para": "SC18"
+},
+{
+"w": "Cameroon",
+"start": 400.506,
+"end": 401.306,
+"para": "SC18"
+},
+{
+"w": "41",
+"start": 401.306,
+"end": 402.026,
+"para": "SC18"
+},
+{
+"w": "Gabon",
+"start": 402.026,
+"end": 402.746,
+"para": "SC18"
+},
+{
+"w": "37",
+"start": 402.746,
+"end": 403.626,
+"para": "SC18"
+},
+{
+"w": "Congo",
+"start": 403.626,
+"end": 404.266,
+"para": "SC18"
+},
+{
+"w": "54",
+"start": 404.266,
+"end": 405.226,
+"para": "SC18"
+},
+{
+"w": "The",
+"start": 405.226,
+"end": 405.386,
+"para": "SC18"
+},
+{
+"w": "Central",
+"start": 405.386,
+"end": 405.866,
+"para": "SC18"
+},
+{
+"w": "African",
+"start": 405.866,
+"end": 406.346,
+"para": "SC18"
+},
+{
+"w": "Republic",
+"start": 406.346,
+"end": 406.826,
+"para": "SC18"
+},
+{
+"w": "and",
+"start": 406.826,
+"end": 406.986,
+"para": "SC18"
+},
+{
+"w": "Sudan",
+"start": 406.986,
+"end": 407.626,
+"para": "SC18"
+},
+{
+"w": "losing",
+"start": 407.626,
+"end": 408.026,
+"para": "SC18"
+},
+{
+"w": "people",
+"start": 408.026,
+"end": 408.346,
+"para": "SC18"
+},
+{
+"w": "fast",
+"start": 408.346,
+"end": 408.746,
+"para": "SC18"
+},
+{
+"w": "by",
+"start": 408.746,
+"end": 408.906,
+"para": "SC18"
+},
+{
+"w": "UN",
+"start": 408.906,
+"end": 409.386,
+"para": "SC18"
+},
+{
+"w": "estimates",
+"start": 409.386,
+"end": 410.266,
+"para": "SC18"
+},
+{
+"w": "and",
+"start": 410.266,
+"end": 410.426,
+"para": "SC18"
+},
+{
+"w": "Eritrea",
+"start": 410.426,
+"end": 411.226,
+"para": "SC18"
+},
+{
+"w": "the",
+"start": 411.226,
+"end": 411.386,
+"para": "SC18"
+},
+{
+"w": "locked",
+"start": 411.386,
+"end": 411.786,
+"para": "SC18"
+},
+{
+"w": "door",
+"start": 411.786,
+"end": 412.426,
+"para": "SC18"
+},
+{
+"w": "most",
+"start": 412.426,
+"end": 412.746,
+"para": "SC18"
+},
+{
+"w": "people",
+"start": 412.746,
+"end": 413.066,
+"para": "SC18"
+},
+{
+"w": "can't",
+"start": 413.066,
+"end": 413.386,
+"para": "SC18"
+},
+{
+"w": "get",
+"start": 413.386,
+"end": 413.546,
+"para": "SC18"
+},
+{
+"w": "a",
+"start": 413.546,
+"end": 413.626,
+"para": "SC18"
+},
+{
+"w": "passport",
+"start": 413.626,
+"end": 414.186,
+"para": "SC18"
+},
+{
+"w": "or",
+"start": 414.186,
+"end": 414.426,
+"para": "SC18"
+},
+{
+"w": "an",
+"start": 414.426,
+"end": 414.586,
+"para": "SC18"
+},
+{
+"w": "exit",
+"start": 414.586,
+"end": 414.906,
+"para": "SC18"
+},
+{
+"w": "visa",
+"start": 414.906,
+"end": 415.466,
+"para": "SC18"
+},
+{
+"w": "and",
+"start": 415.466,
+"end": 415.706,
+"para": "SC18"
+},
+{
+"w": "national",
+"start": 415.706,
+"end": 416.106,
+"para": "SC18"
+},
+{
+"w": "service",
+"start": 416.106,
+"end": 416.666,
+"para": "SC18"
+},
+{
+"w": "is",
+"start": 416.666,
+"end": 416.826,
+"para": "SC18"
+},
+{
+"w": "compulsory",
+"start": 416.826,
+"end": 417.466,
+"para": "SC18"
+},
+{
+"w": "from",
+"start": 417.466,
+"end": 417.706,
+"para": "SC18"
+},
+{
+"w": "18",
+"start": 417.706,
+"end": 418.186,
+"para": "SC18"
+},
+{
+"w": "to",
+"start": 418.186,
+"end": 418.346,
+"para": "SC18"
+},
+{
+"w": "40",
+"start": 418.346,
+"end": 419.146,
+"para": "SC18"
+},
+{
+"w": "so",
+"start": 419.146,
+"end": 419.386,
+"para": "SC18"
+},
+{
+"w": "here",
+"start": 419.386,
+"end": 419.626,
+"para": "SC18"
+},
+{
+"w": "we",
+"start": 419.626,
+"end": 419.706,
+"para": "SC18"
+},
+{
+"w": "don't",
+"start": 419.706,
+"end": 419.946,
+"para": "SC18"
+},
+{
+"w": "mark",
+"start": 419.946,
+"end": 420.346,
+"para": "SC18"
+},
+{
+"w": "what",
+"start": 420.346,
+"end": 420.586,
+"para": "SC18"
+},
+{
+"w": "people",
+"start": 420.586,
+"end": 420.826,
+"para": "SC18"
+},
+{
+"w": "want",
+"start": 420.826,
+"end": 421.466,
+"para": "SC18"
+},
+{
+"w": "we",
+"start": 421.466,
+"end": 421.626,
+"para": "SC18"
+},
+{
+"w": "mark",
+"start": 421.626,
+"end": 421.946,
+"para": "SC18"
+},
+{
+"w": "that",
+"start": 421.946,
+"end": 422.106,
+"para": "SC18"
+},
+{
+"w": "they",
+"start": 422.106,
+"end": 422.266,
+"para": "SC18"
+},
+{
+"w": "can't",
+"start": 422.266,
+"end": 422.666,
+"para": "SC18"
+},
+{
+"w": "leave",
+"start": 422.666,
+"end": 422.906,
+"para": "SC18"
+},
+{
+"w": "Ethiopia,",
+"start": 423.692,
+"end": 424.492,
+"para": "SC19"
+},
+{
+"w": "thirty",
+"start": 424.492,
+"end": 424.812,
+"para": "SC19"
+},
+{
+"w": "one",
+"start": 424.812,
+"end": 425.452,
+"para": "SC19"
+},
+{
+"w": "Somalia,",
+"start": 425.452,
+"end": 426.172,
+"para": "SC19"
+},
+{
+"w": "twenty",
+"start": 426.172,
+"end": 426.492,
+"para": "SC19"
+},
+{
+"w": "nine",
+"start": 426.492,
+"end": 427.052,
+"para": "SC19"
+},
+{
+"w": "Kenya,",
+"start": 427.052,
+"end": 427.612,
+"para": "SC19"
+},
+{
+"w": "thirty",
+"start": 427.612,
+"end": 427.932,
+"para": "SC19"
+},
+{
+"w": "nine",
+"start": 427.932,
+"end": 428.572,
+"para": "SC19"
+},
+{
+"w": "South",
+"start": 428.572,
+"end": 428.972,
+"para": "SC19"
+},
+{
+"w": "Sudan",
+"start": 428.972,
+"end": 429.532,
+"para": "SC19"
+},
+{
+"w": "shows",
+"start": 429.532,
+"end": 429.852,
+"para": "SC19"
+},
+{
+"w": "more",
+"start": 429.852,
+"end": 430.092,
+"para": "SC19"
+},
+{
+"w": "arrivals",
+"start": 430.092,
+"end": 430.732,
+"para": "SC19"
+},
+{
+"w": "than",
+"start": 430.732,
+"end": 430.892,
+"para": "SC19"
+},
+{
+"w": "departures",
+"start": 430.892,
+"end": 431.612,
+"para": "SC19"
+},
+{
+"w": "by",
+"start": 431.612,
+"end": 431.772,
+"para": "SC19"
+},
+{
+"w": "UN",
+"start": 431.772,
+"end": 432.252,
+"para": "SC19"
+},
+{
+"w": "estimates.",
+"start": 432.252,
+"end": 433.292,
+"para": "SC19"
+},
+{
+"w": "Uganda,",
+"start": 433.292,
+"end": 434.012,
+"para": "SC19"
+},
+{
+"w": "thirty",
+"start": 434.012,
+"end": 434.332,
+"para": "SC19"
+},
+{
+"w": "seven,",
+"start": 434.332,
+"end": 434.972,
+"para": "SC19"
+},
+{
+"w": "Rwanda",
+"start": 434.972,
+"end": 435.692,
+"para": "SC19"
+},
+{
+"w": "close",
+"start": 435.692,
+"end": 436.012,
+"para": "SC19"
+},
+{
+"w": "to",
+"start": 436.012,
+"end": 436.172,
+"para": "SC19"
+},
+{
+"w": "balanced.",
+"start": 436.172,
+"end": 436.732,
+"para": "SC19"
+},
+{
+"w": "Next",
+"start": 437.225,
+"end": 437.545,
+"para": "SC20"
+},
+{
+"w": "stop",
+"start": 437.545,
+"end": 437.945,
+"para": "SC20"
+},
+{
+"w": "the",
+"start": 437.945,
+"end": 438.105,
+"para": "SC20"
+},
+{
+"w": "South",
+"start": 438.105,
+"end": 438.665,
+"para": "SC20"
+},
+{
+"w": "DR",
+"start": 438.665,
+"end": 439.225,
+"para": "SC20"
+},
+{
+"w": "Congo",
+"start": 439.225,
+"end": 439.865,
+"para": "SC20"
+},
+{
+"w": "41",
+"start": 439.865,
+"end": 440.585,
+"para": "SC20"
+},
+{
+"w": "Angola",
+"start": 440.585,
+"end": 441.305,
+"para": "SC20"
+},
+{
+"w": "balanced",
+"start": 441.305,
+"end": 442.025,
+"para": "SC20"
+},
+{
+"w": "Namibia",
+"start": 442.025,
+"end": 442.665,
+"para": "SC20"
+},
+{
+"w": "27",
+"start": 442.665,
+"end": 443.225,
+"para": "SC20"
+},
+{
+"w": "Botswana",
+"start": 443.225,
+"end": 443.865,
+"para": "SC20"
+},
+{
+"w": "30",
+"start": 443.865,
+"end": 444.265,
+"para": "SC20"
+},
+{
+"w": "South",
+"start": 444.265,
+"end": 444.585,
+"para": "SC20"
+},
+{
+"w": "Africa",
+"start": 444.585,
+"end": 444.985,
+"para": "SC20"
+},
+{
+"w": "32",
+"start": 444.985,
+"end": 445.785,
+"para": "SC20"
+},
+{
+"w": "Eswatini",
+"start": 445.785,
+"end": 446.745,
+"para": "SC20"
+},
+{
+"w": "45",
+"start": 446.745,
+"end": 447.625,
+"para": "SC20"
+},
+{
+"w": "Zimbabwe",
+"start": 447.625,
+"end": 448.425,
+"para": "SC20"
+},
+{
+"w": "33",
+"start": 448.425,
+"end": 449.225,
+"para": "SC20"
+},
+{
+"w": "Zambia",
+"start": 449.225,
+"end": 449.945,
+"para": "SC20"
+},
+{
+"w": "mostly",
+"start": 449.945,
+"end": 450.345,
+"para": "SC20"
+},
+{
+"w": "staying",
+"start": 450.345,
+"end": 450.985,
+"para": "SC20"
+},
+{
+"w": "Malawi",
+"start": 450.985,
+"end": 451.705,
+"para": "SC20"
+},
+{
+"w": "37",
+"start": 451.705,
+"end": 452.585,
+"para": "SC20"
+},
+{
+"w": "Tanzania",
+"start": 452.585,
+"end": 453.385,
+"para": "SC20"
+},
+{
+"w": "and",
+"start": 453.385,
+"end": 453.545,
+"para": "SC20"
+},
+{
+"w": "Madagascar",
+"start": 453.545,
+"end": 454.505,
+"para": "SC20"
+},
+{
+"w": "only",
+"start": 454.505,
+"end": 454.825,
+"para": "SC20"
+},
+{
+"w": "14",
+"start": 454.825,
+"end": 455.385,
+"para": "SC20"
+},
+{
+"w": "each",
+"start": 455.385,
+"end": 456.105,
+"para": "SC20"
+},
+{
+"w": "Mozambique",
+"start": 456.105,
+"end": 457.065,
+"para": "SC20"
+},
+{
+"w": "20",
+"start": 457.065,
+"end": 457.305,
+"para": "SC20"
+},
+{
+"w": "Across",
+"start": 459.024,
+"end": 459.584,
+"para": "SC21"
+},
+{
+"w": "the",
+"start": 459.584,
+"end": 459.744,
+"para": "SC21"
+},
+{
+"w": "Indian",
+"start": 459.744,
+"end": 460.224,
+"para": "SC21"
+},
+{
+"w": "Ocean.",
+"start": 460.224,
+"end": 460.944,
+"para": "SC21"
+},
+{
+"w": "Sri",
+"start": 460.944,
+"end": 461.344,
+"para": "SC21"
+},
+{
+"w": "Lanka",
+"start": 461.344,
+"end": 461.744,
+"para": "SC21"
+},
+{
+"w": "losing",
+"start": 461.744,
+"end": 462.064,
+"para": "SC21"
+},
+{
+"w": "a",
+"start": 462.064,
+"end": 462.144,
+"para": "SC21"
+},
+{
+"w": "few",
+"start": 462.144,
+"end": 462.384,
+"para": "SC21"
+},
+{
+"w": "people",
+"start": 462.384,
+"end": 462.704,
+"para": "SC21"
+},
+{
+"w": "by",
+"start": 462.704,
+"end": 462.944,
+"para": "SC21"
+},
+{
+"w": "UN",
+"start": 462.944,
+"end": 463.344,
+"para": "SC21"
+},
+{
+"w": "estimates.",
+"start": 463.344,
+"end": 464.224,
+"para": "SC21"
+},
+{
+"w": "India.",
+"start": 464.224,
+"end": 465.024,
+"para": "SC21"
+},
+{
+"w": "Just",
+"start": 465.024,
+"end": 465.344,
+"para": "SC21"
+},
+{
+"w": "4%",
+"start": 465.344,
+"end": 466.064,
+"para": "SC21"
+},
+{
+"w": "told",
+"start": 466.064,
+"end": 466.224,
+"para": "SC21"
+},
+{
+"w": "Gallup",
+"start": 466.224,
+"end": 466.784,
+"para": "SC21"
+},
+{
+"w": "International",
+"start": 466.784,
+"end": 467.344,
+"para": "SC21"
+},
+{
+"w": "they'd",
+"start": 467.344,
+"end": 467.584,
+"para": "SC21"
+},
+{
+"w": "rather",
+"start": 467.584,
+"end": 467.904,
+"para": "SC21"
+},
+{
+"w": "live",
+"start": 467.904,
+"end": 468.064,
+"para": "SC21"
+},
+{
+"w": "in",
+"start": 468.064,
+"end": 468.304,
+"para": "SC21"
+},
+{
+"w": "another",
+"start": 468.304,
+"end": 468.544,
+"para": "SC21"
+},
+{
+"w": "country.",
+"start": 468.544,
+"end": 469.264,
+"para": "SC21"
+},
+{
+"w": "Pakistan",
+"start": 469.264,
+"end": 469.984,
+"para": "SC21"
+},
+{
+"w": "is",
+"start": 469.984,
+"end": 470.144,
+"para": "SC21"
+},
+{
+"w": "the",
+"start": 470.144,
+"end": 470.304,
+"para": "SC21"
+},
+{
+"w": "twist.",
+"start": 470.304,
+"end": 471.104,
+"para": "SC21"
+},
+{
+"w": "By",
+"start": 471.104,
+"end": 471.344,
+"para": "SC21"
+},
+{
+"w": "UN",
+"start": 471.344,
+"end": 471.824,
+"para": "SC21"
+},
+{
+"w": "estimates",
+"start": 471.824,
+"end": 472.304,
+"para": "SC21"
+},
+{
+"w": "it",
+"start": 472.304,
+"end": 472.464,
+"para": "SC21"
+},
+{
+"w": "loses",
+"start": 472.464,
+"end": 472.864,
+"para": "SC21"
+},
+{
+"w": "people",
+"start": 472.864,
+"end": 473.184,
+"para": "SC21"
+},
+{
+"w": "every",
+"start": 473.184,
+"end": 473.424,
+"para": "SC21"
+},
+{
+"w": "year,",
+"start": 473.424,
+"end": 473.904,
+"para": "SC21"
+},
+{
+"w": "yet",
+"start": 473.904,
+"end": 474.144,
+"para": "SC21"
+},
+{
+"w": "in",
+"start": 474.144,
+"end": 474.224,
+"para": "SC21"
+},
+{
+"w": "a",
+"start": 474.224,
+"end": 474.304,
+"para": "SC21"
+},
+{
+"w": "Gallup",
+"start": 474.304,
+"end": 474.864,
+"para": "SC21"
+},
+{
+"w": "Pakistan",
+"start": 474.864,
+"end": 475.424,
+"para": "SC21"
+},
+{
+"w": "survey",
+"start": 475.424,
+"end": 475.904,
+"para": "SC21"
+},
+{
+"w": "71%",
+"start": 475.904,
+"end": 476.864,
+"para": "SC21"
+},
+{
+"w": "said",
+"start": 476.864,
+"end": 477.024,
+"para": "SC21"
+},
+{
+"w": "they",
+"start": 477.024,
+"end": 477.184,
+"para": "SC21"
+},
+{
+"w": "would",
+"start": 477.184,
+"end": 477.424,
+"para": "SC21"
+},
+{
+"w": "never",
+"start": 477.424,
+"end": 477.664,
+"para": "SC21"
+},
+{
+"w": "leave",
+"start": 477.664,
+"end": 478.224,
+"para": "SC21"
+},
+{
+"w": "and",
+"start": 478.224,
+"end": 478.384,
+"para": "SC21"
+},
+{
+"w": "its",
+"start": 478.384,
+"end": 478.624,
+"para": "SC21"
+},
+{
+"w": "passport",
+"start": 478.624,
+"end": 479.264,
+"para": "SC21"
+},
+{
+"w": "opens",
+"start": 479.264,
+"end": 479.664,
+"para": "SC21"
+},
+{
+"w": "only",
+"start": 479.664,
+"end": 479.984,
+"para": "SC21"
+},
+{
+"w": "29",
+"start": 479.984,
+"end": 480.624,
+"para": "SC21"
+},
+{
+"w": "doors.",
+"start": 480.624,
+"end": 481.424,
+"para": "SC21"
+},
+{
+"w": "Nepal",
+"start": 481.424,
+"end": 482.064,
+"para": "SC21"
+},
+{
+"w": "and",
+"start": 482.064,
+"end": 482.224,
+"para": "SC21"
+},
+{
+"w": "Bangladesh",
+"start": 482.224,
+"end": 483.104,
+"para": "SC21"
+},
+{
+"w": "losing",
+"start": 483.104,
+"end": 483.504,
+"para": "SC21"
+},
+{
+"w": "people",
+"start": 483.504,
+"end": 483.824,
+"para": "SC21"
+},
+{
+"w": "too",
+"start": 483.824,
+"end": 484.144,
+"para": "SC21"
+},
+{
+"w": "with",
+"start": 484.144,
+"end": 484.384,
+"para": "SC21"
+},
+{
+"w": "passports",
+"start": 484.384,
+"end": 485.024,
+"para": "SC21"
+},
+{
+"w": "among",
+"start": 485.024,
+"end": 485.264,
+"para": "SC21"
+},
+{
+"w": "the",
+"start": 485.264,
+"end": 485.344,
+"para": "SC21"
+},
+{
+"w": "10",
+"start": 485.344,
+"end": 485.664,
+"para": "SC21"
+},
+{
+"w": "weakest.",
+"start": 485.664,
+"end": 486.464,
+"para": "SC21"
+},
+{
+"w": "Bhutan",
+"start": 486.464,
+"end": 487.264,
+"para": "SC21"
+},
+{
+"w": "balanced.",
+"start": 487.264,
+"end": 487.904,
+"para": "SC21"
+},
+{
+"w": "Myanmar",
+"start": 488.219,
+"end": 489.019,
+"para": "SC22"
+},
+{
+"w": "and",
+"start": 489.019,
+"end": 489.179,
+"para": "SC22"
+},
+{
+"w": "Laos",
+"start": 489.179,
+"end": 489.739,
+"para": "SC22"
+},
+{
+"w": "both",
+"start": 489.739,
+"end": 489.979,
+"para": "SC22"
+},
+{
+"w": "under",
+"start": 489.979,
+"end": 490.219,
+"para": "SC22"
+},
+{
+"w": "a",
+"start": 490.219,
+"end": 490.299,
+"para": "SC22"
+},
+{
+"w": "full",
+"start": 490.299,
+"end": 490.619,
+"para": "SC22"
+},
+{
+"w": "U.S.",
+"start": 490.619,
+"end": 491.019,
+"para": "SC22"
+},
+{
+"w": "entry",
+"start": 491.019,
+"end": 491.419,
+"para": "SC22"
+},
+{
+"w": "ban.",
+"start": 491.419,
+"end": 492.059,
+"para": "SC22"
+},
+{
+"w": "Thailand",
+"start": 492.059,
+"end": 492.619,
+"para": "SC22"
+},
+{
+"w": "and",
+"start": 492.619,
+"end": 492.779,
+"para": "SC22"
+},
+{
+"w": "Cambodia",
+"start": 492.779,
+"end": 493.579,
+"para": "SC22"
+},
+{
+"w": "mostly",
+"start": 493.579,
+"end": 493.979,
+"para": "SC22"
+},
+{
+"w": "staying.",
+"start": 493.979,
+"end": 494.779,
+"para": "SC22"
+},
+{
+"w": "Vietnam",
+"start": 494.779,
+"end": 495.579,
+"para": "SC22"
+},
+{
+"w": "only",
+"start": 495.579,
+"end": 495.899,
+"para": "SC22"
+},
+{
+"w": "8%.",
+"start": 495.899,
+"end": 497.019,
+"para": "SC22"
+},
+{
+"w": "Malaysia",
+"start": 497.019,
+"end": 497.819,
+"para": "SC22"
+},
+{
+"w": "more",
+"start": 497.819,
+"end": 498.059,
+"para": "SC22"
+},
+{
+"w": "arrivals.",
+"start": 498.059,
+"end": 499.099,
+"para": "SC22"
+},
+{
+"w": "Singapore",
+"start": 499.099,
+"end": 500.059,
+"para": "SC22"
+},
+{
+"w": "slightly",
+"start": 500.059,
+"end": 500.539,
+"para": "SC22"
+},
+{
+"w": "more",
+"start": 500.539,
+"end": 500.779,
+"para": "SC22"
+},
+{
+"w": "arrivals",
+"start": 500.779,
+"end": 501.419,
+"para": "SC22"
+},
+{
+"w": "and",
+"start": 501.419,
+"end": 501.579,
+"para": "SC22"
+},
+{
+"w": "the",
+"start": 501.579,
+"end": 501.739,
+"para": "SC22"
+},
+{
+"w": "strongest",
+"start": 501.739,
+"end": 502.219,
+"para": "SC22"
+},
+{
+"w": "passport",
+"start": 502.219,
+"end": 502.779,
+"para": "SC22"
+},
+{
+"w": "on",
+"start": 502.779,
+"end": 502.939,
+"para": "SC22"
+},
+{
+"w": "the",
+"start": 502.939,
+"end": 503.099,
+"para": "SC22"
+},
+{
+"w": "planet",
+"start": 503.099,
+"end": 503.739,
+"para": "SC22"
+},
+{
+"w": "192",
+"start": 503.739,
+"end": 504.939,
+"para": "SC22"
+},
+{
+"w": "destinations.",
+"start": 504.939,
+"end": 506.219,
+"para": "SC22"
+},
+{
+"w": "Indonesia",
+"start": 506.219,
+"end": 507.259,
+"para": "SC22"
+},
+{
+"w": "staying.",
+"start": 507.259,
+"end": 507.979,
+"para": "SC22"
+},
+{
+"w": "And",
+"start": 507.979,
+"end": 508.139,
+"para": "SC22"
+},
+{
+"w": "the",
+"start": 508.139,
+"end": 508.299,
+"para": "SC22"
+},
+{
+"w": "Philippines",
+"start": 508.299,
+"end": 509.099,
+"para": "SC22"
+},
+{
+"w": "17%",
+"start": 509.099,
+"end": 510.219,
+"para": "SC22"
+},
+{
+"w": "dream",
+"start": 510.219,
+"end": 510.539,
+"para": "SC22"
+},
+{
+"w": "of",
+"start": 510.539,
+"end": 510.699,
+"para": "SC22"
+},
+{
+"w": "living",
+"start": 510.699,
+"end": 511.019,
+"para": "SC22"
+},
+{
+"w": "abroad.",
+"start": 511.019,
+"end": 511.579,
+"para": "SC22"
+},
+{
+"w": "Next",
+"start": 511.901,
+"end": 512.381,
+"para": "SC23"
+},
+{
+"w": "stop",
+"start": 512.381,
+"end": 512.781,
+"para": "SC23"
+},
+{
+"w": "East",
+"start": 512.781,
+"end": 513.101,
+"para": "SC23"
+},
+{
+"w": "Asia.",
+"start": 513.101,
+"end": 513.741,
+"para": "SC23"
+},
+{
+"w": "China",
+"start": 513.741,
+"end": 514.301,
+"para": "SC23"
+},
+{
+"w": "close",
+"start": 514.301,
+"end": 514.541,
+"para": "SC23"
+},
+{
+"w": "to",
+"start": 514.541,
+"end": 514.701,
+"para": "SC23"
+},
+{
+"w": "balance",
+"start": 514.701,
+"end": 515.181,
+"para": "SC23"
+},
+{
+"w": "by",
+"start": 515.181,
+"end": 515.341,
+"para": "SC23"
+},
+{
+"w": "UN",
+"start": 515.341,
+"end": 515.821,
+"para": "SC23"
+},
+{
+"w": "estimates.",
+"start": 515.821,
+"end": 516.781,
+"para": "SC23"
+},
+{
+"w": "Mongolia",
+"start": 516.781,
+"end": 517.581,
+"para": "SC23"
+},
+{
+"w": "the",
+"start": 517.581,
+"end": 517.741,
+"para": "SC23"
+},
+{
+"w": "same.",
+"start": 517.741,
+"end": 518.381,
+"para": "SC23"
+},
+{
+"w": "North",
+"start": 518.381,
+"end": 518.701,
+"para": "SC23"
+},
+{
+"w": "Korea,",
+"start": 518.701,
+"end": 519.421,
+"para": "SC23"
+},
+{
+"w": "no",
+"start": 519.421,
+"end": 519.661,
+"para": "SC23"
+},
+{
+"w": "poll",
+"start": 519.661,
+"end": 520.141,
+"para": "SC23"
+},
+{
+"w": "and",
+"start": 520.141,
+"end": 520.301,
+"para": "SC23"
+},
+{
+"w": "no",
+"start": 520.301,
+"end": 520.461,
+"para": "SC23"
+},
+{
+"w": "way",
+"start": 520.461,
+"end": 520.701,
+"para": "SC23"
+},
+{
+"w": "out.",
+"start": 520.701,
+"end": 521.341,
+"para": "SC23"
+},
+{
+"w": "Citizens",
+"start": 521.341,
+"end": 521.901,
+"para": "SC23"
+},
+{
+"w": "can't",
+"start": 521.901,
+"end": 522.221,
+"para": "SC23"
+},
+{
+"w": "leave",
+"start": 522.221,
+"end": 522.461,
+"para": "SC23"
+},
+{
+"w": "without",
+"start": 522.461,
+"end": 522.781,
+"para": "SC23"
+},
+{
+"w": "state",
+"start": 522.781,
+"end": 523.101,
+"para": "SC23"
+},
+{
+"w": "permission",
+"start": 523.101,
+"end": 523.581,
+"para": "SC23"
+},
+{
+"w": "so",
+"start": 523.581,
+"end": 523.741,
+"para": "SC23"
+},
+{
+"w": "it",
+"start": 523.741,
+"end": 523.901,
+"para": "SC23"
+},
+{
+"w": "gets",
+"start": 523.901,
+"end": 524.141,
+"para": "SC23"
+},
+{
+"w": "the",
+"start": 524.141,
+"end": 524.301,
+"para": "SC23"
+},
+{
+"w": "lock.",
+"start": 524.301,
+"end": 525.101,
+"para": "SC23"
+},
+{
+"w": "South",
+"start": 525.101,
+"end": 525.501,
+"para": "SC23"
+},
+{
+"w": "Korea,",
+"start": 525.501,
+"end": 526.141,
+"para": "SC23"
+},
+{
+"w": "slightly",
+"start": 526.141,
+"end": 526.541,
+"para": "SC23"
+},
+{
+"w": "more",
+"start": 526.541,
+"end": 526.861,
+"para": "SC23"
+},
+{
+"w": "arrivals",
+"start": 526.861,
+"end": 527.421,
+"para": "SC23"
+},
+{
+"w": "and",
+"start": 527.421,
+"end": 527.581,
+"para": "SC23"
+},
+{
+"w": "one",
+"start": 527.581,
+"end": 527.741,
+"para": "SC23"
+},
+{
+"w": "of",
+"start": 527.741,
+"end": 527.821,
+"para": "SC23"
+},
+{
+"w": "the",
+"start": 527.821,
+"end": 527.981,
+"para": "SC23"
+},
+{
+"w": "strongest",
+"start": 527.981,
+"end": 528.541,
+"para": "SC23"
+},
+{
+"w": "passports.",
+"start": 528.541,
+"end": 529.661,
+"para": "SC23"
+},
+{
+"w": "Japan,",
+"start": 529.661,
+"end": 530.461,
+"para": "SC23"
+},
+{
+"w": "14%",
+"start": 530.461,
+"end": 531.341,
+"para": "SC23"
+},
+{
+"w": "would",
+"start": 531.341,
+"end": 531.581,
+"para": "SC23"
+},
+{
+"w": "rather",
+"start": 531.581,
+"end": 531.821,
+"para": "SC23"
+},
+{
+"w": "live",
+"start": 531.821,
+"end": 532.221,
+"para": "SC23"
+},
+{
+"w": "elsewhere",
+"start": 532.221,
+"end": 532.701,
+"para": "SC23"
+},
+{
+"w": "with",
+"start": 532.701,
+"end": 532.861,
+"para": "SC23"
+},
+{
+"w": "a",
+"start": 532.861,
+"end": 533.021,
+"para": "SC23"
+},
+{
+"w": "passport",
+"start": 533.021,
+"end": 533.581,
+"para": "SC23"
+},
+{
+"w": "that",
+"start": 533.581,
+"end": 533.741,
+"para": "SC23"
+},
+{
+"w": "opens",
+"start": 533.741,
+"end": 534.141,
+"para": "SC23"
+},
+{
+"w": "188",
+"start": 534.141,
+"end": 535.261,
+"para": "SC23"
+},
+{
+"w": "doors.",
+"start": 535.261,
+"end": 535.741,
+"para": "SC23"
+},
+{
+"w": "down",
+"start": 537.255,
+"end": 537.575,
+"para": "SC24"
+},
+{
+"w": "to",
+"start": 537.575,
+"end": 537.735,
+"para": "SC24"
+},
+{
+"w": "the",
+"start": 537.735,
+"end": 537.895,
+"para": "SC24"
+},
+{
+"w": "Pacific,",
+"start": 537.895,
+"end": 538.695,
+"para": "SC24"
+},
+{
+"w": "Papua",
+"start": 538.695,
+"end": 539.335,
+"para": "SC24"
+},
+{
+"w": "New",
+"start": 539.335,
+"end": 539.495,
+"para": "SC24"
+},
+{
+"w": "Guinea",
+"start": 539.495,
+"end": 539.815,
+"para": "SC24"
+},
+{
+"w": "and",
+"start": 539.815,
+"end": 539.895,
+"para": "SC24"
+},
+{
+"w": "the",
+"start": 539.895,
+"end": 540.055,
+"para": "SC24"
+},
+{
+"w": "Solomon",
+"start": 540.055,
+"end": 540.775,
+"para": "SC24"
+},
+{
+"w": "Islands",
+"start": 540.775,
+"end": 541.335,
+"para": "SC24"
+},
+{
+"w": "mostly",
+"start": 541.335,
+"end": 541.735,
+"para": "SC24"
+},
+{
+"w": "staying,",
+"start": 541.735,
+"end": 542.615,
+"para": "SC24"
+},
+{
+"w": "Australia",
+"start": 542.615,
+"end": 543.575,
+"para": "SC24"
+},
+{
+"w": "a",
+"start": 543.575,
+"end": 543.815,
+"para": "SC24"
+},
+{
+"w": "top",
+"start": 543.815,
+"end": 544.215,
+"para": "SC24"
+},
+{
+"w": "dream",
+"start": 544.215,
+"end": 544.615,
+"para": "SC24"
+},
+{
+"w": "destination,",
+"start": 544.615,
+"end": 545.815,
+"para": "SC24"
+},
+{
+"w": "New",
+"start": 545.815,
+"end": 546.055,
+"para": "SC24"
+},
+{
+"w": "Zealand",
+"start": 546.055,
+"end": 546.615,
+"para": "SC24"
+},
+{
+"w": "plus",
+"start": 546.615,
+"end": 547.015,
+"para": "SC24"
+},
+{
+"w": "231",
+"start": 547.015,
+"end": 548.135,
+"para": "SC24"
+},
+{
+"w": "in",
+"start": 548.135,
+"end": 548.295,
+"para": "SC24"
+},
+{
+"w": "Gallup's",
+"start": 548.295,
+"end": 548.935,
+"para": "SC24"
+},
+{
+"w": "2015",
+"start": 548.935,
+"end": 549.895,
+"para": "SC24"
+},
+{
+"w": "to",
+"start": 549.895,
+"end": 550.135,
+"para": "SC24"
+},
+{
+"w": "2017",
+"start": 550.135,
+"end": 551.335,
+"para": "SC24"
+},
+{
+"w": "count",
+"start": 551.335,
+"end": 552.015,
+"para": "SC24"
+},
+{
+"w": "which",
+"start": 552.055,
+"end": 552.295,
+"para": "SC24"
+},
+{
+"w": "back",
+"start": 552.295,
+"end": 552.615,
+"para": "SC24"
+},
+{
+"w": "then",
+"start": 552.615,
+"end": 552.935,
+"para": "SC24"
+},
+{
+"w": "beat",
+"start": 552.935,
+"end": 553.335,
+"para": "SC24"
+},
+{
+"w": "even",
+"start": 553.335,
+"end": 553.655,
+"para": "SC24"
+},
+{
+"w": "Canada",
+"start": 553.655,
+"end": 554.615,
+"para": "SC24"
+},
+{
+"w": "and",
+"start": 554.615,
+"end": 554.855,
+"para": "SC24"
+},
+{
+"w": "Fiji",
+"start": 554.855,
+"end": 555.655,
+"para": "SC24"
+},
+{
+"w": "losing",
+"start": 555.655,
+"end": 556.135,
+"para": "SC24"
+},
+{
+"w": "people",
+"start": 556.135,
+"end": 556.455,
+"para": "SC24"
+},
+{
+"w": "by",
+"start": 556.455,
+"end": 556.695,
+"para": "SC24"
+},
+{
+"w": "UN",
+"start": 556.695,
+"end": 557.255,
+"para": "SC24"
+},
+{
+"w": "estimates.",
+"start": 557.255,
+"end": 557.895,
+"para": "SC24"
+},
+{
+"w": "So",
+"start": 558.196,
+"end": 558.596,
+"para": "SC25"
+},
+{
+"w": "here's",
+"start": 558.596,
+"end": 558.916,
+"para": "SC25"
+},
+{
+"w": "the",
+"start": 558.916,
+"end": 559.076,
+"para": "SC25"
+},
+{
+"w": "final",
+"start": 559.076,
+"end": 559.396,
+"para": "SC25"
+},
+{
+"w": "map.",
+"start": 559.396,
+"end": 560.196,
+"para": "SC25"
+},
+{
+"w": "16",
+"start": 560.196,
+"end": 560.676,
+"para": "SC25"
+},
+{
+"w": "magnets,",
+"start": 560.676,
+"end": 561.396,
+"para": "SC25"
+},
+{
+"w": "16",
+"start": 561.396,
+"end": 561.876,
+"para": "SC25"
+},
+{
+"w": "countries",
+"start": 561.876,
+"end": 562.356,
+"para": "SC25"
+},
+{
+"w": "with",
+"start": 562.356,
+"end": 562.516,
+"para": "SC25"
+},
+{
+"w": "more",
+"start": 562.516,
+"end": 562.756,
+"para": "SC25"
+},
+{
+"w": "people",
+"start": 562.756,
+"end": 563.076,
+"para": "SC25"
+},
+{
+"w": "moving",
+"start": 563.076,
+"end": 563.396,
+"para": "SC25"
+},
+{
+"w": "in,",
+"start": 563.396,
+"end": 563.796,
+"para": "SC25"
+},
+{
+"w": "47",
+"start": 563.796,
+"end": 564.516,
+"para": "SC25"
+},
+{
+"w": "where",
+"start": 564.516,
+"end": 564.676,
+"para": "SC25"
+},
+{
+"w": "most",
+"start": 564.676,
+"end": 564.916,
+"para": "SC25"
+},
+{
+"w": "people",
+"start": 564.916,
+"end": 565.236,
+"para": "SC25"
+},
+{
+"w": "stay,",
+"start": 565.236,
+"end": 565.876,
+"para": "SC25"
+},
+{
+"w": "52",
+"start": 565.876,
+"end": 566.516,
+"para": "SC25"
+},
+{
+"w": "where",
+"start": 566.516,
+"end": 566.756,
+"para": "SC25"
+},
+{
+"w": "many",
+"start": 566.756,
+"end": 566.996,
+"para": "SC25"
+},
+{
+"w": "want",
+"start": 566.996,
+"end": 567.236,
+"para": "SC25"
+},
+{
+"w": "out,",
+"start": 567.236,
+"end": 567.716,
+"para": "SC25"
+},
+{
+"w": "26",
+"start": 567.716,
+"end": 568.356,
+"para": "SC25"
+},
+{
+"w": "where",
+"start": 568.356,
+"end": 568.436,
+"para": "SC25"
+},
+{
+"w": "it's",
+"start": 568.436,
+"end": 568.676,
+"para": "SC25"
+},
+{
+"w": "close",
+"start": 568.676,
+"end": 568.836,
+"para": "SC25"
+},
+{
+"w": "to",
+"start": 568.836,
+"end": 568.996,
+"para": "SC25"
+},
+{
+"w": "half",
+"start": 568.996,
+"end": 569.316,
+"para": "SC25"
+},
+{
+"w": "or",
+"start": 569.316,
+"end": 569.476,
+"para": "SC25"
+},
+{
+"w": "more,",
+"start": 569.476,
+"end": 569.876,
+"para": "SC25"
+},
+{
+"w": "and",
+"start": 569.876,
+"end": 570.036,
+"para": "SC25"
+},
+{
+"w": "2",
+"start": 570.036,
+"end": 570.356,
+"para": "SC25"
+},
+{
+"w": "where",
+"start": 570.356,
+"end": 570.516,
+"para": "SC25"
+},
+{
+"w": "people",
+"start": 570.516,
+"end": 570.756,
+"para": "SC25"
+},
+{
+"w": "simply",
+"start": 570.756,
+"end": 571.156,
+"para": "SC25"
+},
+{
+"w": "can't",
+"start": 571.156,
+"end": 571.556,
+"para": "SC25"
+},
+{
+"w": "leave.",
+"start": 571.556,
+"end": 572.436,
+"para": "SC25"
+},
+{
+"w": "And",
+"start": 572.436,
+"end": 572.596,
+"para": "SC25"
+},
+{
+"w": "notice",
+"start": 572.596,
+"end": 573.076,
+"para": "SC25"
+},
+{
+"w": "the",
+"start": 573.076,
+"end": 573.236,
+"para": "SC25"
+},
+{
+"w": "pattern.",
+"start": 573.236,
+"end": 573.956,
+"para": "SC25"
+},
+{
+"w": "The",
+"start": 573.956,
+"end": 574.116,
+"para": "SC25"
+},
+{
+"w": "places",
+"start": 574.116,
+"end": 574.676,
+"para": "SC25"
+},
+{
+"w": "people",
+"start": 574.676,
+"end": 574.916,
+"para": "SC25"
+},
+{
+"w": "most",
+"start": 574.916,
+"end": 575.156,
+"para": "SC25"
+},
+{
+"w": "want",
+"start": 575.156,
+"end": 575.396,
+"para": "SC25"
+},
+{
+"w": "to",
+"start": 575.396,
+"end": 575.556,
+"para": "SC25"
+},
+{
+"w": "leave",
+"start": 575.556,
+"end": 575.876,
+"para": "SC25"
+},
+{
+"w": "often",
+"start": 575.876,
+"end": 576.276,
+"para": "SC25"
+},
+{
+"w": "have",
+"start": 576.276,
+"end": 576.436,
+"para": "SC25"
+},
+{
+"w": "the",
+"start": 576.436,
+"end": 576.596,
+"para": "SC25"
+},
+{
+"w": "passports",
+"start": 576.596,
+"end": 577.316,
+"para": "SC25"
+},
+{
+"w": "that",
+"start": 577.316,
+"end": 577.476,
+"para": "SC25"
+},
+{
+"w": "open",
+"start": 577.476,
+"end": 577.796,
+"para": "SC25"
+},
+{
+"w": "the",
+"start": 577.796,
+"end": 577.956,
+"para": "SC25"
+},
+{
+"w": "fewest",
+"start": 577.956,
+"end": 578.516,
+"para": "SC25"
+},
+{
+"w": "doors.",
+"start": 578.516,
+"end": 579.316,
+"para": "SC25"
+},
+{
+"w": "So,",
+"start": 579.316,
+"end": 579.796,
+"para": "SC25"
+},
+{
+"w": "where",
+"start": 579.796,
+"end": 580.116,
+"para": "SC25"
+},
+{
+"w": "would",
+"start": 580.116,
+"end": 580.356,
+"para": "SC25"
+},
+{
+"w": "you",
+"start": 580.356,
+"end": 580.596,
+"para": "SC25"
+},
+{
+"w": "go?",
+"start": 580.596,
+"end": 581.156,
+"para": "SC25"
+},
+{
+"w": "Tell",
+"start": 581.156,
+"end": 581.396,
+"para": "SC25"
+},
+{
+"w": "us",
+"start": 581.396,
+"end": 581.556,
+"para": "SC25"
+},
+{
+"w": "in",
+"start": 581.556,
+"end": 581.716,
+"para": "SC25"
+},
+{
+"w": "the",
+"start": 581.716,
+"end": 581.876,
+"para": "SC25"
+},
+{
+"w": "comments.",
+"start": 581.876,
+"end": 582.436,
+"para": "SC25"
+}
+]
+}

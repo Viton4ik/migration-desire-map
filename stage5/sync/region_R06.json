@@ -1,0 +1,125 @@
+{
+ "region": {
+  "id": "R06",
+  "name": "Middle East",
+  "scenes": "SC13-SC14",
+  "n0": 8859,
+  "n1": 10351,
+  "t0": 295.3,
+  "t1": 345.03333333333336,
+  "countries": 15,
+  "lastWord": {
+   "i": 762,
+   "w": "leaving.",
+   "start": 344.461,
+   "end": 344.701,
+   "how": "asr",
+   "src_start": 344.461,
+   "src_end": 344.701
+  },
+  "nextWord": {
+   "i": 763,
+   "w": "Next",
+   "start": 345.37,
+   "end": 345.69,
+   "how": "asr",
+   "src_start": 345.37,
+   "src_end": 345.69
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "364"
+   ],
+   "codes": [
+    "IRN"
+   ],
+   "region": "R06",
+   "flyStart": 295.478,
+   "arrive": 297.448
+  },
+  {
+   "ids": [
+    "368",
+    "414"
+   ],
+   "codes": [
+    "IRQ",
+    "KWT"
+   ],
+   "region": "R06",
+   "flyStart": 302.178,
+   "arrive": 303.078
+  },
+  {
+   "ids": [
+    "048",
+    "634",
+    "784",
+    "512"
+   ],
+   "codes": [
+    "BHR",
+    "QAT",
+    "ARE",
+    "OMN"
+   ],
+   "region": "R06",
+   "flyStart": 305.928,
+   "arrive": 307.528
+  },
+  {
+   "ids": [
+    "887",
+    "682"
+   ],
+   "codes": [
+    "YEM",
+    "SAU"
+   ],
+   "region": "R06",
+   "flyStart": 315.778,
+   "arrive": 316.678
+  },
+  {
+   "ids": [
+    "400",
+    "760"
+   ],
+   "codes": [
+    "JOR",
+    "SYR"
+   ],
+   "region": "R06",
+   "flyStart": 323.298,
+   "arrive": 324.198
+  },
+  {
+   "ids": [
+    "792",
+    "196"
+   ],
+   "codes": [
+    "TUR",
+    "CYP"
+   ],
+   "region": "R06",
+   "flyStart": 334.441,
+   "arrive": 335.341
+  },
+  {
+   "ids": [
+    "422",
+    "376"
+   ],
+   "codes": [
+    "LBN",
+    "ISR"
+   ],
+   "region": "R06",
+   "flyStart": 340.441,
+   "arrive": 341.341
+  }
+ ]
+}

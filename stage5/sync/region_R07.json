@@ -1,0 +1,162 @@
+{
+ "region": {
+  "id": "R07",
+  "name": "North & West Africa",
+  "scenes": "SC15-SC17",
+  "n0": 10351,
+  "n1": 11934,
+  "t0": 345.03333333333336,
+  "t1": 397.8,
+  "countries": 20,
+  "lastWord": {
+   "i": 873,
+   "w": "20.",
+   "start": 397.013,
+   "end": 397.786,
+   "how": "between-neighbours",
+   "src_start": 397.013,
+   "src_end": 397.786
+  },
+  "nextWord": {
+   "i": 874,
+   "w": "Next",
+   "start": 397.786,
+   "end": 398.266,
+   "how": "asr",
+   "src_start": 397.786,
+   "src_end": 398.266
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "818",
+    "434"
+   ],
+   "codes": [
+    "EGY",
+    "LBY"
+   ],
+   "region": "R07",
+   "flyStart": 345.37,
+   "arrive": 347.26
+  },
+  {
+   "ids": [
+    "788",
+    "012"
+   ],
+   "codes": [
+    "TUN",
+    "DZA"
+   ],
+   "region": "R07",
+   "flyStart": 351.74,
+   "arrive": 352.49
+  },
+  {
+   "ids": [
+    "504",
+    "478"
+   ],
+   "codes": [
+    "MAR",
+    "MRT"
+   ],
+   "region": "R07",
+   "flyStart": 354.86,
+   "arrive": 355.69
+  },
+  {
+   "ids": [
+    "686",
+    "270",
+    "324"
+   ],
+   "codes": [
+    "SEN",
+    "GMB",
+    "GIN"
+   ],
+   "region": "R07",
+   "flyStart": 358.62,
+   "arrive": 361.885
+  },
+  {
+   "ids": [
+    "694",
+    "430"
+   ],
+   "codes": [
+    "SLE",
+    "LBR"
+   ],
+   "region": "R07",
+   "flyStart": 365.925,
+   "arrive": 366.675
+  },
+  {
+   "ids": [
+    "384"
+   ],
+   "codes": [
+    "CIV"
+   ],
+   "region": "R07",
+   "flyStart": 378.695,
+   "arrive": 379.595
+  },
+  {
+   "ids": [
+    "466",
+    "854"
+   ],
+   "codes": [
+    "MLI",
+    "BFA"
+   ],
+   "region": "R07",
+   "flyStart": 381.005,
+   "arrive": 381.755
+  },
+  {
+   "ids": [
+    "288",
+    "768",
+    "204"
+   ],
+   "codes": [
+    "GHA",
+    "TGO",
+    "BEN"
+   ],
+   "region": "R07",
+   "flyStart": 385.255,
+   "arrive": 386.155
+  },
+  {
+   "ids": [
+    "566"
+   ],
+   "codes": [
+    "NGA"
+   ],
+   "region": "R07",
+   "flyStart": 390.323,
+   "arrive": 391.073
+  },
+  {
+   "ids": [
+    "562",
+    "148"
+   ],
+   "codes": [
+    "NER",
+    "TCD"
+   ],
+   "region": "R07",
+   "flyStart": 395.233,
+   "arrive": 396.133
+  }
+ ]
+}

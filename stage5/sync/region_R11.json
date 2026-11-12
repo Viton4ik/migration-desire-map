@@ -1,0 +1,116 @@
+{
+ "region": {
+  "id": "R11",
+  "name": "East Asia & Oceania + final map",
+  "scenes": "SC23-SC25",
+  "n0": 15352,
+  "n1": 17497,
+  "t0": 511.73333333333335,
+  "t1": 583.2333333333333,
+  "countries": 10,
+  "lastWord": {
+   "i": 1276,
+   "w": "comments.",
+   "start": 581.876,
+   "end": 582.436,
+   "how": "asr",
+   "src_start": 581.876,
+   "src_end": 582.436
+  },
+  "nextWord": null
+ },
+ "shots": [
+  {
+   "ids": [
+    "156",
+    "496"
+   ],
+   "codes": [
+    "CHN",
+    "MNG"
+   ],
+   "region": "R11",
+   "flyStart": 511.901,
+   "arrive": 513.791
+  },
+  {
+   "ids": [
+    "408",
+    "410"
+   ],
+   "codes": [
+    "PRK",
+    "KOR"
+   ],
+   "region": "R11",
+   "flyStart": 518.831,
+   "arrive": 519.581
+  },
+  {
+   "ids": [
+    "392"
+   ],
+   "codes": [
+    "JPN"
+   ],
+   "region": "R11",
+   "flyStart": 529.641,
+   "arrive": 530.541
+  },
+  {
+   "ids": [
+    "598",
+    "090"
+   ],
+   "codes": [
+    "PNG",
+    "SLB"
+   ],
+   "region": "R11",
+   "flyStart": 535.791,
+   "arrive": 538.745,
+   "dip": 0.4
+  },
+  {
+   "ids": [
+    "036"
+   ],
+   "codes": [
+    "AUS"
+   ],
+   "region": "R11",
+   "flyStart": 542.595,
+   "arrive": 543.495
+  },
+  {
+   "ids": [
+    "554"
+   ],
+   "codes": [
+    "NZL"
+   ],
+   "region": "R11",
+   "flyStart": 545.795,
+   "arrive": 546.695
+  },
+  {
+   "ids": [
+    "242"
+   ],
+   "codes": [
+    "FJI"
+   ],
+   "region": "R11",
+   "flyStart": 554.595,
+   "arrive": 555.495
+  },
+  {
+   "ids": [],
+   "codes": [],
+   "region": "R11",
+   "overview": true,
+   "flyStart": 558.196,
+   "arrive": 560.396
+  }
+ ]
+}

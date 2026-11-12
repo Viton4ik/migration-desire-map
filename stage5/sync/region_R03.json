@@ -1,0 +1,166 @@
+{
+ "region": {
+  "id": "R03",
+  "name": "Western & Northern Europe",
+  "scenes": "SC08-SC09",
+  "n0": 4581,
+  "n1": 6239,
+  "t0": 152.7,
+  "t1": 207.96666666666667,
+  "countries": 17,
+  "lastWord": {
+   "i": 467,
+   "w": "negative.",
+   "start": 207.33,
+   "end": 207.81,
+   "how": "asr",
+   "src_start": 207.33,
+   "src_end": 207.81
+  },
+  "nextWord": {
+   "i": 468,
+   "w": "Next",
+   "start": 208.153,
+   "end": 208.633,
+   "how": "asr",
+   "src_start": 208.153,
+   "src_end": 208.633
+  }
+ },
+ "shots": [
+  {
+   "ids": [
+    "620"
+   ],
+   "codes": [
+    "PRT"
+   ],
+   "region": "R03",
+   "flyStart": 152.75,
+   "arrive": 156.898,
+   "dip": 0.45
+  },
+  {
+   "ids": [
+    "724"
+   ],
+   "codes": [
+    "ESP"
+   ],
+   "region": "R03",
+   "flyStart": 159.228,
+   "arrive": 160.128
+  },
+  {
+   "ids": [
+    "250"
+   ],
+   "codes": [
+    "FRA"
+   ],
+   "region": "R03",
+   "flyStart": 160.978,
+   "arrive": 161.808
+  },
+  {
+   "ids": [
+    "826"
+   ],
+   "codes": [
+    "GBR"
+   ],
+   "region": "R03",
+   "flyStart": 162.958,
+   "arrive": 163.708
+  },
+  {
+   "ids": [
+    "372"
+   ],
+   "codes": [
+    "IRL"
+   ],
+   "region": "R03",
+   "flyStart": 173.148,
+   "arrive": 174.048
+  },
+  {
+   "ids": [
+    "352",
+    "578"
+   ],
+   "codes": [
+    "ISL",
+    "NOR"
+   ],
+   "region": "R03",
+   "flyStart": 181.058,
+   "arrive": 181.888
+  },
+  {
+   "ids": [
+    "752",
+    "246",
+    "208"
+   ],
+   "codes": [
+    "SWE",
+    "FIN",
+    "DNK"
+   ],
+   "region": "R03",
+   "flyStart": 185.87,
+   "arrive": 186.77
+  },
+  {
+   "ids": [
+    "528",
+    "056",
+    "442"
+   ],
+   "codes": [
+    "NLD",
+    "BEL",
+    "LUX"
+   ],
+   "region": "R03",
+   "flyStart": 192.99,
+   "arrive": 193.89
+  },
+  {
+   "ids": [
+    "276"
+   ],
+   "codes": [
+    "DEU"
+   ],
+   "region": "R03",
+   "flyStart": 198.59,
+   "arrive": 199.49
+  },
+  {
+   "ids": [
+    "756",
+    "040"
+   ],
+   "codes": [
+    "CHE",
+    "AUT"
+   ],
+   "region": "R03",
+   "flyStart": 200.43,
+   "arrive": 201.33
+  },
+  {
+   "ids": [
+    "380"
+   ],
+   "codes": [
+    "ITA"
+   ],
+   "region": "R03",
+   "flyStart": 204.35,
+   "arrive": 205.25
+  }
+ ]
+}

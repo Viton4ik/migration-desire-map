@@ -1,0 +1,152 @@
+{
+ "script_tokens": 1277,
+ "asr_tokens": 1290,
+ "matched": 1253,
+ "match_rate": 0.9812,
+ "differences": [
+  {
+   "op": "replace",
+   "script": "tomorrow",
+   "asr": "to morrow",
+   "t": 1.78
+  },
+  {
+   "op": "replace",
+   "script": "225 percent",
+   "asr": "two hundred twenty five per cent",
+   "t": 19.0
+  },
+  {
+   "op": "replace",
+   "script": "15 percent",
+   "asr": "fifteen per cent",
+   "t": 31.19
+  },
+  {
+   "op": "replace",
+   "script": "want",
+   "asr": "won",
+   "t": 46.65
+  },
+  {
+   "op": "replace",
+   "script": "sea",
+   "asr": "c",
+   "t": 89.41
+  },
+  {
+   "op": "replace",
+   "script": "ten",
+   "asr": "10",
+   "t": 206.21
+  },
+  {
+   "op": "delete",
+   "script": "to",
+   "asr": "",
+   "t": 220.87
+  },
+  {
+   "op": "delete",
+   "script": "to",
+   "asr": "",
+   "t": 226.47
+  },
+  {
+   "op": "insert",
+   "script": "",
+   "asr": "percent",
+   "t": 230.87
+  },
+  {
+   "op": "insert",
+   "script": "",
+   "asr": "percent",
+   "t": 304.92
+  },
+  {
+   "op": "replace",
+   "script": "ten",
+   "asr": "10",
+   "t": 321.24
+  },
+  {
+   "op": "delete",
+   "script": "to",
+   "asr": "",
+   "t": 328.22
+  },
+  {
+   "op": "replace",
+   "script": "65",
+   "asr": "sixty five",
+   "t": 386.37
+  },
+  {
+   "op": "replace",
+   "script": "45",
+   "asr": "forty five",
+   "t": 387.97
+  },
+  {
+   "op": "replace",
+   "script": "32",
+   "asr": "thirty two",
+   "t": 389.01
+  },
+  {
+   "op": "replace",
+   "script": "51",
+   "asr": "fifty one",
+   "t": 390.93
+  },
+  {
+   "op": "replace",
+   "script": "17",
+   "asr": "seventeen",
+   "t": 395.97
+  },
+  {
+   "op": "replace",
+   "script": "20",
+   "asr": "twenty",
+   "t": 397.01
+  },
+  {
+   "op": "replace",
+   "script": "31",
+   "asr": "thirty one",
+   "t": 424.49
+  },
+  {
+   "op": "replace",
+   "script": "29",
+   "asr": "twenty nine",
+   "t": 426.17
+  },
+  {
+   "op": "replace",
+   "script": "39",
+   "asr": "thirty nine",
+   "t": 427.61
+  },
+  {
+   "op": "replace",
+   "script": "37",
+   "asr": "thirty seven",
+   "t": 434.01
+  },
+  {
+   "op": "replace",
+   "script": "ten",
+   "asr": "10",
+   "t": 485.34
+  },
+  {
+   "op": "replace",
+   "script": "balanced",
+   "asr": "balance",
+   "t": 514.7
+  }
+ ]
+}
