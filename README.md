@@ -120,5 +120,5 @@ is no audio drift (lag 0 samples).
 | Music | original track synthesized in code for this video (`stage6/tools/synth_music.py`) | own work |
 | Survey figures | the sources listed in `sources.txt` | quoted with attribution; the numbers belong to their publishers |
 
-The code in this repository has no licence file yet. Add one (for example MIT) before you publish the repository if you want others
-to reuse it.
+The code in this repository is released under the [MIT License](LICENSE). Third-party assets keep their own licences
+(table above): fonts under the SIL OFL, borders and flags in the public domain, survey figures belonging to their publishers.
