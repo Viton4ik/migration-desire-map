@@ -1,0 +1,152 @@
+[
+ {
+  "scene_id": "SC01",
+  "start": 0.25,
+  "end": 10.703,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC02",
+  "start": 11.153,
+  "end": 26.407,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC03",
+  "start": 26.857,
+  "end": 42.665,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC04",
+  "start": 43.115,
+  "end": 67.832,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC05",
+  "start": 68.282,
+  "end": 91.47,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC06",
+  "start": 91.92,
+  "end": 112.755,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC07",
+  "start": 113.205,
+  "end": 152.388,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC08",
+  "start": 154.038,
+  "end": 181.03,
+  "flight_pause_before": 1.2
+ },
+ {
+  "scene_id": "SC09",
+  "start": 181.48,
+  "end": 207.853,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC10",
+  "start": 208.303,
+  "end": 234.245,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC11",
+  "start": 234.695,
+  "end": 259.079,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC12",
+  "start": 259.529,
+  "end": 295.178,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC13",
+  "start": 295.628,
+  "end": 323.361,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC14",
+  "start": 323.811,
+  "end": 344.91,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC15",
+  "start": 345.36,
+  "end": 358.015,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC16",
+  "start": 358.465,
+  "end": 385.273,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC17",
+  "start": 385.723,
+  "end": 397.486,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC18",
+  "start": 397.936,
+  "end": 423.152,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC19",
+  "start": 423.602,
+  "end": 436.765,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC20",
+  "start": 437.215,
+  "end": 457.524,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC21",
+  "start": 459.174,
+  "end": 487.919,
+  "flight_pause_before": 1.2
+ },
+ {
+  "scene_id": "SC22",
+  "start": 488.369,
+  "end": 511.601,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC23",
+  "start": 512.051,
+  "end": 535.795,
+  "flight_pause_before": 0.0
+ },
+ {
+  "scene_id": "SC24",
+  "start": 537.245,
+  "end": 557.896,
+  "flight_pause_before": 1.0
+ },
+ {
+  "scene_id": "SC25",
+  "start": 558.346,
+  "end": 582.431,
+  "flight_pause_before": 0.0
+ }
+]

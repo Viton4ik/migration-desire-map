@@ -1,0 +1,29 @@
+<title>Narrator Voice Samples</title><meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* layout: one column of voice rows, reference row on top */
+:root{--bg:#f7f6f2;--fg:#1d2329;--muted:#66707a;--line:#e0e2e0;--card:#ffffff;--accent:#1f6f8b;--display:"Bricolage Grotesque",system-ui,sans-serif;--body:"Source Sans 3",system-ui,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14181c;--fg:#e6e8ea;--muted:#9aa3ac;--line:#2b3238;--card:#1c2227;--accent:#6fb7d2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14181c;--fg:#e6e8ea;--muted:#9aa3ac;--line:#2b3238;--card:#1c2227;--accent:#6fb7d2;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px}
+main{max-width:720px;margin:0 auto;display:grid;gap:12px}
+h1{font-family:var(--display);font-size:28px;line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0;color:var(--muted)}
+.row{display:grid;gap:6px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.row b{font-family:var(--display);font-size:18px}.tag{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+audio{width:100%}
+blockquote{margin:0;padding:10px 14px;border-left:3px solid var(--accent);color:var(--fg)}
+</style>
+<main>
+<h1>Narrator voice samples</h1>
+<p>Same paragraph in every voice. Kokoro voices are generated free in the cloud (Apache 2.0, commercial use allowed, no limits). Bodi is the Gemini voice for reference.</p>
+<blockquote>Green magnet, instantly. Gallup compares how many people want to move in with how many want to move out, and Canada scores plus 225 percent. In theory, its adult population would more than triple. Bring a warm coat.</blockquote>
+<div class="row"><span class="tag">Reference · Gemini (limit 10 a day)</span><b>Bodi</b><audio controls preload="none" src="gemini_bodi.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · American</span><b>am_michael</b><audio controls preload="none" src="k_am_michael.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · American</span><b>am_fenrir</b><audio controls preload="none" src="k_am_fenrir.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · American</span><b>am_puck</b><audio controls preload="none" src="k_am_puck.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · American, deep</span><b>am_onyx</b><audio controls preload="none" src="k_am_onyx.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · American</span><b>am_eric</b><audio controls preload="none" src="k_am_eric.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · British</span><b>bm_george</b><audio controls preload="none" src="k_bm_george.mp3"></audio></div>
+<div class="row"><span class="tag">Kokoro · British</span><b>bm_lewis</b><audio controls preload="none" src="k_bm_lewis.mp3"></audio></div>
+</main>

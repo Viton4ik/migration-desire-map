@@ -1,0 +1,107 @@
+{
+ "engine": "kokoro-onnx v1.0 (Apache 2.0)",
+ "voice": "am_michael",
+ "speed": 1.05,
+ "items": [
+  {
+   "scene": "SC01",
+   "seconds": 10.45
+  },
+  {
+   "scene": "SC02",
+   "seconds": 15.25
+  },
+  {
+   "scene": "SC03",
+   "seconds": 15.81
+  },
+  {
+   "scene": "SC04",
+   "seconds": 24.73
+  },
+  {
+   "scene": "SC05",
+   "seconds": 23.21
+  },
+  {
+   "scene": "SC06",
+   "seconds": 20.84
+  },
+  {
+   "scene": "SC07",
+   "seconds": 39.18
+  },
+  {
+   "scene": "SC08",
+   "seconds": 27.03
+  },
+  {
+   "scene": "SC09",
+   "seconds": 26.45
+  },
+  {
+   "scene": "SC10",
+   "seconds": 25.96
+  },
+  {
+   "scene": "SC11",
+   "seconds": 24.38
+  },
+  {
+   "scene": "SC12",
+   "seconds": 35.66
+  },
+  {
+   "scene": "SC13",
+   "seconds": 27.73
+  },
+  {
+   "scene": "SC14",
+   "seconds": 21.1
+  },
+  {
+   "scene": "SC15",
+   "seconds": 12.69
+  },
+  {
+   "scene": "SC16",
+   "seconds": 26.82
+  },
+  {
+   "scene": "SC17",
+   "seconds": 11.78
+  },
+  {
+   "scene": "SC18",
+   "seconds": 25.22
+  },
+  {
+   "scene": "SC19",
+   "seconds": 13.16
+  },
+  {
+   "scene": "SC20",
+   "seconds": 20.31
+  },
+  {
+   "scene": "SC21",
+   "seconds": 28.78
+  },
+  {
+   "scene": "SC22",
+   "seconds": 23.23
+  },
+  {
+   "scene": "SC23",
+   "seconds": 23.74
+  },
+  {
+   "scene": "SC24",
+   "seconds": 20.65
+  },
+  {
+   "scene": "SC25",
+   "seconds": 24.09
+  }
+ ]
+}
