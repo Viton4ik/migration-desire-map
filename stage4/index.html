@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEAVE vs MOVE TO - episode engine</title>
+<style>
+@font-face{font-family:"Lilita One";src:url(assets/fonts/lilita-one-latin-400-normal.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"Nunito";src:url(assets/fonts/nunito-latin-800-normal.woff2) format("woff2");font-weight:800}
+@font-face{font-family:"Nunito";src:url(assets/fonts/nunito-latin-900-normal.woff2) format("woff2");font-weight:900}
+:root{--bg:#0f1720;--fg:#e8eef4;--mut:#93a1b0;--btn:#22303f;--acc:#4f8cff}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 Nunito,system-ui,sans-serif}
+#wrap{max-width:1920px;margin:0 auto;padding:12px}
+canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#2bbfd0;border-radius:6px}
+#bar{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+#bar button{background:var(--btn);color:var(--fg);border:0;border-radius:8px;padding:8px 14px;font:800 15px Nunito,sans-serif;cursor:pointer}
+#bar button:hover{background:#2c3e52}
+#bar input[type=range]{flex:1;min-width:200px}
+#time{font-variant-numeric:tabular-nums;color:var(--mut);min-width:110px}
+body.render #bar{display:none} body.render #wrap{padding:0;max-width:none} body.render canvas{border-radius:0;width:1920px}
+#err{color:#ff8a8a;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" width="1920" height="1080"></canvas>
+  <div id="bar">
+    <button id="play">Play</button><button id="replay">Replay</button>
+    <input id="seek" type="range" min="0" max="10" step="0.0333" value="0">
+    <button id="snd">Sound: off</button>
+    <span id="time">0.00 / 10.00 s</span>
+    <select id="tech"><option value="">Episode</option></select>
+  </div>
+  <div id="err"></div>
+</div>
+<script src="data/world.js"></script>
+<script src="data/episode.js"></script>
+<script>
+"use strict";
+// =====================================================================
+// Engine: every pixel is a pure function of time t (drawFrame(t)).
+// Facts/timing live in data/episode.js; geometry in data/world.js.
+// =====================================================================
+const E = window.EPISODE, WD = window.WORLD;
+const CW = 1920, CH = 1080;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const RENDER = /render=1/.test(location.search);
+if (RENDER) document.body.classList.add('render');
+window.onerror = (m, s, l) => { document.getElementById('err').textContent += m + ' @' + l + '\n'; window.JS_ERRORS = (window.JS_ERRORS || []).concat(m); };
+
+// ---------- math ----------
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, s) => a + (b - a) * s;
+const smooth = s => { s = clamp(s); return s * s * (3 - 2 * s); };
+const easeInOut = s => { s = clamp(s); return s < .5 ? 4 * s * s * s : 1 - Math.pow(-2 * s + 2, 3) / 2; };
+const easeOut = s => 1 - Math.pow(1 - clamp(s), 3);
+const spring = s => { s = clamp(s); if (s >= 1) return 1; return 1 - Math.exp(-6 * s) * Math.cos(11 * s); };
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+// ---------- assets (all loaded before start) ----------
+const IMG = {};
+function loadImg(key, src) { return new Promise((res, rej) => { const i = new Image(); i.onload = () => { IMG[key] = i; res(); }; i.onerror = () => rej(new Error('missing ' + src)); i.src = src; }); }
+const flagKeys = new Set([...(E.subject ? [E.subject.flag] : []), ...E.stops.map(s => s.flag), ...(E.techChecks || []).map(s => s.flag)]);
+const READY = (async () => {
+  await Promise.all([
+    ...[...flagKeys].map(k => loadImg('flag_' + k, 'assets/flags/' + k + '.svg')),
+    loadImg('emblem', E.emblem || 'assets/theme_suitcase.png'),
+    document.fonts.load('400 60px "Lilita One"'), document.fonts.load('900 30px Nunito'), document.fonts.load('800 30px Nunito')
+  ]);
+  init();
+  return true;
+})();
+window.READY = READY;
+
+// ---------- geometry ----------
+const C = {}; // countries by id
+let LAND_ALL;
+function ringPath(p, r) { p.moveTo(r[0], r[1]); for (let i = 2; i < r.length; i += 2) p.lineTo(r[i], r[i + 1]); p.closePath(); }
+function init() {
+  LAND_ALL = new Path2D();
+  for (const c of WD.countries) {
+    const path = new Path2D();
+    for (const poly of c.polys) for (const r of poly.r) ringPath(path, r);
+    c.path = path;
+    let b = [1e9, 1e9, -1e9, -1e9];
+    for (const poly of c.polys) { b[0] = Math.min(b[0], poly.b[0]); b[1] = Math.min(b[1], poly.b[1]); b[2] = Math.max(b[2], poly.b[2]); b[3] = Math.max(b[3], poly.b[3]); }
+    c.bbox = b;
+    // flag placement groups: polygons near the main one share one rectangle; remote ones get their own
+    const m = c.polys[c.main].b, mw = m[2] - m[0], mh = m[3] - m[1];
+    const ex = [m[0] - mw * .25, m[1] - mh * .25, m[2] + mw * .25, m[3] + mh * .25];
+    const core = [...m]; const groups = [];
+    c.polys.forEach((p, i) => {
+      const cx = (p.b[0] + p.b[2]) / 2, cy = (p.b[1] + p.b[3]) / 2;
+      if (i === c.main || (cx > ex[0] && cx < ex[2] && cy > ex[1] && cy < ex[3])) { core[0] = Math.min(core[0], p.b[0]); core[1] = Math.min(core[1], p.b[1]); core[2] = Math.max(core[2], p.b[2]); core[3] = Math.max(core[3], p.b[3]); }
+      else groups.push(p.b);
+    });
+    c.flagRects = [core, ...groups];
+    c.nearBox = core;
+    C[c.id] = c;
+    LAND_ALL.addPath(path);
+  }
+  buildClouds();
+}
+
+// ---------- camera ----------
+const TOP_UI = 150, BOT_UI = 40;
+function overviewCam() {
+  const z = Math.min((CW - 2 * 70) / WD.meta.W, (CH - TOP_UI - BOT_UI - 30) / WD.meta.H);
+  const ay = TOP_UI + (CH - TOP_UI - BOT_UI) / 2;
+  return { x: WD.meta.W / 2, y: WD.meta.H / 2 - (ay - CH / 2) / z, z };
+}
+function countryCam(id, opts = {}) {
+  const b = opts.box || C[id].nearBox;
+  const bw = b[2] - b[0], bh = b[3] - b[1];
+  const availW = CW * (opts.wFrac || 0.5), availH = CH - 190 - 300;
+  const z = Math.min(availW / bw, availH / bh, opts.zmax || 9);
+  const ax = CW * 0.42, ay = 190 + availH / 2;
+  return { x: (b[0] + b[2]) / 2 + (CW / 2 - ax) / z, y: (b[1] + b[3]) / 2 + (CH / 2 - ay) / z, z };
+}
+function flyCam(a, b, s, dip, plain) {  // plain: long hops move evenly instead of rushing ahead of the zoom
+  const e = easeInOut(s);
+  const lz = lerp(Math.log(a.z), Math.log(b.z), e) - (dip || 0) * Math.sin(Math.PI * e);
+  const z = Math.exp(lz);
+  // interpolate the screen-centre world point; weight by zoom so the motion feels linear on screen
+  const w = (1 / z - 1 / a.z) / ((1 / b.z - 1 / a.z) || 1e-9);
+  const k = !plain && Math.abs(b.z - a.z) / Math.max(a.z, b.z) > 0.15 ? clamp(isFinite(w) ? w : e) : e;
+  return { x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), z };
+}
+// shots come from episode data: each frames one country or a small group; the camera flies between shots
+// and never returns to the overview after the intro. Drift after arrival settles within DRIFT_T seconds so
+// region boundaries always sit on a still camera.
+const DRIFT_T = 3.0, DRIFT_Z = 0.025;
+function unionBox(ids, pad) {
+  const b = [1e9, 1e9, -1e9, -1e9];
+  for (const id of ids) { const n = C[id].nearBox; b[0] = Math.min(b[0], n[0]); b[1] = Math.min(b[1], n[1]); b[2] = Math.max(b[2], n[2]); b[3] = Math.max(b[3], n[3]); }
+  const minW = 100, minH = 62, cx = (b[0] + b[2]) / 2, cy = (b[1] + b[3]) / 2;
+  const w = Math.max(b[2] - b[0], minW) * (1 + (pad || 0.12)), h = Math.max(b[3] - b[1], minH) * (1 + (pad || 0.12));
+  return [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
+}
+let CAMS = null;
+function buildCams() {
+  // span: frame only part of a long thin country around its label point (Chile), so it stays big enough for a face
+  const spanBox = (id, [w, h]) => { const l = C[id].label; return [l[0] - w / 2, l[1] - h / 2, l[0] + w / 2, l[1] + h / 2]; };
+  CAMS = { ov: overviewCam(), shots: E.shots.map(sh => sh.overview ? overviewCam() : countryCam(null, { box: sh.box || (sh.span ? spanBox(sh.ids[0], sh.span) : unionBox(sh.ids, sh.pad)), wFrac: sh.wFrac || 0.5, zmax: sh.zmax || 9 })) };
+  E.shots.forEach((sh, i) => { sh.idx = i; });
+  for (const st of E.stops) st.shotIdx = E.shots.findIndex(sh => sh.ids.includes(st.id));
+  if (E.colorAfter) for (const st of E.stops) { const nx = E.shots[st.shotIdx + 1]; st.colorAt = nx ? nx.flyStart + 0.1 : null; }
+}
+const drift = (cam, t0, t) => ({ x: cam.x, y: cam.y, z: cam.z * (1 + DRIFT_Z * smooth((t - t0) / DRIFT_T)) });
+function shotAt(t) { let k = -1; for (let i = 0; i < E.shots.length; i++) if (t >= E.shots[i].flyStart) k = i; return k; }
+function camAt(t) {
+  if (!CAMS) buildCams();
+  const ov = CAMS.ov, SH = E.shots, K = CAMS.shots;
+  const f0 = SH[0].flyStart;
+  const ovAt = tt => ({ x: ov.x, y: ov.y, z: ov.z * (1 + 0.02 * smooth(tt / f0)) });
+  if (t < f0) return ovAt(t);
+  const i = shotAt(t);
+  const from = i === 0 ? ovAt(f0) : drift(K[i - 1], SH[i - 1].arrive, SH[i].flyStart);
+  if (t < SH[i].arrive) return flyCam(from, K[i], (t - SH[i].flyStart) / (SH[i].arrive - SH[i].flyStart), i === 0 ? 0 : (SH[i].dip != null ? SH[i].dip : 0.18), SH[i].dip != null);
+  return drift(K[i], SH[i].arrive, t);
+}
+let CAM;
+function setWorld() { ctx.setTransform(CAM.z, 0, 0, CAM.z, CW / 2 - CAM.x * CAM.z, CH / 2 - CAM.y * CAM.z); }
+function setScreen() { ctx.setTransform(1, 0, 0, 1, 0, 0); }
+const w2s = (x, y) => [CW / 2 + (x - CAM.x) * CAM.z, CH / 2 + (y - CAM.y) * CAM.z];
+function viewBox(pad = 0) { const hw = CW / 2 / CAM.z, hh = CH / 2 / CAM.z; return [CAM.x - hw - pad, CAM.y - hh - pad, CAM.x + hw + pad, CAM.y + hh + pad]; }
+const boxHit = (a, b) => a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1];
+
+// ---------- state from time ----------
+function stateAt(t) {
+  const visited = [];
+  for (const s of E.stops) if (t >= s.activate) visited.push(s);
+  return { visited, current: visited[visited.length - 1] || null };
+}
+
+// ---------- clouds (world-space anchors, fixed at init) ----------
+const CLOUD_SPR = [], CLOUDS = [];
+function buildClouds() {
+  const R = mulberry32(E.seed);
+  for (let v = 0; v < 8; v++) {
+    const w = 360, h = 220, cnv = document.createElement('canvas'); cnv.width = w; cnv.height = h;
+    const g = cnv.getContext('2d');
+    const blobs = []; const n = 6 + Math.floor(R() * 5);
+    for (let i = 0; i < n; i++) {
+      const u = i / (n - 1) - .5; const rr = 34 + R() * 30 + (1 - Math.abs(u) * 2) * 26;
+      blobs.push({ x: w / 2 + u * (170 + R() * 40) + (R() - .5) * 18, y: 138 - (1 - Math.abs(u) * 1.6) * 34 - R() * 16, r: rr });
+    }
+    const flatY = 158;
+    const body = (dy, col, shrink) => { g.save(); g.beginPath(); g.rect(0, 0, w, flatY + dy); g.clip(); g.fillStyle = col; for (const b of blobs) { g.beginPath(); g.ellipse(b.x, b.y + dy, Math.max(4, b.r - shrink), Math.max(4, (b.r - shrink) * .86), 0, 0, 7); g.fill(); } g.restore(); };
+    g.filter = 'blur(3px)';
+    body(8, '#a9bfd0', 0);        // shaded base
+    g.filter = 'blur(2px)';
+    body(0, '#e9f2f8', 2);        // soft body
+    g.filter = 'blur(4px)';
+    g.globalAlpha = .95; body(-10, '#ffffff', 12); // bright tops
+    g.globalAlpha = 1; g.filter = 'none';
+    // shadow sprite
+    const sh = document.createElement('canvas'); sh.width = w; sh.height = h; const sg = sh.getContext('2d');
+    sg.filter = 'blur(10px)'; sg.drawImage(cnv, 0, 0); sg.globalCompositeOperation = 'source-in'; sg.fillStyle = 'rgba(8,52,70,1)'; sg.fillRect(0, 0, w, h);
+    CLOUD_SPR.push({ img: cnv, sh, w, h });
+  }
+  const n = 56; ctx.setTransform(1, 0, 0, 1, 0, 0);
+  const onLand = (x, y) => ctx.isPointInPath(LAND_ALL, x, y, 'evenodd');
+  for (let tries = 0; CLOUDS.length < n && tries < 4000; tries++) {
+    const c = { x: 60 + R() * (WD.meta.W - 120), y: 80 + R() * (WD.meta.H - 160), s: 30 + R() * 26, v: Math.floor(R() * 8), ph: R() * 6.28, sp: .25 + R() * .35, flip: R() < .5 };
+    const hw = c.s * 1.25 + 14, hh = c.s * .75 + 14; let ok = true;
+    for (let gx = -1; gx <= 1 && ok; gx += .5) for (let gy = -1; gy <= 1 && ok; gy += .5) if (onLand(c.x + gx * hw, c.y + gy * hh)) ok = false;
+    if (ok) CLOUDS.push(c);
+  }
+}
+function drawClouds(t, avoid, avoidBoxes) {
+  const vb = viewBox(200);
+  for (const c of CLOUDS) {
+    if (c.x < vb[0] || c.x > vb[2] || c.y < vb[1] || c.y > vb[3]) continue;
+    const spr = CLOUD_SPR[c.v];
+    const breathe = 1 + 0.035 * Math.sin(t * c.sp * 2 + c.ph);
+    const wx = c.x + 4 * Math.sin(t * c.sp + c.ph), wy = c.y + 1.5 * Math.sin(t * c.sp * 1.3 + c.ph);
+    const ww = c.s * 2.2 * breathe, hh = ww * spr.h / spr.w;
+    const [sx, sy] = w2s(wx, wy); const sw = ww * CAM.z, sh = hh * CAM.z;
+    let a = 0.92;
+    for (const o of avoid) { const d = Math.hypot(sx - o.x, sy - o.y); a *= clamp((d - o.r - sw * .25) / (sw * .45 + 40)); }
+    for (const b of (avoidBoxes || [])) { const dx = Math.max(b[0] - sx, 0, sx - b[2]), dy = Math.max(b[1] - sy, 0, sy - b[3]); a *= clamp(Math.hypot(dx, dy) / (sw * .5 + 20)); }
+    if (a < 0.02) continue;
+    setScreen();
+    ctx.globalAlpha = a * .32;
+    ctx.save(); if (c.flip) { ctx.translate(sx, 0); ctx.scale(-1, 1); ctx.translate(-sx, 0); }
+    ctx.drawImage(spr.sh, sx - sw / 2 + sw * .10, sy - sh / 2 + sh * .22, sw, sh);
+    ctx.globalAlpha = a;
+    ctx.drawImage(spr.img, sx - sw / 2, sy - sh / 2, sw, sh);
+    ctx.restore();
+  }
+  ctx.globalAlpha = 1;
+}
+
+// ---------- map ----------
+function drawSea() {
+  setScreen();
+  const g = ctx.createLinearGradient(0, 0, 0, CH); g.addColorStop(0, '#46d6d9'); g.addColorStop(1, '#1fa7bd');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, CW, CH);
+  const r = ctx.createRadialGradient(CW * .45, CH * .45, 50, CW * .45, CH * .45, CW * .75);
+  r.addColorStop(0, 'rgba(255,255,255,.16)'); r.addColorStop(1, 'rgba(0,40,70,.18)');
+  ctx.fillStyle = r; ctx.fillRect(0, 0, CW, CH);
+}
+let FLAG_STRETCH = null;
+function flagFill(c, key, t0, t, origin, fit) {
+  if (!FLAG_STRETCH) FLAG_STRETCH = new Set(E.stops.filter(s => s.flagFit === 'stretch').map(s => s.flag));
+  const img = IMG['flag_' + key]; if (!img) return;
+  const fa = img.naturalWidth / img.naturalHeight;
+  const p = t0 == null ? 1 : clamp((t - t0) / 0.6);
+  if (p <= 0) return;
+  ctx.save();
+  ctx.clip(c.path, 'evenodd');
+  let R = 0;
+  if (p < 1) {
+    for (const b of c.flagRects) for (const [x, y] of [[b[0], b[1]], [b[2], b[1]], [b[0], b[3]], [b[2], b[3]]]) R = Math.max(R, Math.hypot(x - origin[0], y - origin[1]));
+    ctx.beginPath(); ctx.arc(origin[0], origin[1], Math.max(0.01, easeOut(p) * R * 1.02), 0, 7); ctx.clip();
+  }
+  for (const b of c.flagRects) {
+    const bw = b[2] - b[0], bh = b[3] - b[1];
+    let w = bw, h = bw / fa; if (h < bh) { h = bh; w = bh * fa; }
+    if (fit === 'stretch' || (fit !== 'strict' && FLAG_STRETCH.has(key))) { w = bw; h = bh; } // very wide countries with plain stripes (Russia): keep every stripe
+    ctx.drawImage(img, (b[0] + b[2]) / 2 - w / 2, (b[1] + b[3]) / 2 - h / 2, w, h);
+  }
+  // keep a little volume on coloured countries
+  const vb = c.nearBox; const g = ctx.createLinearGradient(0, vb[1], 0, vb[3]);
+  g.addColorStop(0, 'rgba(255,255,255,.16)'); g.addColorStop(.55, 'rgba(255,255,255,0)'); g.addColorStop(1, 'rgba(0,0,0,.14)');
+  ctx.fillStyle = g; ctx.fill(c.path, 'evenodd');
+  ctx.restore();
+  if (p < 1) { // bright wavefront ring
+    ctx.save(); ctx.clip(c.path, 'evenodd');
+    ctx.strokeStyle = `rgba(255,255,235,${0.85 * (1 - p)})`; ctx.lineWidth = 7 / CAM.z;
+    ctx.beginPath(); ctx.arc(origin[0], origin[1], easeOut(p) * R * 1.02, 0, 7); ctx.stroke(); ctx.restore();
+  }
+}
+// After the camera leaves a shot its countries fade from flag to their status colour, so the world map
+// slowly becomes the answer (green = people want in, red = people want out). Estimates get white hatching.
+function statusTint(c, s, t) {
+  const S = E.statuses[s.status]; if (!S) return;
+  const k = s.colorAt != null ? clamp((t - s.colorAt) / 0.8) : (s.tint || 0);
+  ctx.save(); ctx.clip(c.path, 'evenodd');
+  if (k > 0) {   // radial wipe from the face point (an alpha crossfade of red into green turns muddy brown)
+    const vb = c.nearBox; const g = ctx.createLinearGradient(0, vb[1], 0, vb[3]);
+    g.addColorStop(0, S.color); g.addColorStop(1, S.dark);
+    if (k < 1) {
+      let R = 0; const o = c.label; for (const b of c.flagRects) for (const [x, y] of [[b[0], b[1]], [b[2], b[1]], [b[0], b[3]], [b[2], b[3]]]) R = Math.max(R, Math.hypot(x - o[0], y - o[1]));
+      ctx.beginPath(); ctx.arc(o[0], o[1], Math.max(0.01, easeInOut(k) * R * 1.02), 0, 7); ctx.clip();
+    }
+    ctx.globalAlpha = 0.94; ctx.fillStyle = g; ctx.fill(c.path, 'evenodd'); ctx.globalAlpha = 1;
+  }
+  ctx.restore(); ctx.save(); ctx.clip(c.path, 'evenodd');
+  if (s.quality === 'E') {
+    const a = s.activate != null ? clamp((t - s.activate - 0.3) / 0.4) : 1;
+    if (a > 0) {
+      const b = c.bbox, step = 16 / CAM.z; ctx.strokeStyle = `rgba(255,255,255,${0.55 * a})`; ctx.lineWidth = 5 / CAM.z; ctx.beginPath();
+      for (let x = b[0] - (b[3] - b[1]); x < b[2]; x += step) { ctx.moveTo(x, b[3]); ctx.lineTo(x + (b[3] - b[1]), b[1]); }
+      ctx.stroke();
+    }
+  }
+  ctx.restore();
+}
+function drawMap(t, st, forced) {
+  drawSea();
+  setWorld();
+  const z = CAM.z, vb = viewBox(40 / z);
+  const vis = WD.countries.filter(c => boxHit(c.bbox, vb));
+  const vp = new Path2D(); for (const c of vis) vp.addPath(c.path);
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  // shallow-water glow around coasts
+  ctx.strokeStyle = 'rgba(200,255,248,.30)'; ctx.lineWidth = 18 / z; ctx.stroke(vp);
+  ctx.strokeStyle = 'rgba(220,255,250,.35)'; ctx.lineWidth = 7 / z; ctx.stroke(vp);
+  // soft drop shadow
+  const side = clamp(4 + 2.2 * Math.log2(z / CAMS.ov.z), 4, 10);
+  ctx.save(); ctx.filter = 'blur(6px)'; ctx.translate(5 / z, (side + 8) / z); ctx.fillStyle = 'rgba(6,58,78,.30)'; ctx.fill(vp); ctx.restore();
+  // extruded side
+  ctx.save(); ctx.translate(0, side / z); ctx.fillStyle = '#7c8f3a'; ctx.fill(vp); ctx.strokeStyle = '#6f8233'; ctx.lineWidth = 1.5 / z; ctx.stroke(vp); ctx.restore();
+  // top surface
+  const g = ctx.createLinearGradient(0, vb[1], 0, vb[3]); g.addColorStop(0, '#f1f6b4'); g.addColorStop(1, '#d3e68e');
+  ctx.fillStyle = g; ctx.fill(vp);
+  // subject (USA) and visited countries keep flag colours
+  const subj = E.subject ? C[E.subject.id] : null; if (subj && boxHit(subj.bbox, vb)) flagFill(subj, E.subject.flag, null, t);
+  for (const s of st.visited) { const c = C[s.id]; if (boxHit(c.bbox, vb)) { flagFill(c, s.flag, s.activate, t, c.label, s.flagFit); statusTint(c, s, t); } }
+  if (forced) for (const f of forced) { flagFill(C[f.id], f.flag, null, t, null, f.flagFit); statusTint(C[f.id], f, t); }
+  // bright rim + crisp borders
+  ctx.strokeStyle = 'rgba(255,255,226,.95)'; ctx.lineWidth = 3.4 / z; ctx.stroke(vp);
+  ctx.strokeStyle = '#2f4a28'; ctx.lineWidth = 1.5 / z;
+  for (const c of vis) ctx.stroke(c.path);
+  if (subj) { ctx.strokeStyle = '#1f3519'; ctx.lineWidth = 2.6 / z; ctx.stroke(subj.path); }
+  // data-quality marks: other survey = dotted white outline (estimate hatching is drawn in statusTint)
+  for (const s of [...st.visited, ...(forced || [])]) if (s.quality === 'S' && boxHit(C[s.id].bbox, vb)) {
+    const a = s.activate != null ? clamp((t - s.activate - 0.3) / 0.4) : 1; if (a <= 0) continue;
+    ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = 'rgba(20,30,40,.85)'; ctx.lineWidth = 6.5 / z; ctx.stroke(C[s.id].path);
+    ctx.setLineDash([11 / z, 9 / z]); ctx.lineDashOffset = -t * 14 / z; ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4.5 / z; ctx.stroke(C[s.id].path); ctx.restore();
+  }
+  // activation glow on the exact contour
+  for (const s of st.visited) {
+    const k = (t - s.activate) / 1.1; if (k < 0 || k > 1) continue;
+    const a = Math.sin(Math.PI * k);
+    ctx.save(); ctx.shadowColor = 'rgba(255,248,170,' + a + ')'; ctx.shadowBlur = 28;
+    ctx.strokeStyle = 'rgba(255,250,190,' + a + ')'; ctx.lineWidth = 5 / z; ctx.stroke(C[s.id].path); ctx.stroke(C[s.id].path);
+    ctx.restore();
+    ctx.strokeStyle = 'rgba(40,30,0,' + a * .8 + ')'; ctx.lineWidth = 1.8 / z; ctx.stroke(C[s.id].path);
+  }
+}
+
+// ---------- text helpers ----------
+function outlined(txt, x, y, font, fill, stroke, lw, align = 'left') {
+  ctx.font = font; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round';
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.strokeText(txt, x, y); }
+  ctx.fillStyle = fill; ctx.fillText(txt, x, y);
+}
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function glossyPanel(x, y, w, h, r, top, bot, edge, shadow = true) {
+  ctx.save();
+  if (shadow) { ctx.shadowColor = 'rgba(0,30,50,.35)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 7; }
+  rr(x, y, w, h, r); const g = ctx.createLinearGradient(0, y, 0, y + h); g.addColorStop(0, top); g.addColorStop(1, bot); ctx.fillStyle = g; ctx.fill();
+  ctx.restore();
+  ctx.save(); rr(x, y, w, h, r); ctx.clip();
+  const hl = ctx.createLinearGradient(0, y, 0, y + h * .5); hl.addColorStop(0, 'rgba(255,255,255,.55)'); hl.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = hl; rr(x + 4, y + 3, w - 8, h * .46, r * .8); ctx.fill();
+  ctx.restore();
+  if (edge) { ctx.strokeStyle = edge; ctx.lineWidth = 3; rr(x, y, w, h, r); ctx.stroke(); }
+}
+function drawFlag(key, x, y, h, border = 3) {
+  const img = IMG['flag_' + key]; const w = h * img.naturalWidth / img.naturalHeight;
+  ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 3;
+  ctx.fillStyle = '#fff'; ctx.fillRect(x - border, y - border, w + border * 2, h + border * 2); ctx.restore();
+  ctx.drawImage(img, x, y, w, h);
+  ctx.strokeStyle = 'rgba(0,0,0,.25)'; ctx.lineWidth = 1; ctx.strokeRect(x, y, w, h);
+  return w;
+}
+
+// ---------- 3D status icons ----------
+function statusIcon(kind, x, y, r) {
+  const S = E.statuses[kind];
+  ctx.save();
+  ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = r * .35; ctx.shadowOffsetY = r * .12;
+  ctx.beginPath(); ctx.arc(x, y, r, 0, 7);
+  const g = ctx.createRadialGradient(x - r * .35, y - r * .45, r * .1, x, y, r * 1.1);
+  g.addColorStop(0, '#ffffff'); g.addColorStop(.18, S.color); g.addColorStop(1, S.dark);
+  ctx.fillStyle = g; ctx.fill(); ctx.restore();
+  ctx.lineWidth = Math.max(2, r * .09); ctx.strokeStyle = 'rgba(10,20,30,.55)'; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke();
+  ctx.save(); ctx.translate(x, y); ctx.scale(r / 50, r / 50);
+  ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 4; ctx.shadowOffsetY = 2;
+  ctx.fillStyle = '#fff'; ctx.strokeStyle = '#fff'; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const k = S.icon;
+  if (k === 'shield') {
+    ctx.beginPath(); ctx.moveTo(0, -30); ctx.lineTo(26, -20); ctx.quadraticCurveTo(26, 16, 0, 32); ctx.quadraticCurveTo(-26, 16, -26, -20); ctx.closePath(); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.fillStyle = S.color; star(0, -1, 13, 5.5); ctx.fill();
+  } else if (k === 'handshake') {
+    ctx.lineWidth = 9;
+    ctx.beginPath(); ctx.moveTo(-34, 14); ctx.lineTo(-18, -2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(34, 14); ctx.lineTo(18, -2); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(0, -2, 22, 13, 0, 0, 7); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.strokeStyle = S.color; ctx.lineWidth = 3.2;
+    for (const dx of [-8, 0, 8]) { ctx.beginPath(); ctx.moveTo(dx, -12); ctx.lineTo(dx + 4, 6); ctx.stroke(); }
+  } else if (k === 'dot') {
+    ctx.beginPath(); ctx.arc(0, 0, 15, 0, 7); ctx.fill();
+  } else if (k === 'bolt') {
+    ctx.beginPath(); ctx.moveTo(6, -32); ctx.lineTo(-18, 6); ctx.lineTo(-2, 6); ctx.lineTo(-8, 32); ctx.lineTo(18, -8); ctx.lineTo(2, -8); ctx.closePath(); ctx.fill();
+  } else if (k === 'swords') {
+    ctx.lineWidth = 7;
+    for (const s of [1, -1]) {
+      ctx.save(); ctx.scale(s, 1);
+      ctx.beginPath(); ctx.moveTo(-24, -24); ctx.lineTo(16, 16); ctx.stroke();
+      ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(10, 24); ctx.lineTo(24, 10); ctx.stroke();
+      ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(18, 18); ctx.lineTo(27, 27); ctx.stroke();
+      ctx.restore();
+    }
+  } else if (k === 'magnet') {        // U-magnet pulling in
+    ctx.lineCap = 'butt'; ctx.lineWidth = 17; ctx.beginPath(); ctx.moveTo(-17, -24); ctx.lineTo(-17, 2); ctx.arc(0, 2, 17, Math.PI, 0, true); ctx.lineTo(17, -24); ctx.stroke();
+    ctx.shadowColor = 'transparent'; ctx.fillStyle = '#d7dde3'; ctx.fillRect(-25.5, -34, 17, 12); ctx.fillRect(8.5, -34, 17, 12);
+    ctx.fillStyle = '#fff'; for (const [dx, dy] of [[-11, 30], [11, 30]]) { ctx.beginPath(); ctx.arc(dx, dy + 2, 3, 0, 7); ctx.fill(); }
+  } else if (k === 'arrowIn') {       // arrow pointing down into a landing bar
+    ctx.beginPath(); ctx.moveTo(-9, -32); ctx.lineTo(9, -32); ctx.lineTo(9, -2); ctx.lineTo(22, -2); ctx.lineTo(0, 20); ctx.lineTo(-22, -2); ctx.lineTo(-9, -2); ctx.closePath(); ctx.fill();
+    rr(-28, 24, 56, 9, 4); ctx.fill();
+  } else if (k === 'house') {         // people staying home
+    ctx.beginPath(); ctx.moveTo(0, -30); ctx.lineTo(30, -2); ctx.lineTo(20, -2); ctx.lineTo(20, 28); ctx.lineTo(-20, 28); ctx.lineTo(-20, -2); ctx.lineTo(-30, -2); ctx.closePath(); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.fillStyle = S.color; rr(-7, 8, 14, 20, 3); ctx.fill();
+  } else if (k === 'arrowOut') {      // arrow leaving a box
+    ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(4, -26); ctx.lineTo(-24, -26); ctx.lineTo(-24, 26); ctx.lineTo(4, 26); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-10, -7); ctx.lineTo(10, -7); ctx.lineTo(10, -20); ctx.lineTo(34, 0); ctx.lineTo(10, 20); ctx.lineTo(10, 7); ctx.lineTo(-10, 7); ctx.closePath(); ctx.fill();
+  } else if (k === 'plane') {         // departing plane
+    ctx.rotate(-0.5);
+    ctx.beginPath(); ctx.moveTo(-34, 0); ctx.quadraticCurveTo(-34, -6, -26, -6); ctx.lineTo(26, -6); ctx.quadraticCurveTo(36, -6, 38, 0); ctx.quadraticCurveTo(36, 6, 26, 6); ctx.lineTo(-26, 6); ctx.quadraticCurveTo(-34, 6, -34, 0); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(-4, -5); ctx.lineTo(-16, -32); ctx.lineTo(-6, -32); ctx.lineTo(16, -5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(-4, 5); ctx.lineTo(-16, 32); ctx.lineTo(-6, 32); ctx.lineTo(16, 5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(-26, -5); ctx.lineTo(-34, -18); ctx.lineTo(-28, -18); ctx.lineTo(-18, -5); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(-26, 5); ctx.lineTo(-34, 18); ctx.lineTo(-28, 18); ctx.lineTo(-18, 5); ctx.closePath(); ctx.fill();
+  } else if (k === 'lock') {          // padlock: exit ban
+    ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(-14, -2); ctx.lineTo(-14, -14); ctx.arc(0, -14, 14, Math.PI, 0); ctx.lineTo(14, -2); ctx.stroke();
+    rr(-24, -4, 48, 36, 7); ctx.fill();
+    ctx.shadowColor = 'transparent'; ctx.fillStyle = S.color; ctx.beginPath(); ctx.arc(0, 10, 5.5, 0, 7); ctx.fill(); ctx.fillRect(-2.5, 12, 5, 11);
+  } else if (k === 'dotted') {
+    ctx.setLineDash([6, 6]); ctx.lineWidth = 5; ctx.strokeStyle = '#ffffff'; ctx.beginPath(); ctx.arc(0, 0, 22, 0, 7); ctx.stroke();
+  }
+  ctx.restore();
+  // specular
+  ctx.save(); ctx.beginPath(); ctx.ellipse(x - r * .25, y - r * .52, r * .5, r * .22, -.3, 0, 7); ctx.fillStyle = 'rgba(255,255,255,.45)'; ctx.fill(); ctx.restore();
+}
+function star(cx, cy, R, r) { ctx.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, q = i % 2 ? r : R; ctx.lineTo(cx + q * Math.cos(a), cy + q * Math.sin(a)); } ctx.closePath(); }
+
+// ---------- faces ----------
+function faceGeom(c) { const [sx, sy] = w2s(c.label[0], c.label[1]); return { x: sx, y: sy, R: Math.min(c.label[2] * CAM.z * 0.95, 80) }; }
+function drawFace(stop, c, t, idx, forcedR, forcedPos) {
+  const fg = forcedPos || faceGeom(c); let R = forcedR || fg.R;
+  if (R < 14) return null;
+  const age = t - stop.activate - 0.12;
+  const pop = forcedR ? 1 : spring(age / 0.5); if (pop <= 0) return null;
+  const ph = idx * 1.37 + 0.4;
+  let { x, y } = fg;
+  const rea = stop.reaction;
+  if (rea === 'happy') y -= Math.abs(Math.sin((t + ph) * 3.2)) * R * 0.06;
+  if (rea === 'chill') x += Math.sin((t + ph) * 1.6) * R * 0.04;
+  if (rea === 'angry') x += Math.sin((t + ph) * 31) * R * 0.012 * (0.5 + 0.5 * Math.sin((t + ph) * 2));
+  ctx.save(); ctx.translate(x, y); ctx.scale(pop, pop);
+  const u = R / 60; ctx.scale(u, u);
+  if (stop.faceBacking || stop.sticker) { const g = ctx.createRadialGradient(0, -4, 10, 0, -4, 74); g.addColorStop(0, 'rgba(255,255,255,.82)'); g.addColorStop(.62, 'rgba(255,255,255,.55)'); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(0, -4, 76, 66, 0, 0, 7); ctx.fill(); }
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const blinkP = ((t + ph * 2.1) % 3.1); const blink = blinkP < 0.13 ? Math.sin(blinkP / 0.13 * Math.PI) : 0;
+  // cheeks
+  if (rea === 'awkward' || rea === 'happy' || rea === 'calm' || rea === 'wink' || rea === 'angry') {
+    ctx.fillStyle = rea === 'angry' ? `rgba(255,40,40,${0.35 + 0.2 * Math.sin((t + ph) * 3)})` : `rgba(255,105,140,${rea === 'awkward' ? 0.55 + 0.15 * Math.sin((t + ph) * 4) : 0.35})`;
+    for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(s * 40, 14, 13, 8, 0, 0, 7); ctx.fill(); }
+  }
+  // eyes
+  let px = 0, py = 0;
+  if (rea === 'disappointed') { py = 5; px = -2; }
+  if (rea === 'awkward') { px = 7 * Math.sin((t + ph) * 2.2); py = -1; }
+  if (rea === 'happy' || rea === 'calm' || rea === 'wink') { py = -2; px = 2 * Math.sin((t + ph) * 0.9); }
+  if (rea === 'nervous') { px = 6 * Math.sin((t + ph) * 3.1); py = 1; }
+  if (rea === 'angry') { py = 2; }
+  if (rea === 'chill') { py = 3; px = 3; }
+  const shockP = rea === 'shocked' ? 0.55 : 1; // tiny pupils when shocked
+  const winkP = ((t + ph * 1.7) % 3.6), wink = rea === 'wink' && winkP < 0.45 ? Math.sin(winkP / 0.45 * Math.PI) : 0;
+  for (const s of [-1, 1]) {
+    const ex = s * 22, ey = -12, ew = 15, eh = 19 * (1 - Math.max(blink, s < 0 ? wink : 0) * 0.92) * (rea === 'shocked' ? 1.12 : 1);
+    ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 6; ctx.shadowOffsetY = 3;
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(ex, ey, ew, Math.max(1.5, eh), 0, 0, 7); ctx.fill(); ctx.restore();
+    ctx.lineWidth = 4.2; ctx.strokeStyle = '#111'; ctx.beginPath(); ctx.ellipse(ex, ey, ew, Math.max(1.5, eh), 0, 0, 7); ctx.stroke();
+    if (eh > 5) {
+      ctx.save(); ctx.beginPath(); ctx.ellipse(ex, ey, ew - 1, eh - 1, 0, 0, 7); ctx.clip();
+      ctx.fillStyle = '#111'; ctx.beginPath(); ctx.ellipse(ex + px, ey + py + 2, 8 * shockP, 9.5 * shockP, 0, 0, 7); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(ex + px - 3 * shockP, ey + py - 2 * shockP, 3 * shockP, 0, 7); ctx.fill();
+      if (rea === 'chill') { ctx.fillStyle = '#c9b48a'; ctx.fillRect(ex - ew, ey - eh, ew * 2, eh * 0.95); ctx.strokeStyle = '#111'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(ex - ew, ey - eh * 0.05); ctx.lineTo(ex + ew, ey - eh * 0.05); ctx.stroke(); }
+      ctx.restore();
+    }
+    // brows
+    ctx.lineWidth = 5.5; ctx.strokeStyle = '#111'; ctx.beginPath();
+    if (rea === 'disappointed') { ctx.moveTo(ex - s * 12, ey - 34); ctx.quadraticCurveTo(ex, ey - 31, ex + s * 13, ey - 23); } // sad: inner ends raised
+    else if (rea === 'nervous') { ctx.moveTo(ex - s * 11, ey - 32); ctx.quadraticCurveTo(ex, ey - 30, ex + s * 12, ey - 25); }
+    else if (rea === 'angry') { ctx.lineWidth = 7; ctx.moveTo(ex - s * 13, ey - 22); ctx.lineTo(ex + s * 12, ey - 33); }
+    else if (rea === 'shocked') { ctx.moveTo(ex - 11, ey - 36); ctx.quadraticCurveTo(ex, ey - 44, ex + 11, ey - 36); }
+    else if (rea === 'chill') { ctx.moveTo(ex - 11, ey - 24); ctx.lineTo(ex + 11, ey - 24); }
+    else if (rea === 'awkward') { if (s < 0) { ctx.moveTo(ex - 12, ey - 28); ctx.quadraticCurveTo(ex, ey - 36, ex + 12, ey - 29); } else { ctx.moveTo(ex - 11, ey - 26); ctx.lineTo(ex + 12, ey - 25); } }
+    else { ctx.moveTo(ex - 11, ey - 27); ctx.quadraticCurveTo(ex, ey - 34, ex + 11, ey - 27); }
+    ctx.stroke();
+  }
+  // mouth
+  ctx.lineWidth = 5.5; ctx.strokeStyle = '#111';
+  if (rea === 'disappointed') {
+    const wob = 1.5 * Math.sin((t + ph) * 5);
+    ctx.beginPath(); ctx.moveTo(-17, 30); ctx.quadraticCurveTo(0, 15 + wob, 17, 30); ctx.stroke();
+    // a slow single tear
+    const tp = ((t + ph) % 2.4) / 2.4;
+    if (age > 0.6) {
+      const tx = 30, ty = -2 + tp * 30, ta = clamp(1.6 - tp * 1.6);
+      ctx.save(); ctx.globalAlpha = ta; ctx.fillStyle = '#6fd0ff'; ctx.strokeStyle = '#111'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(tx, ty - 9); ctx.quadraticCurveTo(tx + 7, ty + 1, tx, ty + 5); ctx.quadraticCurveTo(tx - 7, ty + 1, tx, ty - 9); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.beginPath(); ctx.arc(tx - 1.5, ty - 1, 1.8, 0, 7); ctx.fill(); ctx.restore();
+    }
+  } else if (rea === 'calm' || rea === 'wink' || rea === 'chill') {
+    const w = rea === 'chill' ? 16 : 19, d = rea === 'chill' ? 9 : 13 + 2 * Math.sin((t + ph) * 2);
+    ctx.beginPath(); ctx.moveTo(-w, 20); ctx.quadraticCurveTo(0, 20 + d * 2, w, 20); ctx.stroke();
+    if (rea === 'wink') { ctx.fillStyle = '#ff7f9f'; ctx.strokeStyle = '#111'; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(8, 31 + 2 * Math.sin((t + ph) * 2), 7, 6, 0, 0, Math.PI); ctx.fill(); ctx.stroke(); }
+  } else if (rea === 'shocked') {
+    const o = 1 + 0.12 * Math.sin((t + ph) * 4);
+    ctx.fillStyle = '#5b1020'; ctx.beginPath(); ctx.ellipse(0, 28, 11 * o, 15 * o, 0, 0, 7); ctx.fill(); ctx.stroke();
+  } else if (rea === 'angry') {
+    ctx.fillStyle = '#ffffff'; rr(-22, 16, 44, 20, 6); ctx.fill(); ctx.stroke();
+    ctx.lineWidth = 3; for (const xx of [-8, 0, 8]) { ctx.beginPath(); ctx.moveTo(xx, 16); ctx.lineTo(xx, 36); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(-22, 26); ctx.lineTo(22, 26); ctx.stroke();
+    // steam puffs rising from the top
+    for (const sx of [-1, 1]) { const q = ((t + ph + (sx > 0 ? .6 : 0)) % 1.2) / 1.2; ctx.save(); ctx.globalAlpha = 0.75 * (1 - q); ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(sx * (46 + q * 10), -40 - q * 34, 7 + q * 9, 0, 7); ctx.fill(); ctx.restore(); }
+  } else if (rea === 'nervous') {
+    ctx.beginPath();
+    for (let i = 0; i <= 20; i++) { const xx = -16 + i * 1.6, yy = 26 + 3 * Math.sin(i * 1.2 + (t + ph) * 6); i ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); }
+    ctx.stroke();
+    const sy = -28 + 4 * ((t + ph) % 1.4);
+    ctx.fillStyle = '#8fdcff'; ctx.strokeStyle = '#111'; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(-44, sy - 10); ctx.quadraticCurveTo(-36, sy + 2, -44, sy + 6); ctx.quadraticCurveTo(-52, sy + 2, -44, sy - 10); ctx.fill(); ctx.stroke();
+  } else if (rea === 'awkward') {
+    ctx.beginPath();
+    for (let i = 0; i <= 20; i++) { const xx = -18 + i * 1.8, yy = 24 + 3.2 * Math.sin(i * 0.95 + (t + ph) * 3); i ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); }
+    ctx.stroke();
+    // sweat drop
+    const sy = -30 + 3 * Math.sin((t + ph) * 3);
+    ctx.fillStyle = '#8fdcff'; ctx.strokeStyle = '#111'; ctx.lineWidth = 2.5;
+    ctx.beginPath(); ctx.moveTo(44, sy - 10); ctx.quadraticCurveTo(52, sy + 2, 44, sy + 6); ctx.quadraticCurveTo(36, sy + 2, 44, sy - 10); ctx.fill(); ctx.stroke();
+  } else {
+    const open = 0.85 + 0.15 * Math.sin((t + ph) * 3.2);
+    ctx.save(); ctx.beginPath(); ctx.moveTo(-22, 14); ctx.quadraticCurveTo(0, 14 + 34 * open, 22, 14); ctx.closePath();
+    ctx.fillStyle = '#5b1020'; ctx.fill(); ctx.clip();
+    ctx.fillStyle = '#ff7f9f'; ctx.beginPath(); ctx.ellipse(2, 14 + 26 * open, 13, 10, 0, 0, 7); ctx.fill();
+    ctx.restore();
+    ctx.beginPath(); ctx.moveTo(-22, 14); ctx.quadraticCurveTo(0, 14 + 34 * open, 22, 14); ctx.closePath(); ctx.stroke();
+  }
+  ctx.restore();
+  return { x, y, r: R * 1.05 };
+}
+
+// ---------- map name tag ----------
+function nameTag(stop, fx, fy, R, t) {
+  const a = clamp((t - stop.activate - 0.25) / 0.3); if (a <= 0) return null;
+  ctx.save(); ctx.globalAlpha = a;
+  ctx.font = '900 30px Nunito'; const tw = ctx.measureText(stop.name.toUpperCase()).width;
+  const img = IMG['flag_' + stop.flag]; const fh = 26, fw = fh * img.naturalWidth / img.naturalHeight;
+  const w = tw + fw + 46, h = 46; const x = fx - w / 2, y = fy + R + 14;
+  glossyPanel(x, y, w, h, 23, '#ffffff', '#e6edf3', 'rgba(20,30,40,.5)');
+  drawFlag(stop.flag, x + 16, y + (h - fh) / 2, fh, 2);
+  outlined(stop.name.toUpperCase(), x + 30 + fw, y + 33, '900 30px Nunito', '#1b2733', null, 0);
+  ctx.restore();
+  return { x: fx, y: y + h / 2, r: w / 2 };
+}
+
+// ---------- special events (revealed on their key word, time from the sync table) ----------
+const SAFE = [40, 168, CW - 40, CH - 236];
+function evEnd(stop, ev) {
+  if (ev.end != null) return ev.end;
+  const nx = E.shots[stop.shotIdx + 1]; return nx ? nx.flyStart + 0.15 : 1e9;
+}
+function placeBox(x, y, w, h) { // keep a chip inside the safe area
+  return [clamp(x, SAFE[0] + w / 2, SAFE[2] - w / 2), clamp(y, SAFE[1] + h / 2, SAFE[3] - h / 2)];
+}
+function evScale(stop, ev, t, t0) {
+  const k = (t - (t0 != null ? t0 : ev.t)) / 0.45; if (k < 0) return 0;
+  const out = clamp((t - evEnd(stop, ev)) / 0.35);
+  return spring(k) * (1 - out);
+}
+function drawEvents(stop, t, face) {
+  for (const ev of stop.events || []) drawEvent(stop, ev, t, face);
+}
+function drawEvent(stop, ev, t, face) {
+  const s = evScale(stop, ev, t); if (s <= 0.01) return;
+  const side = ev.side || 1;
+  ctx.save();
+  if (ev.kind === 'poll') {
+    const w = 260, h = ev.rival ? 206 : 160;
+    const [x, y] = placeBox(face.x + side * (face.r + 165), face.y - 30 + (ev.dy || 0), w, h);
+    ctx.translate(x, y); ctx.scale(s, s);
+    glossyPanel(-w / 2, -h / 2, w, h, 26, '#ffffff', '#e8eef5', 'rgba(20,30,40,.55)');
+    outlined('PEW 2026 · USA', 0, -h / 2 + 38, '900 23px Nunito', '#55626f', null, 0, 'center');
+    const col = ev.color || '#e0283b', dark = ev.dark || '#5a0b14';
+    outlined(ev.big, ev.down ? -16 : 0, -h / 2 + 112, '400 76px "Lilita One"', col, dark, 6, 'center');
+    if (ev.down) { ctx.fillStyle = col; ctx.strokeStyle = dark; ctx.lineWidth = 4; ctx.save(); ctx.translate(72, -h / 2 + 64);
+      ctx.beginPath(); ctx.moveTo(6, 0); ctx.lineTo(26, 0); ctx.lineTo(26, 22); ctx.lineTo(38, 22); ctx.lineTo(16, 48); ctx.lineTo(-6, 22); ctx.lineTo(6, 22); ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore(); }
+    if (ev.sub) outlined(ev.sub, 0, -h / 2 + 146, '800 22px Nunito', '#55626f', null, 0, 'center');
+    if (ev.rival) {
+      const r = evScale(stop, ev, t, ev.rival.t);
+      if (r > 0.01) { ctx.save(); ctx.translate(0, h / 2 - 30); ctx.scale(r, r);
+        glossyPanel(-104, -22, 208, 44, 22, '#ffe9e9', '#ffd2d2', 'rgba(120,10,20,.5)', false);
+        outlined(ev.rival.text, 0, 10, '400 28px "Lilita One"', '#b3121f', null, 0, 'center'); ctx.restore(); }
+    }
+  } else if (ev.kind === 'num') {
+    // the number itself: header (source + years), big value, short meaning; colour = the country's status
+    const S = E.statuses[ev.status || stop.status];
+    ctx.font = '400 84px "Lilita One"'; const bw = ctx.measureText(ev.big).width + (ev.arrow ? 90 : 0);
+    ctx.font = '900 22px Nunito'; const sw = Math.max(ctx.measureText(ev.sub || '').width, ctx.measureText(ev.head || '').width);
+    const w = Math.max(250, bw + 50, sw + 50), h = 176;
+    const [x, y] = placeBox(face.x + side * (face.r + w / 2 + 34) + (ev.dx || 0), face.y - 40 + (ev.dy || 0), w, h);
+    ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(0.02 * side);
+    glossyPanel(-w / 2, -h / 2, w, h, 26, '#ffffff', '#e8eef5', 'rgba(20,30,40,.55)');
+    ctx.save(); rr(-w / 2, -h / 2, w, 44, 26); ctx.clip(); ctx.fillStyle = S.color; ctx.fillRect(-w / 2, -h / 2, w, 44); ctx.restore();
+    if (ev.est) { ctx.save(); rr(-w / 2, -h / 2, w, 44, 26); ctx.clip(); ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 6; ctx.beginPath(); for (let xx = -w / 2 - 50; xx < w / 2; xx += 16) { ctx.moveTo(xx, -h / 2 + 44); ctx.lineTo(xx + 44, -h / 2); } ctx.stroke(); ctx.restore(); }
+    outlined(ev.head || '', 0, -h / 2 + 30, '900 22px Nunito', '#ffffff', S.dark, 4, 'center');
+    const bx = ev.arrow ? 30 : 0;
+    outlined(ev.big, bx, -h / 2 + 124, '400 84px "Lilita One"', S.color, S.dark, 7, 'center');
+    if (ev.arrow) {   // the status icon beside the number (arrows read as 'rising/falling', so no arrows)
+      ctx.font = '400 84px "Lilita One"'; const ix = bx - ctx.measureText(ev.big).width / 2 - 40;
+      const pump = 1 + 0.06 * Math.sin((t - ev.t) * 6); statusIcon(ev.status || stop.status, ix, -h / 2 + 96, 30 * pump);
+    }
+    if (ev.sub) outlined(ev.sub, 0, h / 2 - 20, '900 22px Nunito', '#3a4652', null, 0, 'center');
+  } else if (ev.kind === 'history' || ev.kind === 'sanction') {
+    ctx.font = '400 44px "Lilita One"'; const tw = ctx.measureText(ev.text).width; const w = tw + 106, h = 70;
+    const [x, y] = placeBox(face.x + side * (face.r + w / 2 + 10), face.y - face.r - 26 + (ev.dy || 0), w + 60, h);
+    const hot = ev.kind === 'history';
+    ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(-0.04 * side);
+    ctx.fillStyle = hot ? '#8e1422' : '#9a6a00';
+    for (const sg of [-1, 1]) { ctx.beginPath(); ctx.moveTo(sg * (w / 2 - 6), -18); ctx.lineTo(sg * (w / 2 + 30), -20); ctx.lineTo(sg * (w / 2 + 16), 4); ctx.lineTo(sg * (w / 2 + 30), 30); ctx.lineTo(sg * (w / 2 - 6), 28); ctx.fill(); }
+    glossyPanel(-w / 2, -h / 2, w, h, 14, hot ? '#ff5a5a' : '#ffd23f', hot ? '#c0182b' : '#e0a100', hot ? 'rgba(60,5,12,.8)' : 'rgba(90,60,0,.8)');
+    statusIcon(hot ? 'HOSTILE' : 'FRICTION', -w / 2 + 40, 0, 25);
+    outlined(ev.text, -w / 2 + 76, 16, '400 44px "Lilita One"', '#ffffff', hot ? '#5a0b14' : '#6b4700', 7);
+  } else if (ev.kind === 'stamp') {
+    ctx.font = '900 24px Nunito'; const sw = ctx.measureText(ev.sub).width; ctx.font = '400 46px "Lilita One"';
+    const w = Math.max(300, sw + 60, ctx.measureText(ev.text).width + 60), h = 120;
+    const [x, y] = placeBox(face.x + side * (face.r + w / 2 + 40), face.y + 70 + (ev.dy || 0), w + 40, h + 40);
+    const slam = 1 + 0.6 * (1 - clamp((t - ev.t) / 0.22));
+    ctx.translate(x, y); ctx.rotate(-0.12); ctx.scale(slam * Math.min(1, s * 1.2), slam * Math.min(1, s * 1.2));
+    ctx.globalAlpha = clamp((t - ev.t) / 0.12) * (1 - clamp((t - evEnd(stop, ev)) / 0.35));
+    ctx.fillStyle = 'rgba(255,255,255,.88)'; rr(-w / 2, -h / 2, w, h, 16); ctx.fill();
+    ctx.strokeStyle = ev.color || '#d0142c'; ctx.lineWidth = 7; rr(-w / 2 + 6, -h / 2 + 6, w - 12, h - 12, 12); ctx.stroke();
+    outlined(ev.text, 0, -6, '400 46px "Lilita One"', ev.color || '#d0142c', null, 0, 'center');
+    outlined(ev.sub, 0, 36, '900 24px Nunito', ev.color || '#d0142c', null, 0, 'center');
+  } else if (ev.kind === 'timeline') {
+    // card width fits the longest label/year so text never spills out of a card
+    // (ev.fit; R01's Cuba strip keeps the fixed 236 px it was approved with)
+    let cw = 236; if (ev.fit) for (const st of ev.steps) { ctx.font = '900 19px Nunito'; cw = Math.max(cw, ctx.measureText(st.label).width + 28);
+      ctx.font = '400 44px "Lilita One"'; cw = Math.max(cw, ctx.measureText(st.year).width + 28); }
+    const n = ev.steps.length, chh = 92, gap = 16, W = n * cw + (n - 1) * gap;
+    const x = CW / 2, y = SAFE[1] + chh / 2 + 6;
+    ctx.translate(x - W / 2, y - chh / 2);
+    ev.steps.forEach((st, i) => {
+      const k = evScale(stop, ev, t, st.t); if (k <= 0.01) return;
+      ctx.save(); ctx.translate(i * (cw + gap) + cw / 2, chh / 2); ctx.scale(k, k);
+      glossyPanel(-cw / 2, -chh / 2, cw, chh, 18, st.c1 || '#ffffff', st.c2 || '#e6edf3', 'rgba(20,30,40,.5)');
+      outlined(st.year, 0, -4, '400 44px "Lilita One"', st.ink || '#1b2733', null, 0, 'center');
+      outlined(st.label, 0, 30, '900 19px Nunito', st.ink || '#3a4652', null, 0, 'center');
+      ctx.restore();
+      if (i < n - 1 && evScale(stop, ev, t, ev.steps[i + 1].t) > 0.3) { ctx.fillStyle = '#ffffff'; ctx.beginPath(); const ax = i * (cw + gap) + cw - 2; ctx.moveTo(ax, chh / 2 - 12); ctx.lineTo(ax + gap + 4, chh / 2); ctx.lineTo(ax, chh / 2 + 12); ctx.fill(); }
+    });
+  } else if (ev.kind === 'sticker') {
+    const w = 330, h = 96;
+    // next to a callout the sticker goes beside the panel, never over it
+    const [x, y] = face.callout ? placeBox(face.callout[2] + w / 2 + 30, face.callout[1] + h / 2, w, h)
+                                : placeBox(face.x + (ev.dx || 0), face.y + (ev.dy || -170), w, h);
+    ctx.translate(x, y); ctx.rotate(-0.08 + 0.03 * Math.sin(t * 2.2)); ctx.scale(s, s);
+    glossyPanel(-w / 2, -h / 2, w, h, 48, '#7cf0a8', '#1fa65a', 'rgba(5,60,25,.8)');
+    outlined(ev.text, 0, 18, '400 54px "Lilita One"', '#ffffff', 'rgba(5,60,25,.8)', 8, 'center');
+  }
+  ctx.restore();
+}
+
+// ---------- micro-countries: magnified callout with the real contour ----------
+function microInfo(stop) {
+  const c = C[stop.id]; const z = CAMS.shots[stop.shotIdx].z;
+  return { micro: !!stop.forceMicro || c.label[2] * z * 0.95 < 22, c };
+}
+function calloutLife(stop) {
+  const i = E.stops.indexOf(stop), nx = E.stops[i + 1];
+  return [stop.activate, nx ? nx.activate + 0.35 : evEndShot(stop)];
+}
+function evEndShot(stop) { const nx = E.shots[stop.shotIdx + 1]; return nx ? nx.flyStart + 0.2 : 1e9; }
+function drawCallout(stop, t, idx) {
+  const c = C[stop.id]; const [t0, t1] = calloutLife(stop);
+  const k = spring((t - t0) / 0.5) * (1 - clamp((t - t1) / 0.35)); if (k <= 0.01) return null;
+  const [mx, my] = w2s(c.label[0], c.label[1]);
+  const bw = 420, bh = 330;
+  // pick a side that stays on screen and away from the point
+  const cands = stop.calloutAt ? [stop.calloutAt] : [[-1, -1], [1, -1], [-1, 1], [1, 1]];
+  // never cover the other countries of this shot (or visited faces): the side is chosen once, at the shot's
+  // resting camera, so the panel does not hop while the camera drifts
+  if (!stop._co) {
+    const saveCam = CAM; CAM = CAMS.shots[stop.shotIdx];
+    const [px, py] = w2s(c.label[0], c.label[1]);
+    const sh = E.shots[stop.shotIdx], keep = [];
+    for (const id of new Set([...sh.ids, ...E.stops.filter(o => o.activate <= stop.activate).map(o => o.id)])) {
+      if (id === stop.id) continue; const nb = C[id].nearBox; const p0 = w2s(nb[0], nb[1]), p1 = w2s(nb[2], nb[3]);
+      if (p1[0] < 0 || p0[0] > CW || p1[1] < 0 || p0[1] > CH) continue; keep.push([p0[0], p0[1], p1[0], p1[1]]);
+    }
+    const ov = (x, y) => keep.reduce((a, k) => a + Math.max(0, Math.min(x + bw, k[2]) - Math.max(x, k[0])) * Math.max(0, Math.min(y + bh, k[3]) - Math.max(y, k[1])), 0);
+    let best = 1e18;
+    for (const [sx, sy] of cands) for (const dist of [150, 260]) {
+      let x = px + sx * dist - (sx < 0 ? bw : 0), y = py + sy * dist * 0.55 - (sy < 0 ? bh : 0);
+      x = clamp(x, SAFE[0], SAFE[2] - bw); y = clamp(y, SAFE[1], SAFE[3] - bh);
+      if (x < px && px < x + bw && y < py && py < y + bh) continue; // keep the real location visible
+      const o = ov(x, y) + dist; if (o < best) { best = o; stop._co = { dx: x - px, dy: y - py }; }
+    }
+    CAM = saveCam;
+  }
+  const bx = clamp(mx + stop._co.dx, SAFE[0], SAFE[2] - bw), by = clamp(my + stop._co.dy, SAFE[1], SAFE[3] - bh);
+  ctx.save(); ctx.globalAlpha = clamp(k * 1.5);
+  ctx.save(); ctx.setLineDash([10, 8]); ctx.lineDashOffset = -t * 30; ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4;
+  const ax = clamp(mx, bx, bx + bw), ay = clamp(my, by, by + bh);
+  ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(ax, ay); ctx.stroke(); ctx.restore();
+  ctx.beginPath(); ctx.arc(mx, my, 11, 0, 7); ctx.fillStyle = '#ff3b4e'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = '#fff'; ctx.stroke();
+  ctx.translate(bx + bw / 2, by + bh / 2); ctx.scale(k, k); ctx.translate(-(bx + bw / 2), -(by + bh / 2));
+  glossyPanel(bx, by, bw, bh, 26, '#f5fbff', '#dbe9f2', 'rgba(20,35,50,.55)');
+  ctx.save(); rr(bx + 8, by + 8, bw - 16, bh - 16, 20); ctx.clip();
+  ctx.fillStyle = '#6fd6de'; ctx.fillRect(bx, by, bw, bh);
+  const b = c.nearBox, s = Math.min((bw - 70) / (b[2] - b[0]), (bh - 110) / (b[3] - b[1]));
+  const ox = bx + bw / 2 - (b[0] + b[2]) / 2 * s, oy = by + 24 + (bh - 100) / 2 - (b[1] + b[3]) / 2 * s;
+  const m = ctx.getTransform();
+  ctx.setTransform(m.a * s, 0, 0, m.d * s, m.a * ox + m.e, m.d * oy + m.f);
+  ctx.save(); ctx.translate(0, 4 / s); ctx.fillStyle = '#7c8f3a'; ctx.fill(c.path, 'evenodd'); ctx.restore();
+  const saveCam = CAM; CAM = { x: (CW / 2 - ox) / s, y: (CH / 2 - oy) / s, z: s };
+  flagFill(c, stop.flag, null, t); statusTint(c, { ...stop, colorAt: null, tint: 0 }, t);
+  ctx.strokeStyle = 'rgba(255,255,226,.95)'; ctx.lineWidth = 3 / s; ctx.stroke(c.path);
+  ctx.strokeStyle = '#1f3519'; ctx.lineWidth = 1.6 / s; ctx.stroke(c.path);
+  ctx.setTransform(m);
+  const fx = ox + c.label[0] * s, fy = oy + c.label[1] * s;
+  const face = drawFace({ ...stop, faceBacking: true }, c, t, idx, Math.min(c.label[2] * s * 0.95, 58), { x: fx, y: fy });
+  CAM = saveCam; ctx.restore();
+  const fw = drawFlag(stop.flag, bx + 22, by + bh - 56, 34, 2);
+  ctx.font = '900 24px Nunito'; let nm = stop.name.toUpperCase(); let fs = 24;
+  while (ctx.measureText(nm).width > bw - 60 - fw && fs > 16) { fs--; ctx.font = `900 ${fs}px Nunito`; }
+  outlined(nm, bx + 34 + fw, by + bh - 30, `900 ${fs}px Nunito`, '#18222d', null, 0);
+  ctx.restore();
+  return { x: bx + bw / 2, y: by + bh / 2, r: 60, box: [bx, by, bx + bw, by + bh] };
+}
+
+// ---------- intro: theme emblem (suitcase) + LEAVE vs MOVE TO title ----------
+function drawIntro(t) {
+  const out = clamp((t - E.shots[0].flyStart) / 0.85);
+  if (out >= 1) return;
+  const outE = easeInOut(out);
+  setScreen();
+  ctx.save();
+  // soft vignette for legibility, fades with the group
+  const vg = ctx.createRadialGradient(CW / 2, 560, 60, CW / 2, 560, 760);
+  vg.addColorStop(0, `rgba(0,40,60,${0.30 * (1 - outE) * clamp(t / 0.3)})`); vg.addColorStop(1, 'rgba(0,40,60,0)');
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, CW, CH);
+  const gx = CW / 2, gy = 575;
+  ctx.translate(gx, gy - outE * 260); const gs = (1 + 0.08 * Math.sin(Math.min(out, .35) / .35 * Math.PI / 2)) * (1 - outE * 0.85);
+  ctx.scale(gs, gs); ctx.globalAlpha = 1 - clamp((out - .55) / .45);
+  // suitcase: drops in, bounces, then rocks on its wheels as if about to roll away
+  const hk = spring((t - 0.1) / 0.6);
+  const rock = t > 0.8 ? 0.06 * Math.sin((t - 0.8) * 4.2) : 0;
+  const hS = 330 * hk;
+  const hy = -70 - (1 - clamp((t - 0.1) / 0.35)) * 300;
+  ctx.save(); ctx.globalAlpha *= 0.35 * hk; ctx.fillStyle = '#022'; ctx.beginPath(); ctx.ellipse(-430, 95, 130 * hk, 18 * hk, 0, 0, 7); ctx.fill(); ctx.restore();
+  if (hS > 1) { ctx.save(); ctx.translate(-430, hy + hS * 0.33); ctx.rotate(rock); ctx.drawImage(IMG.emblem, -hS / 2, -hS * 0.83, hS, hS); ctx.restore(); }
+  // title stack
+  const tA = spring((t - 0.25) / 0.5);
+  ctx.save(); ctx.translate(190, -170); ctx.scale(tA, tA);
+  outlined('COUNTRIES  PEOPLE  WANT  TO', 0, 0, '400 66px "Lilita One"', '#ffffff', '#123047', 12, 'center'); ctx.restore();
+  const pill = (txt, x, y, w, c1, c2, edge, k, rot) => {
+    if (k <= 0) return; ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k);
+    glossyPanel(-w / 2, -62, w, 124, 36, c1, c2, edge);
+    outlined(txt, 0, 34, '400 96px "Lilita One"', '#ffffff', 'rgba(40,0,10,.75)', 10, 'center');
+    ctx.restore();
+  };
+  const shake = (t > 1.75 && t < 2.35) ? Math.sin((t - 1.75) * 60) * 0.05 * (1 - (t - 1.75) / .6) : 0;
+  pill('LEAVE', -55, -40, 330, '#ff5a5a', '#c0122a', 'rgba(70,0,10,.85)', spring((t - 0.45) / 0.45), -0.05 + shake);
+  ctx.save(); const vk = spring((t - 0.62) / 0.4); ctx.translate(165, -35); ctx.scale(vk, vk);
+  ctx.beginPath(); ctx.arc(0, 0, 44, 0, 7); const vgr = ctx.createRadialGradient(-12, -16, 4, 0, 0, 48); vgr.addColorStop(0, '#fff'); vgr.addColorStop(.3, '#ffd34d'); vgr.addColorStop(1, '#d68a00'); ctx.fillStyle = vgr; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = '#5a3a00'; ctx.stroke();
+  outlined('VS', 0, 17, '400 46px "Lilita One"', '#fff', '#5a3a00', 7, 'center'); ctx.restore();
+  pill('MOVE TO', 425, -40, 420, '#4fe08a', '#159a50', 'rgba(5,60,25,.8)', spring((t - 0.78) / 0.45), 0.05);
+  ctx.restore();
+}
+
+// ---------- HUD ----------
+function counts(st) { const n = {}; for (const k in E.statuses) n[k] = 0; for (const s of st.visited) n[s.status]++; return n; }
+function lastChange(t, pred) { let tc = -9; for (const s of E.stops) if (t >= s.activate && pred(s)) tc = Math.max(tc, s.activate); return tc; }
+function drawHUD(t, st) {
+  setScreen();
+  // status counters (non-binary theme: one counter per status)
+  const keys = Object.keys(E.statuses); const n = counts(st);
+  const cardW = 96 * keys.length + 26, x0 = 34, y0 = 26;
+  glossyPanel(x0, y0, cardW, 122, 26, '#ffffff', '#e4ebf2', 'rgba(20,35,50,.45)');
+  keys.forEach((k, i) => {
+    const cx = x0 + 22 + i * 96 + 36, cy = y0 + 42;
+    const tc = lastChange(t, s => s.status === k); const bump = t - tc < 0.6 ? 1 + 0.25 * Math.sin(clamp((t - tc) / .6) * Math.PI) : 1;
+    statusIcon(k, cx, cy, 25 * bump);
+    outlined(String(n[k]), cx, cy + 58, '400 30px "Lilita One"', n[k] ? '#16212c' : '#9aa6b2', null, 0, 'center');
+  });
+  // route progress plaque
+  const total = E.totalCountries, done = st.visited.length;
+  const tcA = lastChange(t, () => true); const pPrev = Math.max(0, done - 1) / total, pNow = done / total;
+  const pf = done ? lerp(pPrev, pNow, easeOut((t - tcA) / 0.6)) : 0;
+  const px = CW - 34 - 600, py = 26, pw = 600, ph = 122;
+  glossyPanel(px, py, pw, ph, 26, '#ffffff', '#e4ebf2', 'rgba(20,35,50,.45)');
+  outlined('ROUTE', px + 26, py + 38, '900 22px Nunito', '#5c6976', null, 0);
+  const bump = t - tcA < 0.5 ? 1 + 0.18 * Math.sin(clamp((t - tcA) / .5) * Math.PI) : 1;
+  ctx.save(); ctx.translate(px + pw - 26, py + 42); ctx.scale(bump, bump);
+  outlined(`${done} / ${total}`, 0, 0, '400 40px "Lilita One"', '#16212c', null, 0, 'right'); ctx.restore();
+  outlined(`${Math.round(pf * 100)}%`, px + 118, py + 38, '400 32px "Lilita One"', '#4a5fd8', null, 0);
+  const bx = px + 24, by = py + 68, bw = pw - 48, bh = 30;
+  rr(bx, by, bw, bh, 15); ctx.fillStyle = '#1b2433'; ctx.fill();
+  if (pf > 0.001) {
+    ctx.save(); rr(bx + 3, by + 3, bw - 6, bh - 6, 12); ctx.clip();
+    const fw = (bw - 6) * pf; const gg = ctx.createLinearGradient(bx, 0, bx + bw, 0); gg.addColorStop(0, '#59c8ff'); gg.addColorStop(1, '#8b6bff');
+    rr(bx + 3, by + 3, fw, bh - 6, 12); ctx.fillStyle = gg; ctx.fill();
+    rr(bx + 6, by + 5, Math.max(0, fw - 6), 8, 4); ctx.fillStyle = 'rgba(255,255,255,.45)'; ctx.fill();
+    ctx.restore();
+  }
+  ctx.strokeStyle = 'rgba(255,255,255,.25)'; ctx.lineWidth = 2; rr(bx, by, bw, bh, 15); ctx.stroke();
+
+  // bottom-left: current country card (fades out when the final count starts)
+  const cur = st.current; const hudA = 1 - outroK(t);
+  ctx.save(); ctx.globalAlpha = hudA;
+  if (cur && hudA > 0.01) {
+    const ap = easeOut((t - cur.activate) / 0.4);
+    const first = cur === E.stops[0];
+    const prev = E.stops[E.stops.indexOf(cur) - 1];
+    drawCard(first ? cur : (ap < 1 && prev ? (ap < .5 ? prev : cur) : cur), t, first ? ap : (ap < 1 ? Math.abs(1 - 2 * ap) * 0.5 + 0.5 : 1), first ? (1 - ap) * 220 : 0);
+  }
+  // bottom-right: last 5 countries
+  if (hudA > 0.01) drawRecent(t, st);
+  ctx.restore();
+}
+function drawCard(s, t, scaleY, dy) {
+  const x = 34, w = 760, h = 176, y = CH - 34 - h + dy;
+  ctx.save(); ctx.translate(x, y + h / 2); ctx.scale(1, scaleY); ctx.translate(-x, -(y + h / 2));
+  glossyPanel(x, y, w, h, 28, '#243447', '#121c27', 'rgba(255,255,255,.18)');
+  const fh = 96; const fw = drawFlag(s.flag, x + 26, y + 24, fh, 4);
+  // name: auto-size, wrap to two lines if needed (never microscopic)
+  const nx = x + 26 + fw + 28, maxW = w - (nx - x) - 26;
+  let size = 64, lines = [s.name.toUpperCase()];
+  ctx.font = `400 ${size}px "Lilita One"`;
+  while (ctx.measureText(lines[0]).width > maxW && size > 46) { size -= 2; ctx.font = `400 ${size}px "Lilita One"`; }
+  if (ctx.measureText(lines[0]).width > maxW) {
+    const words = s.name.toUpperCase().split(' '); let best = null;
+    for (let i = 1; i < words.length; i++) { const a = words.slice(0, i).join(' '), b = words.slice(i).join(' '); const m = Math.max(ctx.measureText(a).width, ctx.measureText(b).width); if (!best || m < best.m) best = { a, b, m }; }
+    size = 46; ctx.font = `400 ${size}px "Lilita One"`; lines = [best.a, best.b];
+  }
+  if (lines.length === 1) outlined(lines[0], nx, y + 24 + size * .82, `400 ${size}px "Lilita One"`, '#ffffff', 'rgba(0,0,0,.5)', 6);
+  else { outlined(lines[0], nx, y + 16 + size * .85, `400 ${size}px "Lilita One"`, '#fff', 'rgba(0,0,0,.5)', 6); outlined(lines[1], nx, y + 16 + size * 1.8, `400 ${size}px "Lilita One"`, '#fff', 'rgba(0,0,0,.5)', 6); }
+  // status pill (light)
+  const S = E.statuses[s.status]; const pillTxt = S.label + '  ·  ' + s.tag;
+  ctx.font = '900 25px Nunito'; const pw = Math.min(ctx.measureText(pillTxt).width + 70, w - 52 - (s.quality === 'S' || s.quality === 'E' ? 200 : 0));
+  const py = y + h - 58;
+  glossyPanel(x + 26, py, pw, 44, 22, '#ffffff', '#dfe7ef', 'rgba(255,255,255,.4)', false);
+  statusIcon(s.status, x + 26 + 24, py + 22, 18);
+  let pfs = 25; ctx.font = '900 25px Nunito'; while (ctx.measureText(pillTxt).width > pw - 66 && pfs > 17) { pfs--; ctx.font = `900 ${pfs}px Nunito`; }
+  outlined(pillTxt, x + 26 + 50, py + 31, `900 ${pfs}px Nunito`, '#18222d', null, 0);
+  // data-quality badge: where the number does not come from Gallup (other survey / UN estimate)
+  const QB = { S: ['OTHER SURVEY', null], E: ['UN ESTIMATE', 'hatch'] }[s.quality];
+  if (QB) {
+    ctx.font = '900 19px Nunito'; const qw = ctx.measureText(QB[0]).width + 30, qx = x + w - 26 - qw, qy = y + h - 51;
+    ctx.save(); rr(qx, qy, qw, 32, 16); ctx.fillStyle = 'rgba(255,255,255,.12)'; ctx.fill();
+    if (QB[1]) { ctx.clip(); ctx.strokeStyle = 'rgba(255,255,255,.22)'; ctx.lineWidth = 5; ctx.beginPath(); for (let xx = qx - 40; xx < qx + qw; xx += 13) { ctx.moveTo(xx, qy + 32); ctx.lineTo(xx + 32, qy); } ctx.stroke(); }
+    ctx.restore(); ctx.save(); ctx.setLineDash(QB[1] ? [] : [6, 5]); ctx.strokeStyle = 'rgba(255,255,255,.8)'; ctx.lineWidth = 2.5; rr(qx, qy, qw, 32, 16); ctx.stroke(); ctx.restore();
+    outlined(QB[0], qx + qw / 2, qy + 23, '900 19px Nunito', '#ffffff', null, 0, 'center');
+  }
+  ctx.restore();
+}
+function drawRecent(t, st) {
+  const rows = st.visited.slice(-5).reverse();
+  const rw = 470, rh = 58, gap = 10, x = CW - 34 - rw; const yBase = CH - 34 - rh;
+  rows.forEach((s, i) => {
+    const age = t - s.activate;
+    const k = easeOut((age - 0.2) / 0.45); if (k <= 0) return;
+    // older rows slide up smoothly when a new one arrives
+    let slot = i; const newest = rows[0]; const nk = easeOut((t - newest.activate - 0.2) / 0.45);
+    if (i > 0) slot = i - 1 + nk;
+    const y = yBase - slot * (rh + gap);
+    const xs = i === 0 ? x + (1 - k) * 520 : x;
+    ctx.save(); ctx.globalAlpha = i === 0 ? k : 1;
+    glossyPanel(xs, y, rw, rh, 18, '#ffffff', '#e3eaf1', 'rgba(20,35,50,.4)');
+    const fw = drawFlag(s.flag, xs + 16, y + 13, 32, 2);
+    const rtag = s.rtag || s.tag; ctx.font = '800 20px Nunito'; const tagW = ctx.measureText(rtag).width;
+    const room = rw - (30 + fw) - 62 - tagW - 14; let fs = 27; ctx.font = `900 ${fs}px Nunito`;
+    const nm = (s.short || s.name).toUpperCase(); // short form only for names that cannot fit beside their tag
+    while (ctx.measureText(nm).width > room && fs > 17) { fs--; ctx.font = `900 ${fs}px Nunito`; }
+    outlined(nm, xs + 30 + fw, y + 38, `900 ${fs}px Nunito`, '#18222d', null, 0);
+    statusIcon(s.status, xs + rw - 34, y + rh / 2, 19);
+    ctx.font = '800 20px Nunito'; ctx.textAlign = 'right'; ctx.fillStyle = '#5c6976'; ctx.fillText(rtag, xs + rw - 62, y + 37);
+    ctx.restore();
+  });
+}
+
+// ---------- final count (SC059) and the two maps (SC060); every time comes from a spoken word ----------
+const O = E.outro || null;
+function outroK(t) { return O ? clamp((t - O.t0) / 0.5) : 0; }
+const OUT_LABEL = { ALLY: 'TREATY ALLIES', PARTNER: 'MAJOR PARTNERS', NORMAL: 'NORMAL TIES', FRICTION: 'SANCTIONS', HOSTILE: 'RED SWORDS', NOTIES: 'NO FORMAL TIES' };
+function pinLabel(txt, x, y, k, fill, ink, dy = -46) {
+  if (k <= 0.01) return;
+  ctx.save(); ctx.translate(x, y + dy); ctx.scale(k, k);
+  ctx.font = '900 24px Nunito'; const w = ctx.measureText(txt).width + 34;
+  glossyPanel(-w / 2, -21, w, 42, 21, fill, fill, 'rgba(20,20,30,.55)');
+  outlined(txt, 0, 9, '900 24px Nunito', ink, null, 0, 'center');
+  ctx.beginPath(); ctx.moveTo(-9, 20); ctx.lineTo(9, 20); ctx.lineTo(0, 32); ctx.closePath(); ctx.fillStyle = fill; ctx.fill();
+  ctx.restore();
+}
+function drawOutroWorld(t) {
+  if (!O || t < O.t0 || t >= O.left + 0.6) return;
+  const fade = 1 - clamp((t - O.left) / 0.6);
+  setWorld();
+  const glow = (id, t0, col, w) => {
+    const k = t - t0; if (k < 0) return;
+    const a = (0.6 + 0.4 * Math.sin(k * 6.5)) * clamp(k / 0.25) * fade;
+    ctx.save(); ctx.shadowColor = col.replace('A', a); ctx.shadowBlur = 30; ctx.strokeStyle = col.replace('A', a);
+    ctx.lineWidth = w / CAM.z; ctx.stroke(C[id].path); ctx.stroke(C[id].path); ctx.restore();
+  };
+  for (const r of O.red) glow(r.id, r.t, 'rgba(255,40,60,A)', 5);
+  for (const r of O.never) glow(r.id, r.t, 'rgba(255,255,255,A)', 6);
+  setScreen();
+  ctx.save(); ctx.globalAlpha = fade;
+  for (const r of O.red) { const c = C[r.id]; const [x, y] = w2s(c.label[0], c.label[1]); pinLabel(r.name.toUpperCase(), x, y, spring((t - r.t) / 0.4), '#e0283b', '#ffffff', r.dy || -46); }
+  for (const r of O.never) { const c = C[r.id]; const [x, y] = w2s(c.label[0], c.label[1]); pinLabel(r.name.toUpperCase() + ' · NEVER', x, y, spring((t - r.t) / 0.4), '#ffffff', '#3a4652', 46); }
+  ctx.restore();
+}
+function drawScoreboard(t, st) {
+  const k = spring((t - O.total + 0.25) / 0.5) * (1 - clamp((t - O.left) / 0.5)); if (k <= 0.01) return;
+  const n = counts(st), w = 1500, h = 196, x = CW / 2, y = CH - 34 - h / 2;
+  ctx.save(); ctx.translate(x, y); ctx.scale(k, k);
+  glossyPanel(-w / 2, -h / 2, w, h, 30, '#243447', '#121c27', 'rgba(255,255,255,.2)');
+  const tk = easeOut((t - O.total) / 0.8);
+  outlined(String(Math.round(156 * tk)), -w / 2 + 130, 22, '400 92px "Lilita One"', '#ffffff', 'rgba(0,0,0,.5)', 8, 'center');
+  outlined('COUNTRIES', -w / 2 + 130, 66, '900 24px Nunito', '#cfe0ee', null, 0, 'center');
+  O.rows.forEach((r, i) => {
+    const a = spring((t - r.t) / 0.45); if (a <= 0.01) return;
+    const col = i % 3, row = Math.floor(i / 3);
+    const cx = -w / 2 + 300 + col * 400, cy = -h / 2 + 52 + row * 92;
+    ctx.save(); ctx.translate(cx, cy); ctx.scale(a, a);
+    glossyPanel(0, -36, 380, 72, 20, '#ffffff', '#e4ebf2', 'rgba(255,255,255,.3)', false);
+    statusIcon(r.status, 40, 0, 24);
+    const v = Math.round(n[r.status] * easeOut((t - r.t) / 0.7));
+    outlined(String(v), 128, 18, '400 52px "Lilita One"', E.statuses[r.status].dark, null, 0, 'right');
+    outlined(OUT_LABEL[r.status], 142, 9, '900 22px Nunito', '#18222d', null, 0);
+    ctx.restore();
+  });
+  ctx.restore();
+}
+function pollColor(v) { return v >= 50 ? '#2FA05A' : v >= 35 ? '#8C96A3' : '#E0283B'; }
+function miniMap(px, py, pw, ph, mode) {
+  const W = WD.meta.W, H = WD.meta.H, z = Math.min((pw - 40) / W, (ph - 150) / H);
+  const ox = px + pw / 2 - W / 2 * z, oy = py + 74 + (ph - 150) / 2 - H / 2 * z;
+  ctx.save(); ctx.setTransform(z, 0, 0, z, ox, oy);
+  ctx.fillStyle = '#e6ecc9'; ctx.fill(LAND_ALL);
+  if (mode === 'alliance') for (const s of E.stops) { ctx.fillStyle = E.statuses[s.status].color; ctx.fill(C[s.id].path, 'evenodd'); }
+  else for (const p of O.polls) { ctx.fillStyle = pollColor(p.v); ctx.fill(C[p.id].path, 'evenodd'); }
+  ctx.fillStyle = '#1b2a4a'; ctx.fill(C[E.subject.id].path, 'evenodd');
+  ctx.strokeStyle = 'rgba(40,60,40,.55)'; ctx.lineWidth = 0.9 / z; ctx.stroke(LAND_ALL);
+  ctx.restore();
+  return (id) => { const l = C[id].label; return [ox + l[0] * z, oy + l[1] * z]; };
+}
+function legend(items, x, y) {
+  ctx.font = '900 19px Nunito'; let w = 0; for (const [, txt] of items) w += ctx.measureText(txt).width + 54;
+  let cx = x - w / 2;
+  for (const [col, txt] of items) { rr(cx, y - 11, 22, 22, 6); ctx.fillStyle = col; ctx.fill(); ctx.strokeStyle = 'rgba(0,0,0,.25)'; ctx.lineWidth = 2; ctx.stroke();
+    outlined(txt, cx + 30, y + 7, '900 19px Nunito', '#3a4652', null, 0); cx += ctx.measureText(txt).width + 54; }
+}
+function drawSplit(t) {
+  const a = easeInOut((t - O.left) / 0.6); if (a <= 0) return;
+  ctx.save(); ctx.globalAlpha = a; drawSea(); ctx.restore();
+  const pw = 900, ph = 560, py = 236;
+  const panel = (px, t0, title, mode, legendItems, from) => {
+    const k = easeOut((t - t0) / 0.6); if (k <= 0) return null;
+    ctx.save(); ctx.translate((1 - k) * from, 0); ctx.globalAlpha = k;
+    glossyPanel(px, py, pw, ph, 30, '#ffffff', '#e8eef5', 'rgba(20,30,40,.5)');
+    outlined(title, px + pw / 2, py + 52, '400 40px "Lilita One"', '#18222d', null, 0, 'center');
+    const map = miniMap(px, py, pw, ph, mode);
+    legend(legendItems, px + pw / 2, py + ph - 34);
+    ctx.restore(); return k >= 1 ? map : null;
+  };
+  const S = E.statuses;
+  const L = panel(40, O.left, 'ON PAPER: ALLIANCES', 'alliance',
+    [[S.ALLY.color, 'TREATY'], [S.PARTNER.color, 'PARTNER'], [S.NORMAL.color, 'NORMAL'], [S.FRICTION.color, 'FRICTION'], [S.HOSTILE.color, 'HOSTILE']], -500);
+  const R = panel(980, O.right, 'IN THE POLLS: PEW 2026', 'poll',
+    [['#2FA05A', '50%+'], ['#8C96A3', '35-49%'], ['#E0283B', 'UNDER 35%'], ['#e6ecc9', 'NOT SURVEYED']], 500);
+  const hk = spring((t - O.maps) / 0.5);
+  if (hk > 0.01) { ctx.save(); ctx.translate(CW / 2, 150); ctx.scale(hk, hk);
+    outlined('TWO DIFFERENT MAPS', 0, 30, '400 84px "Lilita One"', '#ffffff', '#123047', 12, 'center'); ctx.restore(); }
+  const mark = (map, id, t0, txt, fill, ink, dy) => {
+    if (!map || t < t0) return; const [x, y] = map(id); const k = spring((t - t0) / 0.45);
+    ctx.save(); ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(x, y, 16 + 5 * Math.sin((t - t0) * 6), 0, 7); ctx.stroke();
+    ctx.strokeStyle = fill; ctx.lineWidth = 3; ctx.stroke(); ctx.restore();
+    pinLabel(txt, x, y, k, fill, ink, dy);
+  };
+  mark(L, O.turkey, O.tur, 'TURKEY: NATO ALLY', S.ALLY.color, '#ffffff', -48);
+  mark(R, O.turkey, O.tur13, 'TURKEY: 13%', '#E0283B', '#ffffff', -48);
+  mark(L, O.ghana, O.gha, 'GHANA: NO ALLIANCE', S.NORMAL.color, '#ffffff', 58);
+  mark(R, O.ghana, O.gha68, 'GHANA: 68%', '#2FA05A', '#ffffff', 58);
+  const qk = spring((t - O.question) / 0.5);
+  if (qk > 0.01) { ctx.save(); ctx.translate(CW / 2, CH - 34 - 100); ctx.scale(qk, qk);
+    glossyPanel(-760, -78, 1520, 156, 34, '#243447', '#121c27', 'rgba(255,255,255,.2)');
+    outlined('WHICH NUMBER SURPRISED YOU MOST?', 0, 26, '400 70px "Lilita One"', '#ffffff', 'rgba(0,0,0,.5)', 8, 'center'); ctx.restore(); }
+}
+function drawOutroUI(t, st) {
+  if (!O || t < O.t0) return;
+  setScreen();
+  drawScoreboard(t, st);
+  if (t >= O.left) drawSplit(t);
+}
+
+// ---------- frame ----------
+function tagAlpha(stop, t) { // the name tag belongs to the newest country of the current shot
+  const i = E.stops.indexOf(stop), nx = E.stops[i + 1];
+  const a = clamp((t - stop.activate - 0.25) / 0.3);
+  const endT = nx ? nx.activate : evEndShot(stop);
+  return a * (1 - clamp((t - endT) / 0.3));
+}
+function drawFrame(t) {
+  t = clamp(t, 0, E.duration);
+  CAM = camAt(t);
+  const st = stateAt(t);
+  ctx.save();
+  drawMap(t, st);
+  setScreen();
+  const avoid = [];
+  const vis = st.visited.map(s => ({ s, c: C[s.id], f: faceGeom(C[s.id]), mi: microInfo(s) }))
+    .filter(o => !(o.f.x < -200 || o.f.x > CW + 200 || o.f.y < -200 || o.f.y > CH + 200));
+  for (const o of vis) avoid.push({ x: o.f.x, y: o.f.y, r: Math.max(o.f.R, 30) * 1.4 });
+  const boxes = [];
+  if (st.current) { const b = C[st.current.id].nearBox; const p0 = w2s(b[0], b[1]), p1 = w2s(b[2], b[3]); boxes.push([p0[0], p0[1], p1[0], p1[1]]); }
+  boxes.push([34, 26, 34 + 96 * 6 + 26, 148], [CW - 634, 26, CW - 34, 148], [34, CH - 210, 34 + 760, CH - 34], [CW - 504, CH - 34 - 5 * 68, CW - 34, CH - 34]);
+  setWorld(); drawClouds(t, avoid, boxes); setScreen();
+  // faces first (persist for the whole film with their own phase), then tags, callouts and event chips on top
+  const faces = [];
+  for (const o of vis) {
+    const gi = E.stops.indexOf(o.s);
+    let face;
+    if (o.mi.micro) { // small sticker face that stays after the callout closes
+      const [t0] = calloutLife(o.s);
+      face = t >= t0 ? drawFace({ ...o.s, sticker: true }, o.c, t, gi, Math.max(o.f.R, 16)) : null;
+    } else face = drawFace(o.s, o.c, t, gi);
+    faces.push({ o, face, gi });
+  }
+  const tagA = 1 - outroK(t); ctx.save(); ctx.globalAlpha = tagA;
+  for (const { o, face, gi } of faces) {
+    if (tagA <= 0.01) break;
+    let anchor = face;
+    if (o.mi.micro) { const co = drawCallout(o.s, t, gi); if (co) anchor = { x: co.box[2], y: co.y - 60, r: 20, callout: co.box }; }
+    else if (face) { const ta = tagAlpha(o.s, t); if (ta > 0.01) { ctx.save(); ctx.globalAlpha = ta; nameTag({ ...o.s, activate: -10 }, face.x, face.y, face.r, t); ctx.restore(); } }
+    if (anchor) drawEvents(o.s, t, anchor);
+  }
+  ctx.restore();
+  drawOutroWorld(t);
+  drawIntro(t);
+  drawHUD(t, st);
+  drawOutroUI(t, st);
+  ctx.restore();
+}
+window.drawFrame = drawFrame; window.stateAt = stateAt; window.camAt = camAt; window.shotAt = shotAt; window.CLOUDS = CLOUDS;
+
+// ---------- technical check frames (not part of the story; picked from the data by the build script) ----------
+function drawStatusSheet() {
+  CAM = CAMS.ov; drawMap(5, { visited: [], current: null }); setScreen();
+  ctx.fillStyle = 'rgba(10,30,45,.45)'; ctx.fillRect(0, 0, CW, CH);
+  const keys = Object.keys(E.statuses), w = 560, h = 120;
+  keys.forEach((k, i) => {
+    const S = E.statuses[k], x = 120 + (i % 3) * 580, y = 300 + Math.floor(i / 3) * 170;
+    glossyPanel(x, y, w, h, 26, '#ffffff', '#e4ebf2', 'rgba(20,35,50,.45)');
+    statusIcon(k, x + 66, y + h / 2, 42);
+    outlined(S.label, x + 124, y + 58, '400 40px "Lilita One"', S.dark, null, 0);
+    outlined(S.rule || '', x + 124, y + 94, '800 19px Nunito', '#55626f', null, 0);
+  });
+  outlined('STATUS SET', CW / 2, 220, '400 64px "Lilita One"', '#ffffff', '#123047', 10, 'center');
+}
+function drawTech(kind) {
+  if (!CAMS) buildCams();
+  if (kind === 'statuses') return drawStatusSheet();
+  const tc = E.techChecks.find(x => x.kind === kind); const c = C[tc.id];
+  const stop = { ...tc, activate: -10, colorAt: null, tint: tc.tint || 0 };
+  const t = 5;
+  const span = tc.span ? (() => { const l = c.label; return [l[0] - tc.span[0] / 2, l[1] - tc.span[1] / 2, l[0] + tc.span[0] / 2, l[1] + tc.span[1] / 2]; })() : null;
+  CAM = tc.micro ? (() => { const b = c.bbox; return countryCam(tc.id, { box: [b[0] - 330, b[1] - 230, b[2] + 120, b[3] + 120] }); })()
+                 : countryCam(tc.id, { box: span || undefined, zmax: tc.zmax || 9 });
+  const st = { visited: [], current: stop };
+  drawMap(t, st, [stop]);
+  setScreen();
+  if (tc.micro) {
+    // magnified callout of the real contour, face inside the enlarged land, flag, marker and dashed leader
+    const [mx, my] = w2s((c.bbox[0] + c.bbox[2]) / 2, (c.bbox[1] + c.bbox[3]) / 2);
+    const bx = mx - 800, by = my - 450, bw = 580, bh = 430;
+    ctx.save(); ctx.setLineDash([10, 8]); ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(bx + bw, by + bh / 2); ctx.stroke(); ctx.restore();
+    ctx.beginPath(); ctx.arc(mx, my, 12, 0, 7); ctx.fillStyle = '#ff3b4e'; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = '#fff'; ctx.stroke();
+    glossyPanel(bx, by, bw, bh, 26, '#f5fbff', '#dbe9f2', 'rgba(20,35,50,.55)');
+    ctx.save(); rr(bx + 8, by + 8, bw - 16, bh - 16, 20); ctx.clip();
+    ctx.fillStyle = '#7fdde3'; ctx.fillRect(bx, by, bw, bh);
+    const b = c.nearBox, s = Math.min((bw - 60) / (b[2] - b[0]), (bh - 100) / (b[3] - b[1]));
+    const ox = bx + bw / 2 - (b[0] + b[2]) / 2 * s, oy = by + 22 + (bh - 100) / 2 - (b[1] + b[3]) / 2 * s;
+    ctx.setTransform(s, 0, 0, s, ox, oy);
+    ctx.save(); ctx.translate(0, 5 / s); ctx.fillStyle = '#7c8f3a'; ctx.fill(c.path); ctx.restore();
+    const saveCam = CAM; CAM = { x: (CW / 2 - ox) / s, y: (CH / 2 - oy) / s, z: s };
+    flagFill(c, tc.flag, null, t); statusTint(c, { ...stop, tint: 0 }, t);
+    ctx.strokeStyle = '#1f3519'; ctx.lineWidth = 2 / s; ctx.stroke(c.path);
+    setScreen();
+    const fp = w2s(c.label[0], c.label[1]);
+    drawFace({ ...stop, faceBacking: true }, c, t, 1, Math.min(c.label[2] * s * .95, 64), { x: fp[0], y: fp[1] });
+    CAM = saveCam; ctx.restore();
+    const fw = drawFlag(tc.flag, bx + 22, by + bh - 58, 38, 2);
+    outlined(tc.name.toUpperCase(), bx + 34 + fw, by + bh - 28, '900 24px Nunito', '#18222d', null, 0);
+  } else {
+    const face = drawFace(stop, c, t, 2); if (face) { nameTag({ ...stop, activate: -10 }, face.x, face.y, face.r, t); if (tc.events) for (const ev of tc.events) drawEvent(stop, { ...ev, t: 0 }, t, face); }
+  }
+  setScreen();
+  if (tc.note) { ctx.font = '900 26px Nunito'; const nw = ctx.measureText(tc.note).width + 40; glossyPanel(CW / 2 - nw / 2, 30, nw, 50, 25, '#fff8c4', '#ffe98a', 'rgba(90,60,0,.6)'); outlined(tc.note, CW / 2, 64, '900 26px Nunito', '#4a3600', null, 0, 'center'); }
+  drawCard(stop, t, 1, 0);
+  drawRecent(t, { visited: [stop] });
+}
+window.drawTech = drawTech;
+
+// ---------- preview player (global timeline; optional voice track) ----------
+let playing = false, t0 = 0, tNow = 0, sound = false;
+const seek = document.getElementById('seek'), timeEl = document.getElementById('time'), playBtn = document.getElementById('play');
+const audio = E.audio ? new Audio(E.audio.preview || E.audio.file) : null;
+function show(t) { tNow = t; drawFrame(t); seek.value = t; timeEl.textContent = t.toFixed(2) + ' / ' + E.duration.toFixed(2) + ' s'; }
+function loop(ts) { if (!playing) return; const t = (ts - t0) / 1000; if (t >= E.duration) { stop(); show(E.duration); return; } show(t); requestAnimationFrame(loop); }
+function start(from) { playing = true; playBtn.textContent = 'Pause'; tNow = from; if (audio && sound) { audio.currentTime = E.audioOffset ? from + E.audioOffset : from; audio.play().catch(() => {}); } requestAnimationFrame(ts => { t0 = ts - from * 1000; loop(ts); }); }
+function stop() { playing = false; playBtn.textContent = 'Play'; if (audio) audio.pause(); }
+READY.then(() => {
+  seek.max = E.duration;
+  if (RENDER) return;
+  show(0);
+  playBtn.onclick = () => playing ? stop() : start(tNow >= E.duration ? 0 : tNow);
+  document.getElementById('replay').onclick = () => { stop(); start(0); };
+  document.getElementById('snd').onclick = e => { sound = !sound; e.target.textContent = 'Sound: ' + (sound ? 'on' : 'off'); if (playing) { stop(); start(tNow); } };
+  seek.oninput = () => { stop(); show(+seek.value); };
+  for (const k of ['statuses', ...(E.techChecks || []).map(x => x.kind)]) { const o = document.createElement('option'); o.value = k; o.textContent = 'Check: ' + k; document.getElementById('tech').appendChild(o); }
+  document.getElementById('tech').onchange = e => { stop(); if (e.target.value) drawTech(e.target.value); else show(tNow); };
+}).catch(e => { document.getElementById('err').textContent = String(e); window.JS_ERRORS = [String(e)]; });
+</script>
+</body>
+</html>
