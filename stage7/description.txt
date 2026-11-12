@@ -1,0 +1,43 @@
+If you could move anywhere tomorrow, would you leave your country? We fly across 159 countries and mark where people want out, where they want in, and where they can't leave at all.
+
+Gallup's polls show Canada and New Zealand pulling people in, while in Liberia (76%), Sierra Leone (75%) and Ghana (65%) most adults would leave. Two countries don't let their citizens go.
+
+Coverage: 159 countries in 11 regions on every continent. Facts as of 4 November 2026.
+
+How we measure it:
+- Want to leave: Gallup World Poll, % of adults who would like to move permanently to another country (mostly 2023; older years are shown on screen).
+- Want in vs want out: Gallup's Potential Net Migration Index (people who would move in minus people who would move out), 2023-2025.
+- Dream destination: share of the world's would-be migrants who name the country (Gallup 2025).
+- Where Gallup has no number, we use another national survey (dotted outline) or the UN's estimate of actual net migration, 2019-2023 (hatched). The UN figure counts real moves, not wishes.
+- Can't leave: a documented exit ban (North Korea, Eritrea).
+Different surveys ask different questions, so compare countries within one colour band, not as an exact ranking.
+
+The final map: 16 magnets, 16 with more people moving in, 47 where most people stay, 52 where many want out, 26 where close to half or more want out, and 2 where people can't leave.
+
+Chapters:
+0:00 North America & the Caribbean
+1:53 South America
+2:33 Western & Northern Europe
+3:28 Central & Eastern Europe
+4:20 Russia, the Caucasus & Central Asia
+4:56 Middle East
+5:46 North & West Africa
+6:38 Central & East Africa
+7:17 Southern Africa
+7:38 South & Southeast Asia
+8:32 East Asia & Oceania
+9:19 The final map
+
+Main sources (full list in the pinned comment):
+- Gallup, Desire to Migrate Remains at Record High (2024): https://news.gallup.com/poll/652748/desire-migrate-remains-record-high.aspx
+- Gallup, Desire to Move Permanently to U.S. at New Low (2026): https://news.gallup.com/poll/708614/desire-migrate-drops-new-low.aspx
+- Gallup, How Migration Could Reshape Populations and Labor Forces (2026): https://news.gallup.com/poll/708680/migration-reshape-populations-labor-forces.aspx
+- Arab Barometer, migration trends, Wave VIII (2024): https://www.arabbarometer.org/media-news/press-release-migration-trends-in-the-middle-east-and-north-africa-revealed-in-latest-arab-barometer-survey/
+- UN DESA, World Population Prospects 2024: https://population.un.org/wpp/
+- US travel ban, Proclamation of 16 December 2025 (summary by NAFSA): https://www.nafsa.org/regulatory-information/proclamation-december-16-2025-travel-ban-effective-january-1-2026
+
+Map: Natural Earth (public domain). Flags: svg-country-flags (public domain).
+Music: original background track made for this video (no attribution required).
+
+If you like map videos like this, subscribe for the next one.
+Where would you go? Tell us in the comments.

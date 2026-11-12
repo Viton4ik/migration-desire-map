@@ -1,0 +1,76 @@
+Sources for "Countries People Want to LEAVE vs MOVE TO" (facts as of 4 November 2026)
+
+Gallup, "Desire to Migrate Remains at Record High" (2024-10-30), World Poll 2023, % adults who would like to move permanently to another country
+https://news.gallup.com/poll/652748/desire-migrate-remains-record-high.aspx
+
+Gallup, "Desire to Move Permanently to U.S. at New Low" (2026-04-23), World Poll 2025: world 15%, preferred destinations
+https://news.gallup.com/poll/708614/desire-migrate-drops-new-low.aspx
+
+Gallup, "How Migration Could Reshape Populations and Labor Forces" (2026-04-23), Potential Net Migration Index 2023-2025
+https://news.gallup.com/poll/708680/migration-reshape-populations-labor-forces.aspx
+
+Arab Barometer Wave VIII press release (2024-08-15), % who considered emigrating, 2023-24
+https://www.arabbarometer.org/media-news/press-release-migration-trends-in-the-middle-east-and-north-africa-revealed-in-latest-arab-barometer-survey/
+
+Arab Barometer Wave VII Migration Report, 2021-22
+https://www.arabbarometer.org/wp-content/uploads/ABVII_Migration_Report-EN.pdf
+
+UN DESA, World Population Prospects 2024, crude net migration rate per 1,000 (estimates 2019-2023), official R package wpp2024 1.1-3
+https://github.com/PPgp/wpp2024
+
+Levada Center, emigration sentiments, April 2025 (17-23 Apr 2025, n=1,617)
+https://www.levada.ru/en/2025/05/28/sentiments-about-emigration-and-attitudes-towards-those-who-left-april-2025/
+
+Democratic Initiatives Foundation + Razumkov Centre, 29 Nov-14 Dec 2024 (n=1,518), via Nikvesti
+https://nikvesti.com/en/news/public/300333-poll-21-percent-ukrainians-like-emigrate-borders-opened
+
+MetroPOLL "Turkey's Pulse", Oct 2023 (n=1,691), via Duvar English
+https://www.duvarenglish.com/four-out-of-ten-people-in-turkey-want-to-live-abroad-survey-news-63229
+
+Social Weather Stations, December survey (n=1,200), via Malaya Business Insight
+https://malaya.com.ph/news/17-of-filipinos-want-to-live-abroad
+
+Keyou Analytics telephone poll, Nov-Dec 2021 (n=1,300), via Iran Times (2021-12-31)
+https://iran-times.com/third-of-iranians-want-to-emigrate
+
+CRRC Caucasus Barometer 2024, "Interested in permanent emigration?"
+https://caucasusbarometer.org/en/cb2024/EMIGRAT/
+
+RCC Balkan Barometer 2023, via bne IntelliNews (2023-07-25)
+https://www.intellinews.com/almost-half-western-balkan-citizens-consider-emigrating-as-eu-accession-hopes-fade-285455/
+
+Gallup, "More Than 750 Million Worldwide Would Migrate If They Could" (Dec 2018), World Poll 2015-2017
+https://news.gallup.com/poll/245255/750-million-worldwide-migrate.aspx
+
+Gallup International Association, End of Year survey 2022 (57 countries), published 2023-02-04
+https://www.gallup-international.com/survey-results-and-news/survey-result/one-in-three-global-citizens-want-to-immigrate
+
+Gallup, "As Taliban Returns, Majority of Afghans Seek Exit" (2022-04-04), 2021 data
+https://news.gallup.com/poll/391499/taliban-returns-majority-afghans-seek-exit.aspx
+
+Currencies Direct "British Expat Report" (n>1,500 UK adults), via HRreview 2024-10-01
+https://hrreview.co.uk/hr-news/future-of-work-hr-news/over-1-in-5-adults-are-considering-moving-abroad/377161
+
+Semafor on Gallup 2025: one in five Americans want to leave (2025-11-13)
+https://www.semafor.com/article/11/13/2025/one-in-five-americans-want-to-leave-us-poll-finds
+
+NAFSA summary of Presidential Proclamations 10949 (2025-06-04) and 10998 (2025-12-16, eff. 2026-01-01)
+https://www.nafsa.org/regulatory-information/proclamation-december-16-2025-travel-ban-effective-january-1-2026
+
+Henley Passport Index 2026 figures via AviationA2Z (2026-08-07)
+https://aviationa2z.com/index.php/2026/08/07/10-strongest-and-weakest-passports-in-2026/
+
+UK Home Office CPIN Eritrea: national service and illegal exit (Dec 2025)
+https://www.gov.uk/government/publications/eritrea-country-policy-and-information-notes/country-policy-and-information-note-national-service-and-illegal-exit-eritrea-december-2025-accessible
+
+Gallup migration interactive, World Poll 2015-2017 (152 countries); NZ PNMI 231% quoted on page
+https://news.gallup.com/migration/interactive.aspx
+
+Geo News fact-check on Gallup Pakistan surveys, Dec 2023 (71% would not leave)
+https://www.geo.tv/latest/555435-fact-check-gallup-pakistan-survey-does-not-show-94-of-pakistanis-want-to-leave-country
+
+Cubadata independent poll, 23 Mar-8 Apr 2023 (n=1,776), via CubaNet
+https://www.cubanet.org/noticias/el-575-de-los-cubanos-quiere-irse-de-la-isla-segun-encuesta/
+
+Map: Natural Earth 1:10m (public domain). Flags: svg-country-flags (public domain).
+Surveys ask different questions (want to leave / considered emigrating / would leave if borders opened); the on-screen chip always names its source and year. Hatched countries use the UN estimate of actual net migration 2019-2023, not a survey.

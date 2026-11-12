@@ -1,0 +1,151 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Thumbnail - Countries People Want to LEAVE vs MOVE TO</title>
+<!-- Editable thumbnail source. Layout follows the donor (headline, 3 countries with faces + glow, 3 status pills, CTA pill).
+     Real geometry: Natural Earth 1:10m from assets/world.js (public domain). Flags: assets/flags (svg-country-flags).
+     Render: node render_thumbnail.js -> thumbnail.png 1280x720 -->
+<style>
+
+@font-face{font-family:Nunito;font-weight:900;src:url(assets/fonts/nunito-latin-900-normal.woff2)}
+html,body{margin:0;background:#0d3550}
+#c{width:1280px;height:720px;position:relative;overflow:hidden}
+svg{position:absolute;left:0;top:0}
+</style>
+<script src="assets/world.js"></script>
+</head><body><div id="c"><svg id="s" width="1280" height="720" viewBox="0 0 1280 720"></svg></div>
+<script>
+// ---- editable settings ----
+const SLOTS = [  // donor slots: left = happy/green, middle = sad/orange, right = angry/red (all Gallup, countries.csv)
+  { id: '124', flag: 'ca', minArea: 0.04, box: [40, 196, 340, 260], glow: '#6dffa6', stroke: '#ffffff', tint: null, face: 'happy', faceAt: [0.5, 0.62], faceScale: 1.0,
+    pill: { text: 'MAGNET', icon: 'check', fill: ['#3fd37a', '#18a453'], color: '#ffffff', box: [44, 490, 336, 58] } },   // Canada: PNMI +225% (2023-25)
+  { id: '076', flag: 'br', box: [492, 196, 296, 270], glow: '#ffc21a', stroke: '#ffd23a', tint: ['#ff9d00', 0.42], face: 'sad', faceAt: [0.55, 0.36], faceScale: 0.95,
+    pill: { text: 'MANY WANT OUT', icon: 'warn', fill: ['#ffd84a', '#f5a90c'], color: '#1d1d1d', box: [462, 490, 356, 58] } },   // Brazil: 23% want to leave (2023)
+  { id: '566', flag: 'ng', box: [930, 200, 270, 250], glow: '#ff2a2a', stroke: '#ffffff', tint: ['#ff2626', 0.45], face: 'angry', faceAt: [0.5, 0.45], faceScale: 0.95,
+    pill: { text: 'MOST WANT OUT', icon: 'out', fill: ['#ff5d5d', '#e0283b'], color: '#ffffff', box: [890, 490, 356, 58] } },   // Nigeria: 51% want to leave (2023)
+];
+const HEAD = [{ t: 'LEAVE vs ', c: '#ffffff' }, { t: 'MOVE TO', c: '#ffd23a' }];
+const CTA = 'IN YOUR COUNTRY?';
+// ---------------------------
+const NS = 'http://www.w3.org/2000/svg', S = document.getElementById('s');
+const el = (tag, at = {}, parent = S) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); parent.appendChild(e); return e; };
+const W = window.WORLD, C = id => W.countries.find(c => c.id === id);
+const ringD = (r, f) => { let d = ''; for (let i = 0; i < r.length; i += 2) { const [x, y] = f(r[i], r[i + 1]); d += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1); } return d + 'Z'; };
+const defs = el('defs');
+// background: whole world, zoomed on the Atlantic like the donor, muted, blurred, vignette
+const g0 = defs.appendChild(document.createElementNS(NS, 'radialGradient')); g0.id = 'ocean';
+[['0', '#2d7aa6'], ['0.6', '#1d5f86'], ['1', '#0f3b58']].forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, g0));
+const blur = el('filter', { id: 'bl', x: '-5%', y: '-5%', width: '110%', height: '110%' }, defs); el('feGaussianBlur', { stdDeviation: 1.6 }, blur);
+el('rect', { width: 1280, height: 720, fill: 'url(#ocean)' });
+const bg = el('g', { filter: 'url(#bl)', opacity: 0.92 });
+const BS = 0.56, BX = -1750 * BS + 640 - 40, BY = -820 * BS + 360;
+const hueOf = c => { const b = c.polys[0].b; const x = (b[0] + b[2]) / 2 / 4000; return x; };
+for (const c of W.countries) {
+  const x = hueOf(c), k = (parseInt(c.id, 10) * 37) % 9;
+  // cool teal-green on the west, olive-brown on the east, reddish band near the Middle East (donor colouring)
+  const base = x < 0.42 ? [62 + k * 3, 140 + k * 4, 120 + k * 2] : x < 0.6 ? [150 + k * 4, 120 + k * 2, 52] : [128 + k * 3, 98 + k * 2, 40];
+  if (x > 0.55 && x < 0.68) base[0] += 30;
+  let d = ''; for (const p of c.polys) for (const r of p.r) d += ringD(r, (a, b) => [a * BS + BX, b * BS + BY]);
+  el('path', { d, fill: `rgb(${base})`, stroke: '#173445', 'stroke-width': 1.1, 'stroke-opacity': 0.75 }, bg);
+}
+const vg = defs.appendChild(document.createElementNS(NS, 'radialGradient')); vg.id = 'vig'; vg.setAttribute('r', '0.75');
+[['0.55', 'rgba(0,0,0,0)'], ['1', 'rgba(0,10,25,0.55)']].forEach(([o, c]) => el('stop', { offset: o, 'stop-color': c }, vg));
+el('rect', { width: 1280, height: 720, fill: 'url(#vig)' });
+
+// countries
+function country(sl, i) {
+  const c = C(sl.id); const big = c.polys.slice().sort((a, b) => b.a - a.a); const main = big[0];
+  // keep the real main landmass and the islands / parts next to it (drops far exclaves such as the Chukotka cut and Kaliningrad for Russia)
+  const keep = big.filter(p => p.a > main.a * (sl.minArea || 0.002) && p.b[0] >= main.b[0] - 60 && p.b[2] <= main.b[2] + 60);
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; keep.forEach(p => { x0 = Math.min(x0, p.b[0]); y0 = Math.min(y0, p.b[1]); x1 = Math.max(x1, p.b[2]); y1 = Math.max(y1, p.b[3]); });
+  const [bx, by, bw, bh] = sl.box, s = Math.min(bw / (x1 - x0), bh / (y1 - y0));
+  const ox = bx + (bw - (x1 - x0) * s) / 2, oy = by + (bh - (y1 - y0) * s) / 2, f = (a, b) => [(a - x0) * s + ox, (b - y0) * s + oy];
+  let d = ''; keep.forEach(p => p.r.forEach(r => d += ringD(r, f)));
+  const cp = el('clipPath', { id: 'cp' + i }, defs); el('path', { d }, cp);
+  const gl = el('filter', { id: 'gl' + i, x: '-30%', y: '-30%', width: '160%', height: '160%' }, defs);
+  el('feMorphology', { in: 'SourceAlpha', operator: 'dilate', radius: 5, result: 'd' }, gl);
+  el('feGaussianBlur', { in: 'd', stdDeviation: 9, result: 'b' }, gl);
+  el('feFlood', { 'flood-color': sl.glow, 'flood-opacity': 0.95 }, gl); el('feComposite', { in2: 'b', operator: 'in', result: 'g' }, gl);
+  const m = el('feMerge', {}, gl); el('feMergeNode', { in: 'g' }, m); el('feMergeNode', { in: 'g' }, m); el('feMergeNode', { in: 'SourceGraphic' }, m);
+  const g = el('g', { filter: `url(#gl${i})` });
+  el('path', { d, fill: '#000', stroke: sl.stroke, 'stroke-width': 9, 'stroke-linejoin': 'round' }, g);
+  const fx = ox, fy = oy, fw = (x1 - x0) * s, fh = (y1 - y0) * s;
+  const fg = el('g', { 'clip-path': `url(#cp${i})` }, g);
+  el('image', { href: `assets/flags/${sl.flag}.svg`, x: fx, y: fy, width: fw, height: fh, preserveAspectRatio: 'none' }, fg);
+  if (sl.tint) el('rect', { x: fx, y: fy, width: fw, height: fh, fill: sl.tint[0], opacity: sl.tint[1], style: 'mix-blend-mode:multiply' }, fg);
+  el('path', { d, fill: 'none', stroke: sl.stroke, 'stroke-width': 4, 'stroke-linejoin': 'round' }, S);
+  face(fx + fw * sl.faceAt[0], fy + fh * sl.faceAt[1], sl.face, 1.25 * sl.faceScale);
+  pill(sl.pill);
+}
+function eye(cx, cy, r, iris, lid, brow, look) {
+  el('circle', { cx, cy, r, fill: '#fff', stroke: '#111', 'stroke-width': 3.2 });
+  el('circle', { cx: cx + look[0] * r, cy: cy + look[1] * r, r: r * 0.55, fill: iris });
+  el('circle', { cx: cx + look[0] * r, cy: cy + look[1] * r, r: r * 0.3, fill: '#111' });
+  el('circle', { cx: cx + look[0] * r - r * 0.17, cy: cy + look[1] * r - r * 0.2, r: r * 0.13, fill: '#fff' });
+  if (lid) { // upper lid covering the top of the eye
+    const cpid = 'e' + Math.round(cx) + Math.round(cy); const cp = el('clipPath', { id: cpid }, defs); el('circle', { cx, cy, r: r - 1 }, cp);
+    el('path', { d: lid(cx, cy, r), fill: lid.fill || '#3a3a3a', 'clip-path': `url(#${cpid})` });
+    el('path', { d: lid.line(cx, cy, r), fill: 'none', stroke: '#111', 'stroke-width': 3.2, 'stroke-linecap': 'round' });
+  }
+  if (brow) el('path', { d: brow(cx, cy, r), fill: 'none', stroke: '#111', 'stroke-width': 5, 'stroke-linecap': 'round' });
+}
+function face(x, y, kind, k) {
+  const r = 22 * k, dx = 25 * k;
+  if (kind === 'happy') {
+    eye(x - dx, y, r, '#3a8be8', null, null, [0.12, 0.08]); eye(x + dx, y, r, '#3a8be8', null, null, [0.12, 0.08]);
+    el('ellipse', { cx: x - dx - 14 * k, cy: y + 30 * k, rx: 9 * k, ry: 6 * k, fill: '#ff8fa8', opacity: 0.85 });
+    el('ellipse', { cx: x + dx + 14 * k, cy: y + 30 * k, rx: 9 * k, ry: 6 * k, fill: '#ff8fa8', opacity: 0.85 });
+    el('path', { d: `M${x - 20 * k} ${y + 30 * k} Q${x} ${y + 50 * k} ${x + 20 * k} ${y + 30 * k}`, fill: 'none', stroke: '#111', 'stroke-width': 4.5, 'stroke-linecap': 'round' });
+  } else if (kind === 'sad') {
+    const lid = (cx, cy, r) => `M${cx - r} ${cy - r} L${cx + r} ${cy - r} L${cx + r} ${cy - r * 0.05} Q${cx} ${cy - r * 0.35} ${cx - r} ${cy - r * 0.05}Z`;
+    lid.line = (cx, cy, r) => `M${cx - r * 0.98} ${cy - r * 0.05} Q${cx} ${cy - r * 0.35} ${cx + r * 0.98} ${cy - r * 0.05}`; lid.fill = '#c98a2a';
+    eye(x - dx, y, r, '#3a8be8', lid, (cx, cy, r) => `M${cx - r * 0.8} ${cy - r * 1.05} Q${cx} ${cy - r * 1.55} ${cx + r * 0.9} ${cy - r * 1.45}`, [0, 0.3]);
+    eye(x + dx, y, r, '#3a8be8', lid, (cx, cy, r) => `M${cx - r * 0.9} ${cy - r * 1.45} Q${cx} ${cy - r * 1.55} ${cx + r * 0.8} ${cy - r * 1.05}`, [0, 0.3]);
+    for (const [tx, ty, ts] of [[x - dx - 6 * k, y + 30 * k, 1], [x - dx - 2 * k, y + 50 * k, 0.8], [x + dx + 5 * k, y + 34 * k, 0.9]])
+      el('path', { d: `M${tx} ${ty - 9 * k * ts} Q${tx + 6 * k * ts} ${ty} ${tx} ${ty + 5 * k * ts} Q${tx - 6 * k * ts} ${ty} ${tx} ${ty - 9 * k * ts}Z`, fill: '#5fc3ff', stroke: '#1d6fa8', 'stroke-width': 1.5 });
+    el('path', { d: `M${x - 12 * k} ${y + 44 * k} Q${x} ${y + 34 * k} ${x + 12 * k} ${y + 44 * k}`, fill: 'none', stroke: '#111', 'stroke-width': 4.5, 'stroke-linecap': 'round' });
+  } else {
+    const lid = (cx, cy, r) => `M${cx - r} ${cy - r} L${cx + r} ${cy - r} L${cx + r} ${cy + r * 0.05} L${cx - r} ${cy - r * 0.45}Z`;
+    const lidR = (cx, cy, r) => `M${cx - r} ${cy - r} L${cx + r} ${cy - r} L${cx + r} ${cy - r * 0.45} L${cx - r} ${cy + r * 0.05}Z`;
+    lid.line = (cx, cy, r) => `M${cx - r} ${cy - r * 0.45} L${cx + r} ${cy + r * 0.05}`; lid.fill = '#b81d2c';
+    lidR.line = (cx, cy, r) => `M${cx - r} ${cy + r * 0.05} L${cx + r} ${cy - r * 0.45}`; lidR.fill = '#b81d2c';
+    eye(x - dx, y, r, '#e01b2b', lid, (cx, cy, r) => `M${cx - r * 1.1} ${cy - r * 1.35} L${cx + r * 1.0} ${cy - r * 0.6}`, [0.1, 0.25]);
+    eye(x + dx, y, r, '#e01b2b', lidR, (cx, cy, r) => `M${cx - r * 1.0} ${cy - r * 0.6} L${cx + r * 1.1} ${cy - r * 1.35}`, [-0.1, 0.25]);
+    el('path', { d: `M${x - 14 * k} ${y + 44 * k} Q${x} ${y + 34 * k} ${x + 14 * k} ${y + 44 * k}`, fill: 'none', stroke: '#111', 'stroke-width': 4.5, 'stroke-linecap': 'round' });
+  }
+}
+function pill(p) {
+  const [x, y, w, h] = p.box, id = 'pg' + x;
+  const lg = el('linearGradient', { id, x1: 0, y1: 0, x2: 0, y2: 1 }, defs); el('stop', { offset: 0, 'stop-color': p.fill[0] }, lg); el('stop', { offset: 1, 'stop-color': p.fill[1] }, lg);
+  el('rect', { x, y: y + 4, width: w, height: h, rx: h / 2, fill: 'rgba(0,0,0,0.35)' });
+  el('rect', { x, y, width: w, height: h, rx: h / 2, fill: `url(#${id})`, stroke: '#fff', 'stroke-width': 3.5 });
+  const t = el('text', { x: 0, y: y + h / 2 + 11, 'font-family': 'Nunito', 'font-weight': 900, 'font-size': 30, fill: p.color }); t.textContent = p.text;
+  const tw = t.getComputedTextLength(), iw = 34, gap = 10, sx = x + (w - tw - iw - gap) / 2; t.setAttribute('x', sx + iw + gap);
+  const ix = sx + iw / 2, iy = y + h / 2;
+  if (p.icon === 'check') el('path', { d: `M${ix - 13} ${iy} L${ix - 4} ${iy + 10} L${ix + 14} ${iy - 11}`, fill: 'none', stroke: '#fff', 'stroke-width': 7, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  if (p.icon === 'warn') { el('path', { d: `M${ix} ${iy - 16} L${ix + 17} ${iy + 14} L${ix - 17} ${iy + 14}Z`, fill: '#1d1d1d', 'stroke-linejoin': 'round', stroke: '#1d1d1d', 'stroke-width': 3 });
+    el('rect', { x: ix - 2.2, y: iy - 6, width: 4.4, height: 11, rx: 2, fill: '#ffd84a' }); el('circle', { cx: ix, cy: iy + 9.5, r: 2.4, fill: '#ffd84a' }); }
+  if (p.icon === 'out') { el('path', { d: `M${ix + 2} ${iy - 15} H${ix - 12} V${iy + 15} H${ix + 2}`, fill: 'none', stroke: '#fff', 'stroke-width': 4.5, 'stroke-linejoin': 'round' });
+    el('path', { d: `M${ix - 4} ${iy} H${ix + 15} M${ix + 8} ${iy - 8} L${ix + 16} ${iy} L${ix + 8} ${iy + 8}`, fill: 'none', stroke: '#fff', 'stroke-width': 5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }); }
+  if (p.icon === 'lock') { el('path', { d: `M${ix - 8} ${iy - 3} V${iy - 9} A8 8 0 0 1 ${ix + 8} ${iy - 9} V${iy - 3}`, fill: 'none', stroke: '#fff', 'stroke-width': 4.5 });
+    el('rect', { x: ix - 13, y: iy - 4, width: 26, height: 20, rx: 4, fill: '#fff' }); el('circle', { cx: ix, cy: iy + 5, r: 3, fill: p.fill[1] }); }
+}
+// heavy wide rounded sans like the donor (Nunito 900); size shrinks only if the line is wider than maxW
+function outlined(parts, x, y, size, font, stroke, sw, anchorCenter, maxW = 1200) {
+  const sh = el('g', { transform: 'translate(0,6)', opacity: 0.45 });
+  const mk = (g, isShadow) => { const t = el('text', { x, y, 'font-family': font, 'font-weight': 900, 'font-size': size, 'text-anchor': anchorCenter ? 'middle' : 'start', 'paint-order': 'stroke', stroke: isShadow ? '#000' : stroke, 'stroke-width': sw, 'stroke-linejoin': 'round' }, g);
+    parts.forEach(p => { const ts = el('tspan', { fill: isShadow ? '#000' : p.c }, t); ts.textContent = p.t; }); return t; };
+  const a = mk(sh, true), b = mk(S, false), w = b.getComputedTextLength();
+  if (w > maxW) [a, b].forEach(t => t.setAttribute('font-size', size * maxW / w));
+  return b;
+}
+document.fonts.load('900 80px Nunito').then(() => {
+  SLOTS.forEach(country);
+  outlined(HEAD, 640, 128, 90, 'Nunito', '#0d2140', 16, true, 1180);
+  // CTA pill
+  const cg = el('linearGradient', { id: 'ctag', x1: 0, y1: 0, x2: 0, y2: 1 }, defs); el('stop', { offset: 0, 'stop-color': '#ff4a4a' }, cg); el('stop', { offset: 1, 'stop-color': '#c4142a' }, cg);
+  el('rect', { x: 236, y: 592, width: 808, height: 112, rx: 56, fill: 'rgba(0,0,0,0.4)' });
+  el('rect', { x: 236, y: 584, width: 808, height: 112, rx: 56, fill: 'url(#ctag)', stroke: '#fff', 'stroke-width': 6 });
+  outlined([{ t: CTA, c: '#ffffff' }], 640, 664, 70, 'Nunito', '#3b0a12', 12, true, 740);
+  document.body.setAttribute('data-ready', '1');
+});
+</script></body></html>
